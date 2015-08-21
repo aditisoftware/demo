@@ -20,6 +20,15 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script src="/includes/js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="/includes/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/includes/js/jquery.validate.js"></script>
+        <script type="text/javascript" src="/includes/js/datetimepicker.js"></script>
+        <link type="text/css" rel="stylesheet" href="/includes/css/errorbox.css">
+        <script type="text/javascript" src="/includes/js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/includes/css/jquery-ui.css" />
     </head>
     <body>
         <div id="wrapper">
@@ -53,10 +62,10 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="useradd.aspx"><i class="fa fa-fw fa-users"></i> Users Add</a>
+                            <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users Add</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -97,15 +106,10 @@
                 </div>
             </div>
         </div>
-        <script src="includes/js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="includes/js/bootstrap.min.js"></script>
-
         <!-- Morris Charts JavaScript -->
-        <script src="includes/js/plugins/morris/raphael.min.js"></script>
-        <script src="includes/js/plugins/morris/morris.min.js"></script>
-        <script src="includes/js/plugins/morris/morris-data.js"></script>
+        <script src="/includes/js/plugins/morris/raphael.min.js"></script>
+        <script src="/includes/js/plugins/morris/morris.min.js"></script>
+        <script src="/includes/js/plugins/morris/morris-data.js"></script>
     </body>
     </html>
 </cfoutput>

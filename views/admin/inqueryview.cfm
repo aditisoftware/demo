@@ -5,7 +5,7 @@
 [<a href="#event.buildlink(rc.xehList)#">Back To Listing</a>]
 </div>
 <br/>
-#getMyPlugin("ErrorBox").renderIt("inqueryError")#
+#getInstance("ErrorBox").renderIt("inqueryError")#
 <div id="inqueryError">
 </div>
 <fieldset>

@@ -6,7 +6,9 @@
 	<cffunction name="init" access="public" returntype="usermaster" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
-		
+		<cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+			<cfset setNextEvent(event="general.login") />
+		</cfif>
 		<cfreturn this>
 	</cffunction>
 	
@@ -21,10 +23,12 @@
 		rc.xehDelete = "admin.usermaster.doDelete";
 		rc.xehList = "admin.usermaster.list";
 		
-		event.paramValue("page", "1");
+		event.paramValue("pageno", "1");
 		event.paramValue("pageSize", getSetting("PagingMaxRows"));
 		event.paramValue("bandSize", getSetting("PagingBandGap"));
-		
+		event.paramValue("searchname","");
+		event.paramValue("searchcity","");
+		event.paramValue("searchusertype","");
 		//Sorting Logic.
 		event.paramValue("sortBy", "Id");
 		if ( event.getValue("sortOrder","") neq ""){
@@ -36,10 +40,10 @@
 		else{
 			rc.sortOrder = "asc";
 		}
-		
 		//Get the listing
-		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.page, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder);		
-		
+
+		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,rc.searchname = searchname,rc.searchcity = searchcity,rc.searchusertype = searchusertype);		
+		writeDump(rc.qusermaster);abort;
 		//Set the view to render
 		event.setView("admin/usermasterList");
 		</cfscript>
@@ -109,6 +113,8 @@
 			ousermasterBean = instance.ousermasterService.getusermaster(rc.Id);
 		} else {
 			ousermasterBean = instance.ousermasterService.createusermaster(argumentCollection=rc);
+			ousermasterBean.setcreateddate(now());
+			ousermasterBean.setcreatedby(1);
 		}
 		
 		if (StructKeyExists(rc, 'Id'))
@@ -133,23 +139,18 @@
 			ousermasterBean.setpassword(rc.password);
 		if (StructKeyExists(rc, 'usertype'))
 			ousermasterBean.setusertype(rc.usertype);
-		if (StructKeyExists(rc, 'createddate'))
-			ousermasterBean.setcreateddate(rc.createddate);
-		if (StructKeyExists(rc, 'createdby'))
-			ousermasterBean.setcreatedby(rc.createdby);
 		
 		//Send to service for saving
 		result = instance.ousermasterService.saveusermaster(ousermasterBean);
 		
-		setNextRoute("admin/usermaster/list");
-		/*
+
 		if (!result.success){
-			getMyPlugin("ErrorBox").error(result.errors);
+			getInstance("ErrorBox").error(result.errors);
 			setNextEvent(event="admin.usermaster.dspEditor",persistStruct=rc);
 		}
 		else {
-			setNextRoute("admin/usermaster/list");
-		}*/
+			setNextEvent(event="admin.usermaster.list");
+		}
 		</cfscript>		
 	</cffunction>
 	
@@ -165,13 +166,13 @@
 		result = instance.ousermasterService.deleteusermaster(rc.Id);
 		
 		if (!result.success) {
-			getMyPlugin("ErrorBox").error(result.errors);
+			getInstance("ErrorBox").error(renderto="usermasterError",message=result.errors);
 		}
 		else {
-			getMyPlugin("ErrorBox").info("The record was successfully deleted");
+			getInstance("ErrorBox").info(renderto="usermasterError",message="The record was successfully deleted");
 		}
 		//Set redirect
-		setNextRoute("admin/usermaster/list");
+		setNextEvent(event="admin.usermaster.list");
 		</cfscript>		
 	</cffunction>	
 	

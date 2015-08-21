@@ -519,6 +519,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "layouts/layout.admin.cfm",
+			"settings":
+			{
+				"buffer_size": 5382,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/Coldbox.cfc",
+			"settings":
+			{
+				"buffer_size": 3494,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "handlers/usermaster.cfc",
+			"settings":
+			{
+				"buffer_size": 5284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "models/usermasterDAO.cfc",
+			"settings":
+			{
+				"buffer_size": 7129,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -573,8 +605,11 @@
 	"expanded_folders":
 	[
 		"/C/Project/demo",
-		"/C/Project/demo/modules",
-		"/C/Project/demo/modules/codegenerator"
+		"/C/Project/demo/config",
+		"/C/Project/demo/handlers",
+		"/C/Project/demo/layouts",
+		"/C/Project/demo/models",
+		"/C/Project/demo/modules"
 	],
 	"file_history":
 	[
@@ -743,6 +778,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"includes",
 			"dbo.",
 			"INT           IDENTITY (1, 1) NOT NULL",
 			"[",
@@ -869,8 +905,7 @@
 			"isactive",
 			"listinghome",
 			"ticket",
-			"contactname",
-			"hw_"
+			"contactname"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -907,8 +942,138 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "layouts/layout.admin.cfm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2952,
+								2952
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 364.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/Coldbox.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "handlers/usermaster.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								423,
+								427
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "models/usermasterDAO.cfc",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								178,
+								207
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1482,9 +1647,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "hauntwo",
+		"last_filter": "haun",
 		"selected_items":
 		[
+			[
+				"haun",
+				"C:\\Project\\Hauntword.local\\project.sublime-workspace"
+			],
 			[
 				"hauntwo",
 				"C:\\Project\\Hauntword.local\\project.sublime-workspace"
@@ -1604,7 +1773,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 226.0,
 	"status_bar_visible": true,
 	"template_settings":

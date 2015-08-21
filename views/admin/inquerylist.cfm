@@ -22,7 +22,7 @@
 	<h1>inquery</h1>
 </div>
 
-#getMyPlugin("ErrorBox").renderIt("inqueryError")#
+#getInstance("ErrorBox").renderIt("inqueryError")#
 <div id="inqueryJSError" class="errorbox" style="display:none">
 	<ul id="inqueryULError"></ul>
 </div>
@@ -323,7 +323,7 @@
 <h3>No records found</h3>
 </cfif>
 <cfoutput>
-#getMyPlugin("Paging").renderit(rc.qinquery.totalrowcount,"javascript:callPaging(@page@)", rc.pageSize, rc.bandSize, rc.pageSize,getSetting("PageSizes"), "updatePageSize")#
+#getInstance("Paging").renderit(rc.qinquery.totalrowcount,"javascript:callPaging(@page@)", rc.pageSize, rc.bandSize, rc.pageSize,getSetting("PageSizes"), "updatePageSize")#
 </cfoutput>
 </form>
 

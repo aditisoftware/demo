@@ -2,8 +2,8 @@
 <cfcomponent displayname="usermasterDAO" >
 
 	<cffunction name="init" access="public" output="false" returntype="usermasterDAO">
-		<cfargument name="dsn" required="true" inject="coldbox:datasource:hauntworld" />
-		<cfset variables.dsn = arguments.dsn.getName() >
+		<cfargument name="dsn" required="true" inject="coldbox:datasource:demo" />
+		<cfset variables.dsn = arguments.dsn.Name >
 		<cfreturn this>
 	</cffunction>
 	
@@ -15,8 +15,32 @@
 		<cfset var qID = "" />
 		<cftransaction>
 			<cfquery name="qCreate" datasource="#variables.dsn#">
-				INSERT INTO `usermaster` ( 					firstname, 					lastname, 					address1, 					address2, 					city, 					state, 					country, 					username, 					password, 					usertype, 					createddate, 					createdby)
-				VALUES ( 					<cfqueryparam value="#arguments.usermaster.getfirstname()#" cfsqltype="cf_sql_varchar"  />, 					<cfqueryparam value="#arguments.usermaster.getlastname()#" cfsqltype="cf_sql_varchar"  />, 					<cfqueryparam value="#arguments.usermaster.getaddress1()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress1())#" />, 					<cfqueryparam value="#arguments.usermaster.getaddress2()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress2())#" />, 					<cfqueryparam value="#arguments.usermaster.getcity()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcity())#" />, 					<cfqueryparam value="#arguments.usermaster.getstate()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getstate())#" />, 					<cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 					<cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 					<cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 					<cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 					<cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 					<cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />
+				INSERT INTO `usermaster` ( 
+					firstname, 
+					lastname, 
+					address1, 
+					address2, 
+					city, 
+					state, 
+					country, 
+					username, 
+					password, 
+					usertype, 
+					createddate, 
+					createdby)
+				VALUES ( 
+					<cfqueryparam value="#arguments.usermaster.getfirstname()#" cfsqltype="cf_sql_varchar"  />, 
+					<cfqueryparam value="#arguments.usermaster.getlastname()#" cfsqltype="cf_sql_varchar"  />, 
+					<cfqueryparam value="#arguments.usermaster.getaddress1()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress1())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getaddress2()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress2())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getcity()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcity())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getstate()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getstate())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 
+					<cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 
+					<cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 
+					<cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 
+					<cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />
 				)
 			</cfquery>
 			
@@ -54,8 +78,21 @@
 		<cfset var qUpdate = "" />
 		<cfquery name="qUpdate" datasource="#variables.dsn#">
 			UPDATE	`usermaster`
-			SET							firstname = <cfqueryparam value="#arguments.usermaster.getfirstname()#" cfsqltype="cf_sql_varchar"  />, 					lastname = <cfqueryparam value="#arguments.usermaster.getlastname()#" cfsqltype="cf_sql_varchar"  />, 					address1 = <cfqueryparam value="#arguments.usermaster.getaddress1()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress1())#" />, 					address2 = <cfqueryparam value="#arguments.usermaster.getaddress2()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress2())#" />, 					city = <cfqueryparam value="#arguments.usermaster.getcity()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcity())#" />, 					state = <cfqueryparam value="#arguments.usermaster.getstate()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getstate())#" />, 					country = <cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 					username = <cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 					password = <cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 					usertype = <cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 					createddate = <cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  /> 
-			WHERE		0=0				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
+			SET		
+					firstname = <cfqueryparam value="#arguments.usermaster.getfirstname()#" cfsqltype="cf_sql_varchar"  />, 
+					lastname = <cfqueryparam value="#arguments.usermaster.getlastname()#" cfsqltype="cf_sql_varchar"  />, 
+					address1 = <cfqueryparam value="#arguments.usermaster.getaddress1()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress1())#" />, 
+					address2 = <cfqueryparam value="#arguments.usermaster.getaddress2()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getaddress2())#" />, 
+					city = <cfqueryparam value="#arguments.usermaster.getcity()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcity())#" />, 
+					state = <cfqueryparam value="#arguments.usermaster.getstate()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getstate())#" />, 
+					country = <cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 
+					username = <cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 
+					password = <cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 
+					usertype = <cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 
+					createddate = <cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 
+					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  /> 
+			WHERE		0=0
+				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 		<cfreturn arguments.usermaster />
 	</cffunction>
@@ -67,7 +104,8 @@
 		
 			<cfquery name="qDelete" datasource="#variables.dsn#">
 				DELETE FROM	`usermaster`
-				WHERE		0=0				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
+				WHERE		0=0
+				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
 			</cfquery>
 		<cfreturn true />
 	</cffunction>
@@ -91,7 +129,8 @@
 		<cfquery name="qExists" datasource="#variables.dsn#" maxrows="1">
 			SELECT count(1) as idexists
 			FROM	`usermaster`
-			WHERE		0=0			AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
+			WHERE		0=0
+			AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
 		</cfquery>
 
 		<cfif qExists.idexists>

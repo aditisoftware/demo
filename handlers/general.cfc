@@ -1,7 +1,7 @@
 <cfcomponent output="false">
 
 	<cfproperty name="MailService" inject="MailService@cbmailservices" scope="variables"/>
-
+	<cfproperty name="ousermasterService" inject="model:usermasterService" scope="instance" />
 	<cffunction name="preHandler" returntype="void" output="false" hint="Executes before any event in this handler">
 		<cfargument name="event" />
 		<cfargument name="rc" />
@@ -25,8 +25,19 @@
 		<cfargument name="event" />
 		<cfargument name="rc" />
 		<cfargument name="prc" />
-
-		<cfset event.setView("home").setLayout('layout.admin')>
+		<cfscript>
+			rc.qusermaster = instance.ousermasterService.getusermasters(username=rc.username,password=rc.password);
+			if(rc.qusermaster.recordcount){
+				session.username=rc.qusermaster.username;
+				session.userid=rc.qusermaster.id;
+				session.usertype=rc.qusermaster.usertype;
+				event.setView("admin/home").setLayout('layout.admin');
+			}
+			else{
+				session.clear();
+				event.setView("login").setLayout('layout.admin');
+			}
+		</cfscript>
 	</cffunction>
 	
 

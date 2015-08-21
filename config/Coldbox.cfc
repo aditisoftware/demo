@@ -35,13 +35,17 @@
 
 			//Error/Exception Handling
 			exceptionHandler		= "Main.onException",
-			onInvalidEvent			= "general.index",
+			onInvalidEvent			= "Main.onException",
 			customErrorTemplate		= "/includes/templates/generic_error.cfm",
 
 			//Application Aspects
 			handlerCaching 			= false,
 			eventCaching			= false,
-			proxyReturnCollection 	= false
+			proxyReturnCollection 	= false,
+			PagingMaxRows = 10,
+			PagingBandGap = 4,
+			
+			PageSizes = [20, 30, 50]
 		};
 
 		// custom settings
@@ -119,7 +123,7 @@
 		};
 		
 		datasources = {
-			demo = {name="demo", dbType="mysql", username="root", password="root"}
+			demo = {name="demo", dbType="mysql", username="root", password="!isummation1"}
 		};
 
 	}

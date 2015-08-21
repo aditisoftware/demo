@@ -135,7 +135,7 @@
 </cfoutput>
 <cfoutput>
 <form name="editor_form" id="editor_form" action="#event.buildlink(rc.xehSave)#" method="post" >
-#getMyPlugin("ErrorBox").renderIt("inqueryError")#
+<!--- #getInstance("ErrorBox").renderIt("inqueryError")# --->
 <div id="inqueryJSError" class="errorbox" style="display:none">
 	<ul id="inqueryULError"></ul>
 </div>

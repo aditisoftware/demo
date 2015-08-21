@@ -5,7 +5,7 @@
 [<a href="#event.buildlink(rc.xehList)#">Back To Listing</a>]
 </div>
 <br/>
-#getMyPlugin("ErrorBox").renderIt("usermasterError")#
+#getInstance("ErrorBox").renderIt("usermasterError")#
 <div id="usermasterError">
 </div>
 <fieldset>

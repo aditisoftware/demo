@@ -17,9 +17,9 @@
 		
 		<cfscript>
 		//set The exit handlers
-		rc.xehEditor = "admin.inquery.dspEditor";
-		rc.xehDelete = "admin.inquery.doDelete";
-		rc.xehList = "admin.inquery.list";
+		rc.xehEditor = "inquery.dspEditor";
+		rc.xehDelete = "inquery.doDelete";
+		rc.xehList = "inquery.list";
 		
 		event.paramValue("page", "1");
 		event.paramValue("pageSize", getSetting("PagingMaxRows"));
@@ -41,7 +41,7 @@
 		rc.qinquery = instance.oinqueryService.getByPage(Page=rc.page, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder);		
 		
 		//Set the view to render
-		event.setView("admin/inqueryList");
+		event.setView("inqueryList");
 		</cfscript>
 	</cffunction>
 	
@@ -54,8 +54,8 @@
 		var oinqueryBean = "";
 		
 		//set the exit handlers
-		rc.xehSave = "admin.inquery.doSave";
-		rc.xehList = "admin.inquery.list";
+		rc.xehSave = "inquery.doSave";
+		rc.xehList = "inquery.list";
 		
 		if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
 			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
@@ -67,7 +67,8 @@
 		
 		
 		//Set view to render
-		event.setView("admin/inqueryAdd");
+		//event.setView("inqueryAdd");
+		event.setView("inqueryform");
 		</cfscript>		
 	</cffunction>
 	
@@ -80,7 +81,7 @@
 		var oinqueryBean = "";
 		
 		//set the exit handlers
-		rc.xehList = "admin.inquery.list";
+		rc.xehList = "inquery.list";
 		
 		if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
 			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
@@ -90,7 +91,7 @@
 		StructAppend(rc, oinqueryBean.getMemento(), true);
 		
 		//Set view to render
-		event.setView("admin/inqueryview");
+		event.setView("inqueryview");
 		</cfscript>		
 	</cffunction>
 	
@@ -203,14 +204,14 @@
 		//Send to service for saving
 		result = instance.oinqueryService.saveinquery(oinqueryBean);
 		
-		setNextRoute("admin/inquery/list");
+		setNextRoute("inquery/list");
 		/*
 		if (!result.success){
 			getMyPlugin("ErrorBox").error(result.errors);
-			setNextEvent(event="admin.inquery.dspEditor",persistStruct=rc);
+			setNextEvent(event="inquery.dspEditor",persistStruct=rc);
 		}
 		else {
-			setNextRoute("admin/inquery/list");
+			setNextRoute("inquery/list");
 		}*/
 		</cfscript>		
 	</cffunction>
@@ -233,7 +234,7 @@
 			getMyPlugin("ErrorBox").info("The record was successfully deleted");
 		}
 		//Set redirect
-		setNextRoute("admin/inquery/list");
+		setNextRoute("inquery/list");
 		</cfscript>		
 	</cffunction>	
 	

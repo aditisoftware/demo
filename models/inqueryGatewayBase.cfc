@@ -2,8 +2,8 @@
 <cfcomponent displayname="inqueryGateway" output="false">
 	
 	<cffunction name="init" access="public" output="false" returntype="inqueryGateway">
-		<cfargument name="dsn" required="true" inject="coldbox:datasource:hauntworld" />
-		<cfset variables.dsn = arguments.dsn.getName() >
+		<cfargument name="dsn" required="true" inject="coldbox:datasource:demo" />
+		<cfset variables.dsn = arguments.dsn.Name >
 		<cfreturn this />
 	</cffunction>
 	
@@ -115,95 +115,183 @@
 		
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			SELECT					inquery.Id,				inquery.companyname,				inquery.contactperson,				inquery.address,				inquery.city,				inquery.state,				inquery.country,				inquery.zipcode,				inquery.phone1,				inquery.phone2,				inquery.mobile,				inquery.email,				inquery.tourtype,				inquery.destination,				inquery.totalpassenger,				inquery.adult,				inquery.child,				inquery.child511year,				inquery.child11plus,				inquery.hotelcategory,				inquery.roomsharing,				inquery.vehicletype,				inquery.allss,				inquery.allentry,				inquery.departuredate,				inquery.transporttype,				inquery.traintype,				inquery.foodtype,				inquery.mealplan,				inquery.noofPassenger,				inquery.soundsystem,				inquery.project,				inquery.amt_pmt,				inquery.stagedecoration,				inquery.B2B,				inquery.DJParty,				inquery.cocktailparty,				inquery.artist,				inquery.cultureparty,				inquery.productlaunching,				inquery.sitevisit,				inquery.remark,				inquery.createddate,				inquery.createdby
+			SELECT	
+				inquery.Id,
+				inquery.companyname,
+				inquery.contactperson,
+				inquery.address,
+				inquery.city,
+				inquery.state,
+				inquery.country,
+				inquery.zipcode,
+				inquery.phone1,
+				inquery.phone2,
+				inquery.mobile,
+				inquery.email,
+				inquery.tourtype,
+				inquery.destination,
+				inquery.totalpassenger,
+				inquery.adult,
+				inquery.child,
+				inquery.child511year,
+				inquery.child11plus,
+				inquery.hotelcategory,
+				inquery.roomsharing,
+				inquery.vehicletype,
+				inquery.allss,
+				inquery.allentry,
+				inquery.departuredate,
+				inquery.transporttype,
+				inquery.traintype,
+				inquery.foodtype,
+				inquery.mealplan,
+				inquery.noofPassenger,
+				inquery.soundsystem,
+				inquery.project,
+				inquery.amt_pmt,
+				inquery.stagedecoration,
+				inquery.B2B,
+				inquery.DJParty,
+				inquery.cocktailparty,
+				inquery.artist,
+				inquery.cultureparty,
+				inquery.productlaunching,
+				inquery.sitevisit,
+				inquery.remark,
+				inquery.createddate,
+				inquery.createdby
 			FROM `inquery`
-			WHERE 0=0			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
+			WHERE 0=0
+			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
 				AND	inquery.Id = <cfqueryparam value="#arguments.Id#" CFSQLType="cf_sql_integer" />
-			</cfif>			<cfif structKeyExists(arguments,"companyname") and len(arguments.companyname)>
+			</cfif>
+			<cfif structKeyExists(arguments,"companyname") and len(arguments.companyname)>
 				AND	inquery.companyname = <cfqueryparam value="#arguments.companyname#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"contactperson") and len(arguments.contactperson)>
+			</cfif>
+			<cfif structKeyExists(arguments,"contactperson") and len(arguments.contactperson)>
 				AND	inquery.contactperson = <cfqueryparam value="#arguments.contactperson#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"address") and len(arguments.address)>
+			</cfif>
+			<cfif structKeyExists(arguments,"address") and len(arguments.address)>
 				AND	inquery.address = <cfqueryparam value="#arguments.address#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"city") and len(arguments.city)>
+			</cfif>
+			<cfif structKeyExists(arguments,"city") and len(arguments.city)>
 				AND	inquery.city = <cfqueryparam value="#arguments.city#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"state") and len(arguments.state)>
+			</cfif>
+			<cfif structKeyExists(arguments,"state") and len(arguments.state)>
 				AND	inquery.state = <cfqueryparam value="#arguments.state#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"country") and len(arguments.country)>
+			</cfif>
+			<cfif structKeyExists(arguments,"country") and len(arguments.country)>
 				AND	inquery.country = <cfqueryparam value="#arguments.country#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"zipcode") and len(arguments.zipcode)>
+			</cfif>
+			<cfif structKeyExists(arguments,"zipcode") and len(arguments.zipcode)>
 				AND	inquery.zipcode = <cfqueryparam value="#arguments.zipcode#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"phone1") and len(arguments.phone1)>
+			</cfif>
+			<cfif structKeyExists(arguments,"phone1") and len(arguments.phone1)>
 				AND	inquery.phone1 = <cfqueryparam value="#arguments.phone1#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"phone2") and len(arguments.phone2)>
+			</cfif>
+			<cfif structKeyExists(arguments,"phone2") and len(arguments.phone2)>
 				AND	inquery.phone2 = <cfqueryparam value="#arguments.phone2#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"mobile") and len(arguments.mobile)>
+			</cfif>
+			<cfif structKeyExists(arguments,"mobile") and len(arguments.mobile)>
 				AND	inquery.mobile = <cfqueryparam value="#arguments.mobile#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"email") and len(arguments.email)>
+			</cfif>
+			<cfif structKeyExists(arguments,"email") and len(arguments.email)>
 				AND	inquery.email = <cfqueryparam value="#arguments.email#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"tourtype") and len(arguments.tourtype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"tourtype") and len(arguments.tourtype)>
 				AND	inquery.tourtype = <cfqueryparam value="#arguments.tourtype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"destination") and len(arguments.destination)>
+			</cfif>
+			<cfif structKeyExists(arguments,"destination") and len(arguments.destination)>
 				AND	inquery.destination = <cfqueryparam value="#arguments.destination#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"totalpassenger") and len(arguments.totalpassenger)>
+			</cfif>
+			<cfif structKeyExists(arguments,"totalpassenger") and len(arguments.totalpassenger)>
 				AND	inquery.totalpassenger = <cfqueryparam value="#arguments.totalpassenger#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"adult") and len(arguments.adult)>
+			</cfif>
+			<cfif structKeyExists(arguments,"adult") and len(arguments.adult)>
 				AND	inquery.adult = <cfqueryparam value="#arguments.adult#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"child") and len(arguments.child)>
+			</cfif>
+			<cfif structKeyExists(arguments,"child") and len(arguments.child)>
 				AND	inquery.child = <cfqueryparam value="#arguments.child#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"child511year") and len(arguments.child511year)>
+			</cfif>
+			<cfif structKeyExists(arguments,"child511year") and len(arguments.child511year)>
 				AND	inquery.child511year = <cfqueryparam value="#arguments.child511year#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"child11plus") and len(arguments.child11plus)>
+			</cfif>
+			<cfif structKeyExists(arguments,"child11plus") and len(arguments.child11plus)>
 				AND	inquery.child11plus = <cfqueryparam value="#arguments.child11plus#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"hotelcategory") and len(arguments.hotelcategory)>
+			</cfif>
+			<cfif structKeyExists(arguments,"hotelcategory") and len(arguments.hotelcategory)>
 				AND	inquery.hotelcategory = <cfqueryparam value="#arguments.hotelcategory#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"roomsharing") and len(arguments.roomsharing)>
+			</cfif>
+			<cfif structKeyExists(arguments,"roomsharing") and len(arguments.roomsharing)>
 				AND	inquery.roomsharing = <cfqueryparam value="#arguments.roomsharing#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"vehicletype") and len(arguments.vehicletype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"vehicletype") and len(arguments.vehicletype)>
 				AND	inquery.vehicletype = <cfqueryparam value="#arguments.vehicletype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"allss") and len(arguments.allss)>
+			</cfif>
+			<cfif structKeyExists(arguments,"allss") and len(arguments.allss)>
 				AND	inquery.allss = <cfqueryparam value="#arguments.allss#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"allentry") and len(arguments.allentry)>
+			</cfif>
+			<cfif structKeyExists(arguments,"allentry") and len(arguments.allentry)>
 				AND	inquery.allentry = <cfqueryparam value="#arguments.allentry#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"departuredate") and len(arguments.departuredate)>
+			</cfif>
+			<cfif structKeyExists(arguments,"departuredate") and len(arguments.departuredate)>
 				AND	inquery.departuredate = <cfqueryparam value="#arguments.departuredate#" CFSQLType="cf_sql_timestamp" />
-			</cfif>			<cfif structKeyExists(arguments,"transporttype") and len(arguments.transporttype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"transporttype") and len(arguments.transporttype)>
 				AND	inquery.transporttype = <cfqueryparam value="#arguments.transporttype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"traintype") and len(arguments.traintype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"traintype") and len(arguments.traintype)>
 				AND	inquery.traintype = <cfqueryparam value="#arguments.traintype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"foodtype") and len(arguments.foodtype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"foodtype") and len(arguments.foodtype)>
 				AND	inquery.foodtype = <cfqueryparam value="#arguments.foodtype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"mealplan") and len(arguments.mealplan)>
+			</cfif>
+			<cfif structKeyExists(arguments,"mealplan") and len(arguments.mealplan)>
 				AND	inquery.mealplan = <cfqueryparam value="#arguments.mealplan#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"noofPassenger") and len(arguments.noofPassenger)>
+			</cfif>
+			<cfif structKeyExists(arguments,"noofPassenger") and len(arguments.noofPassenger)>
 				AND	inquery.noofPassenger = <cfqueryparam value="#arguments.noofPassenger#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"soundsystem") and len(arguments.soundsystem)>
+			</cfif>
+			<cfif structKeyExists(arguments,"soundsystem") and len(arguments.soundsystem)>
 				AND	inquery.soundsystem = <cfqueryparam value="#arguments.soundsystem#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"project") and len(arguments.project)>
+			</cfif>
+			<cfif structKeyExists(arguments,"project") and len(arguments.project)>
 				AND	inquery.project = <cfqueryparam value="#arguments.project#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"amt_pmt") and len(arguments.amt_pmt)>
+			</cfif>
+			<cfif structKeyExists(arguments,"amt_pmt") and len(arguments.amt_pmt)>
 				AND	inquery.amt_pmt = <cfqueryparam value="#arguments.amt_pmt#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"stagedecoration") and len(arguments.stagedecoration)>
+			</cfif>
+			<cfif structKeyExists(arguments,"stagedecoration") and len(arguments.stagedecoration)>
 				AND	inquery.stagedecoration = <cfqueryparam value="#arguments.stagedecoration#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"B2B") and len(arguments.B2B)>
+			</cfif>
+			<cfif structKeyExists(arguments,"B2B") and len(arguments.B2B)>
 				AND	inquery.B2B = <cfqueryparam value="#arguments.B2B#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"DJParty") and len(arguments.DJParty)>
+			</cfif>
+			<cfif structKeyExists(arguments,"DJParty") and len(arguments.DJParty)>
 				AND	inquery.DJParty = <cfqueryparam value="#arguments.DJParty#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"cocktailparty") and len(arguments.cocktailparty)>
+			</cfif>
+			<cfif structKeyExists(arguments,"cocktailparty") and len(arguments.cocktailparty)>
 				AND	inquery.cocktailparty = <cfqueryparam value="#arguments.cocktailparty#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"artist") and len(arguments.artist)>
+			</cfif>
+			<cfif structKeyExists(arguments,"artist") and len(arguments.artist)>
 				AND	inquery.artist = <cfqueryparam value="#arguments.artist#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"cultureparty") and len(arguments.cultureparty)>
+			</cfif>
+			<cfif structKeyExists(arguments,"cultureparty") and len(arguments.cultureparty)>
 				AND	inquery.cultureparty = <cfqueryparam value="#arguments.cultureparty#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"productlaunching") and len(arguments.productlaunching)>
+			</cfif>
+			<cfif structKeyExists(arguments,"productlaunching") and len(arguments.productlaunching)>
 				AND	inquery.productlaunching = <cfqueryparam value="#arguments.productlaunching#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"sitevisit") and len(arguments.sitevisit)>
+			</cfif>
+			<cfif structKeyExists(arguments,"sitevisit") and len(arguments.sitevisit)>
 				AND	inquery.sitevisit = <cfqueryparam value="#arguments.sitevisit#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"remark") and len(arguments.remark)>
+			</cfif>
+			<cfif structKeyExists(arguments,"remark") and len(arguments.remark)>
 				AND	inquery.remark = <cfqueryparam value="#arguments.remark#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
+			</cfif>
+			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
 				AND	inquery.createddate = <cfqueryparam value="#arguments.createddate#" CFSQLType="cf_sql_timestamp" />
-			</cfif>			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
+			</cfif>
+			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
 				AND	inquery.createdby = <cfqueryparam value="#arguments.createdby#" CFSQLType="cf_sql_integer" />
 			</cfif>
 			<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
@@ -224,7 +312,51 @@
 		<cfset var gridstruct = structNew()>
 		
 		<cfquery name="gridstruct.query" datasource="#variables.dsn#">
-			SELECT 				inquery.Id,				inquery.companyname,				inquery.contactperson,				inquery.address,				inquery.city,				inquery.state,				inquery.country,				inquery.zipcode,				inquery.phone1,				inquery.phone2,				inquery.mobile,				inquery.email,				inquery.tourtype,				inquery.destination,				inquery.totalpassenger,				inquery.adult,				inquery.child,				inquery.child511year,				inquery.child11plus,				inquery.hotelcategory,				inquery.roomsharing,				inquery.vehicletype,				inquery.allss,				inquery.allentry,				inquery.departuredate,				inquery.transporttype,				inquery.traintype,				inquery.foodtype,				inquery.mealplan,				inquery.noofPassenger,				inquery.soundsystem,				inquery.project,				inquery.amt_pmt,				inquery.stagedecoration,				inquery.B2B,				inquery.DJParty,				inquery.cocktailparty,				inquery.artist,				inquery.cultureparty,				inquery.productlaunching,				inquery.sitevisit,				inquery.remark,				inquery.createddate,				inquery.createdby
+			SELECT 
+				inquery.Id,
+				inquery.companyname,
+				inquery.contactperson,
+				inquery.address,
+				inquery.city,
+				inquery.state,
+				inquery.country,
+				inquery.zipcode,
+				inquery.phone1,
+				inquery.phone2,
+				inquery.mobile,
+				inquery.email,
+				inquery.tourtype,
+				inquery.destination,
+				inquery.totalpassenger,
+				inquery.adult,
+				inquery.child,
+				inquery.child511year,
+				inquery.child11plus,
+				inquery.hotelcategory,
+				inquery.roomsharing,
+				inquery.vehicletype,
+				inquery.allss,
+				inquery.allentry,
+				inquery.departuredate,
+				inquery.transporttype,
+				inquery.traintype,
+				inquery.foodtype,
+				inquery.mealplan,
+				inquery.noofPassenger,
+				inquery.soundsystem,
+				inquery.project,
+				inquery.amt_pmt,
+				inquery.stagedecoration,
+				inquery.B2B,
+				inquery.DJParty,
+				inquery.cocktailparty,
+				inquery.artist,
+				inquery.cultureparty,
+				inquery.productlaunching,
+				inquery.sitevisit,
+				inquery.remark,
+				inquery.createddate,
+				inquery.createdby
 			FROM `inquery` 
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#

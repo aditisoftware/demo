@@ -2,8 +2,8 @@
 <cfcomponent displayname="usermasterGateway" output="false">
 	
 	<cffunction name="init" access="public" output="false" returntype="usermasterGateway">
-		<cfargument name="dsn" required="true" inject="coldbox:datasource:hauntworld" />
-		<cfset variables.dsn = arguments.dsn.getName() >
+		<cfargument name="dsn" required="true" inject="coldbox:datasource:demo" />
+		<cfset variables.dsn = arguments.dsn.Name >
 		<cfreturn this />
 	</cffunction>
 	
@@ -53,33 +53,59 @@
 		
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
-			SELECT					usermaster.Id,				usermaster.firstname,				usermaster.lastname,				usermaster.address1,				usermaster.address2,				usermaster.city,				usermaster.state,				usermaster.country,				usermaster.username,				usermaster.password,				usermaster.usertype,				usermaster.createddate,				usermaster.createdby
+			SELECT	
+				usermaster.Id,
+				usermaster.firstname,
+				usermaster.lastname,
+				usermaster.address1,
+				usermaster.address2,
+				usermaster.city,
+				usermaster.state,
+				usermaster.country,
+				usermaster.username,
+				usermaster.password,
+				usermaster.usertype,
+				usermaster.createddate,
+				usermaster.createdby
 			FROM `usermaster`
-			WHERE 0=0			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
+			WHERE 0=0
+			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
 				AND	usermaster.Id = <cfqueryparam value="#arguments.Id#" CFSQLType="cf_sql_integer" />
-			</cfif>			<cfif structKeyExists(arguments,"firstname") and len(arguments.firstname)>
+			</cfif>
+			<cfif structKeyExists(arguments,"firstname") and len(arguments.firstname)>
 				AND	usermaster.firstname = <cfqueryparam value="#arguments.firstname#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"lastname") and len(arguments.lastname)>
+			</cfif>
+			<cfif structKeyExists(arguments,"lastname") and len(arguments.lastname)>
 				AND	usermaster.lastname = <cfqueryparam value="#arguments.lastname#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"address1") and len(arguments.address1)>
+			</cfif>
+			<cfif structKeyExists(arguments,"address1") and len(arguments.address1)>
 				AND	usermaster.address1 = <cfqueryparam value="#arguments.address1#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"address2") and len(arguments.address2)>
+			</cfif>
+			<cfif structKeyExists(arguments,"address2") and len(arguments.address2)>
 				AND	usermaster.address2 = <cfqueryparam value="#arguments.address2#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"city") and len(arguments.city)>
+			</cfif>
+			<cfif structKeyExists(arguments,"city") and len(arguments.city)>
 				AND	usermaster.city = <cfqueryparam value="#arguments.city#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"state") and len(arguments.state)>
+			</cfif>
+			<cfif structKeyExists(arguments,"state") and len(arguments.state)>
 				AND	usermaster.state = <cfqueryparam value="#arguments.state#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"country") and len(arguments.country)>
+			</cfif>
+			<cfif structKeyExists(arguments,"country") and len(arguments.country)>
 				AND	usermaster.country = <cfqueryparam value="#arguments.country#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"username") and len(arguments.username)>
+			</cfif>
+			<cfif structKeyExists(arguments,"username") and len(arguments.username)>
 				AND	usermaster.username = <cfqueryparam value="#arguments.username#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"password") and len(arguments.password)>
+			</cfif>
+			<cfif structKeyExists(arguments,"password") and len(arguments.password)>
 				AND	usermaster.password = <cfqueryparam value="#arguments.password#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"usertype") and len(arguments.usertype)>
+			</cfif>
+			<cfif structKeyExists(arguments,"usertype") and len(arguments.usertype)>
 				AND	usermaster.usertype = <cfqueryparam value="#arguments.usertype#" CFSQLType="cf_sql_varchar" />
-			</cfif>			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
+			</cfif>
+			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
 				AND	usermaster.createddate = <cfqueryparam value="#arguments.createddate#" CFSQLType="cf_sql_timestamp" />
-			</cfif>			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
+			</cfif>
+			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
 				AND	usermaster.createdby = <cfqueryparam value="#arguments.createdby#" CFSQLType="cf_sql_integer" />
 			</cfif>
 			<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
@@ -100,7 +126,20 @@
 		<cfset var gridstruct = structNew()>
 		
 		<cfquery name="gridstruct.query" datasource="#variables.dsn#">
-			SELECT 				usermaster.Id,				usermaster.firstname,				usermaster.lastname,				usermaster.address1,				usermaster.address2,				usermaster.city,				usermaster.state,				usermaster.country,				usermaster.username,				usermaster.password,				usermaster.usertype,				usermaster.createddate,				usermaster.createdby
+			SELECT 
+				usermaster.Id,
+				usermaster.firstname,
+				usermaster.lastname,
+				usermaster.address1,
+				usermaster.address2,
+				usermaster.city,
+				usermaster.state,
+				usermaster.country,
+				usermaster.username,
+				usermaster.password,
+				usermaster.usertype,
+				usermaster.createddate,
+				usermaster.createdby
 			FROM `usermaster` 
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#

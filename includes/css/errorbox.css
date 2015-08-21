@@ -1,0 +1,39 @@
+.errorbox {
+	min-height:35px;
+}
+.errorbox ul,.errorbox ul.error{
+	background: transparent url(../images/errorbox/error.png) no-repeat;
+	padding: 0 0 0 35px;
+	min-height: 35px;
+}
+.errorbox ul.info{
+	background: transparent url(../images/errorbox/success.png) no-repeat !important;
+}
+.errorbox ul.warning{
+	background: transparent url(../images/errorbox/warning.png) no-repeat !important;
+}
+.errorbox li{
+	margin: 2px 0px 0px 10px;
+}
+li.warning{
+	color:#ff9c03 !important;
+	font-weight:bold;
+	list-style: none outside none;
+}
+li.info{
+	color:#267b00 !important;
+	font-weight:bold;
+	list-style: none outside none;
+}
+li.error {
+	color:#ff0000 !important;
+	font-weight:bold;
+	list-style: none outside none;
+}
+select.error,input.error,textarea.error {
+	border: 1px solid #ff0000 !important;
+}
+select.error
+{
+	background-color: #FFD9D9 !important;
+}
