@@ -1,0 +1,275 @@
+body {
+	margin: 0;
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 13px;
+}
+h1,h2,h3,h4 {
+	margin: 0;
+	padding: 24px;
+	text-transform: capitalize;
+}
+.noBorder 
+{ 
+	border: none; 
+}
+.main {
+	margin: 0;
+	padding: 0;
+}
+.header {
+	background: #000000;
+	color: #FFFFFF;
+	height: 80px;
+}
+.footer {
+	clear:both;
+	padding: 20px;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+.nav_header {
+	float: right;
+	padding: 5px 10px;
+}
+.nav_header a {
+	color: #FFFF00;
+}
+.content {
+	width: 100%;
+	float: left;
+}
+.leftpanel {
+	float: left;
+	width: 15%;
+}
+.leftpanel ul {
+	margin: 0 5px 0 0;
+	padding: 0;
+	list-style: none;
+}
+.leftpanel li a {
+	font-size: 110%;
+	font-weight: bold;
+	background: #EEEEEE;
+    color: #808185;
+    display: block;
+    margin: 2px;
+    padding: 7px 7px;
+    text-transform: capitalize;
+    white-space: nowrap;
+	text-decoration: none;
+	position: relative;
+}
+.leftpanel li a:hover, .leftpanel li a.selected {
+	background: #808185;
+	color: #FFFFFF;
+}
+.rightpanel {
+	float: left;
+	width: 85%;
+}
+.content_header {
+}
+.content_options {
+	float: right;
+	margin: 10px;
+}
+.table_container{
+	overflow: auto;
+	width: 100%;
+}
+
+/* =============================== button class [Start] ==================================*/
+.button {
+	display: inline-block;
+	overflow: visible;
+	cursor: pointer;
+	padding: 10px;
+	border: 1px solid #999;
+	font-weight: bold;
+	font-size: 110%;
+	color: #000000;
+	text-decoration: none;
+	background: #F0F0F0;
+}
+/* =============================== button class [end] ==================================*/
+
+/* =============================== tablelisting class [Start] ==================================*/
+.tablelisting
+{
+	border-collapse: collapse;
+	border: 1px solid #CCC;
+	color: #333;
+}
+.tablelisting th
+{
+	padding: 11px;
+	vertical-align: middle;
+	border: 1px solid #CCC;
+	background: #808185;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.tablelisting th a
+{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.tablelisting th a:hover
+{
+	text-decoration: underline;
+}
+.tablelisting span.asc_desc
+{
+	background: transparent url("../images/admin/asc_desc.png") no-repeat center;
+	display:inline;
+	padding:2px 7px;
+	margin:0px;
+}
+.tablelisting span.asc
+{
+	background: transparent url("../images/admin/asc.png") no-repeat center;
+	display:inline;
+	padding:0px 8px;
+	margin:0px;
+}
+.tablelisting span.desc 
+{
+	background: transparent url("../images/admin/desc.png") no-repeat center;
+	display:inline;
+	padding:0px 8px;
+	margin:0px;
+}
+.tablelisting td 
+{
+	padding: 3px;
+	border: 1px solid #CCC;
+}
+.tablelisting td a {
+	text-decoration: none;
+	background: none;
+}
+.even { 
+	background-color: #EEEEEE; 
+}
+
+/* =============================== tablelisting class [End] ==================================*/
+
+/* ================================ Paging class [Start] =========================================*/
+.pagingTabs {
+	margin: 20px 0 20px 0;
+	color: #808185;
+	font-size: 120%;
+}
+.pagingTabs a {
+	border: 1px solid #CCC;
+	padding: 5px;
+	margin: 3px;
+	color: #808185;
+	text-decoration: none;
+}
+.pagingTabs a.selected, .pagingTabs a:hover
+{  
+	background: #808185;
+	color: #FFFFFF;
+}
+/* ================================ Paging class [End] =========================================*/
+
+/* ===============================formLayout class [Start]==================================*/
+.formLayout
+{
+	font-size: 110%;
+	list-style:none;
+	padding: 0;
+}
+.formLayout li
+{
+	min-height: 35px;
+}
+.formLayout em
+{
+	color: red;
+}
+.formLayout li label
+{
+    text-transform: capitalize;
+}
+.formLayout li div.field-container {
+	clear: both;
+}
+.formLayout li div.required-container {
+	float: left;
+	width: 10px;
+	padding-top: 10px;
+}
+.formLayout li div.label-container {
+	float: left;
+	width: 150px;
+	padding-top: 10px;
+}
+.formLayout li div.input-container {
+	float: left;
+	width: 700px;
+}
+.formLayout li input, .formLayout li select {
+    border-radius: 5px;
+    border: 1px solid #CAD0CA;
+    font-size: 110%;
+    padding: 3px;
+    text-decoration: none;
+}
+.formLayout li select {
+    width: 330px;
+}
+.requiredText em {
+	color: red;
+}
+.requiredText {
+	clear: both;
+	color: #808185;
+}
+.error {
+	color: #FF0000;
+}
+/* ===============================table formLayout class [End]==================================*/
+
+/* =============================== Errorbox CSS [Start]==================================*/
+
+input.error, select.error {
+    background-color: #FFD9D9 !important;
+    border: 1px solid red !important;
+}
+div.errorbox {
+	border: 1px solid #CCC;
+	padding: 10px;
+	background-color: ivory;
+	margin: 10px auto 10px auto;
+}
+div.errorbox ul {
+	list-style: none;
+	padding-left: 10px;
+}
+div.errorbox li {
+	padding-left: 20px;
+	min-height: 16px;
+}
+div.errorbox li.error {
+	background: url('../images/errorbox/message-16-error.png') no-repeat;
+	color: #FF0000;
+}
+div.errorbox li.warning {
+	background: url('../images/errorbox/message-16-warning.png') no-repeat;
+	color: #FF9900;
+}
+div.errorbox li.info {
+	background: url('../images/errorbox/message-16-info.png') no-repeat;
+	color: #417BD5;
+}
+div.errorbox li.success {
+	background: url('../images/errorbox/message-16-ok.png') no-repeat;
+	color: #289028;
+}
+/* =============================== Errorbox CSS [END]==================================*/
