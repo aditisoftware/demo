@@ -40,13 +40,13 @@
 			<tr>
 				<td width="10%" class="lbl" valign="top"><label for="searchusertype">Created date</label></td>
 				<td valign="top">
-					<!--- <select ID="searchusertype" name="searchusertype"  class="form-control">
+					<select ID="searchusertype" name="searchusertype"  class="form-control">
 					 	<option value="">Select Type</option>
 					 	<option <cfif rc.searchusertype eq "SuperAdmin">selected</cfif>value="SuperAdmin">Super Admin</option>
 			            <option <cfif rc.searchusertype eq "Admin">selected</cfif>value="Admin">Admin</option>
 			            <option <cfif rc.searchusertype eq "Agent">selected</cfif>value="Agent">Agent</option>
 			            <option <cfif rc.searchusertype eq "Staff">selected</cfif>value="Staff">Staff</option>
-			        </select> --->
+			        </select>
 				</td>
 				<td>&nbsp;</td>
 				<td >

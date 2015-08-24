@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"struct",
+				"StructKeyExists"
+			],
+			[
 				"inlin",
 				"inline"
 			],
@@ -178,10 +182,6 @@
 			[
 				"category",
 				"categoryid"
-			],
-			[
-				"struct",
-				"structNew	fn. (cfscript)"
 			],
 			[
 				"s",
@@ -520,34 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "layouts/layout.admin.cfm",
+			"file": "/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/enq",
 			"settings":
 			{
-				"buffer_size": 5382,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/Coldbox.cfc",
-			"settings":
-			{
-				"buffer_size": 3494,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "handlers/usermaster.cfc",
-			"settings":
-			{
-				"buffer_size": 5284,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/usermasterDAO.cfc",
-			"settings":
-			{
-				"buffer_size": 7129,
+				"buffer_size": 896,
 				"line_ending": "Windows"
 			}
 		}
@@ -605,25 +581,43 @@
 	"expanded_folders":
 	[
 		"/C/Project/demo",
-		"/C/Project/demo/config",
-		"/C/Project/demo/handlers",
-		"/C/Project/demo/layouts",
-		"/C/Project/demo/models",
-		"/C/Project/demo/modules"
+		"/C/Project/demo/views/admin"
 	],
 	"file_history":
 	[
-		"/C/Project/demo/modules/codegenerator/ModuleConfig.cfc",
+		"/C/Project/demo/sftp-config.json",
+		"/C/Project/demo/views/admin/sftp-config.json",
+		"/C/Project/demo/views/admin/usermasteradd.cfm",
+		"/C/Project/demo/views/admin/usermasterlist.cfm",
+		"/C/Project/demo/models/usermasterGatewayBase.cfc",
+		"/C/Project/demo/models/usermasterGateway.cfc",
+		"/C/Project/demo/models/usermasterService.cfc",
+		"/C/Project/demo/handlers/admin/usermaster.cfc",
+		"/C/Project/demo/handlers/general.cfc",
+		"/C/Project/demo/views/usermasterlist.cfm",
+		"/C/Project/demo/tests/test.cfm",
+		"/C/Project/demo/layouts/layout.admin.cfm",
 		"/C/Project/demo/config/Coldbox.cfc",
+		"/C/Project/demo/models/Paging.cfc",
+		"/C/Project/demo/views/usermasteradd.cfm",
+		"/C/Project/demo/handlers/usermaster.cfc",
+		"/C/Project/demo/models/ErrorBox.cfc",
+		"/C/Project/demo/views/inqueryview.cfm",
+		"/C/Project/demo/views/inquerylist.cfm",
+		"/C/Project/demo/views/inqueryadd.cfm",
+		"/C/Project/demo/views/usermasterview.cfm",
+		"/C/Project/demo/views/useradd.cfm",
+		"/C/Project/demo/models/usermasterDAO.cfc",
+		"/C/Project/demo/models/inqueryGatewayBase.cfc",
+		"/C/Project/demo/models/inqueryDAO.cfc",
+		"/C/Project/demo/handlers/inquery.cfc",
+		"/C/Project/demo/views/inqueryform.cfm",
+		"/C/Project/demo/modules/codegenerator/ModuleConfig.cfc",
 		"/C/Project/demo/modules/codegenerator/layouts/codegenerator.main.cfm",
 		"/C/Project/demo/views/login.cfm",
 		"/C/Project/demo/views/home.cfm",
-		"/C/Project/demo/layouts/layout.admin.cfm",
 		"/C/Project/demo/views/New Text Document.txt",
 		"/C/Project/demo/views/userlist.cfm",
-		"/C/Project/demo/views/useradd.cfm",
-		"/C/Project/demo/views/inquerylist.cfm",
-		"/C/Project/demo/views/inqueryform.cfm",
 		"/C/Project/demo/views/Default.cfm",
 		"/C/Project/hauntworld.local/handlers/general.cfc",
 		"/C/Project/hauntworld.local/views/haunted_houses.cfm",
@@ -718,39 +712,20 @@
 		"/C/Project/HWAdmin.local/model/yp_listingphotoGatewayBase.cfc",
 		"/C/Project/HWAdmin.local/model/yp_listingcategoryratingGateway.cfc",
 		"/C/Project/HWAdmin.local/model/yp_listingcategoryratingService.cfc",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_listingcategoryrating.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingcategoryratingService.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingphotoServiceBase.cfc",
-		"/C/Project/HWAdmin.local/views/admin/hw_listingphoto.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_listingphotolist.cfm",
-		"/C/Project/HWAdmin.local/model/yp_listingphoto.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingDAO.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingServiceBase.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingcategoryrating.cfc",
-		"/C/Project/HWAdmin.local/views/admin/hw_bannerlist.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_banneradd.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_magazineadd.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_magazinelist.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_monsterlist.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_photocategory.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_photocategoryadd.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_photogrid.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_zoneadd.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_zonelist.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_discount_couponadd.cfm",
-		"/C/Project/HWAdmin.local/views/admin/hw_discount_couponlist.cfm",
-		"/C/Project/HWAdmin.local/includes/styles/prettyPhoto.css",
-		"/C/Project/HWAdmin.local/includes/javascript/jquery.prettyPhoto.js"
+		"/C/Project/HWAdmin.local/handlers/admin/hw_listingcategoryrating.cfc"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\Project\\demo\\",
+			"C:\\Project\\demo\\views\\",
+			"C:\\Project\\demo\\models",
 			"C:\\Project\\HWstate.local",
 			"C:\\Project\\HWAdmin.local",
 			"C:\\Project\\HWAdmin.local\\handlers\\admin",
@@ -778,6 +753,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"usermaster.",
+			"usertype",
+			"searchname",
+			"SESION",
+			"usermaster",
+			"usermaster.",
+			"usermaster",
+			"setView",
+			"sm",
+			"getMyPlugin",
+			"callPaging",
+			">",
+			">\n",
+			"input type=\"text\"",
+			"getMyPlugin",
+			"admin",
+			"{\n",
+			"runat=\"server\"",
+			"OnClick",
+			"admin",
+			"<cfset variables.dsn = arguments.dsn.getName() >",
+			"getName",
+			"coldbox:datasource:hauntworld",
 			"includes",
 			"dbo.",
 			"INT           IDENTITY (1, 1) NOT NULL",
@@ -882,30 +880,7 @@
 			"siteid",
 			"UPLOAD",
 			"oyp_categorylistingBean",
-			"qList.listingid",
-			"createyp_categorylisting",
-			"yp_listingphoto",
-			"if (",
-			"var ",
-			"rc.youtubelink",
-			"if ",
-			"oyp_listingcategoryratingBean",
-			"set",
-			"if ",
-			"rc.",
-			"				",
-			"cfif",
-			"if ",
-			"oyp_hauntblogsService",
-			"username=\"root\" password=\"!isummation1\"",
-			"getSetting('profileimage')",
-			"				<cfset instance.os3.init(accessKeyId = getSetting('awsaccessKey'), secretAccessKey = getSetting('awsscreatKey')) />",
-			"instance.os3.init",
-			"categoryid",
-			"isactive",
-			"listinghome",
-			"ticket",
-			"contactname"
+			"qList.listingid"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -913,6 +888,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"getInstance",
+			"<cfset variables.dsn = arguments.dsn.Name >",
+			"coldbox:datasource:demo",
 			"",
 			"##",
 			"hw_topList",
@@ -942,136 +920,37 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "layouts/layout.admin.cfm",
+					"file": "/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/enq",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5382,
+						"buffer_size": 896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2952,
-								2952
+								494,
+								494
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 364.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "config/Coldbox.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3494,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								530,
-								530
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"sftp_new_server": null,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "handlers/usermaster.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5284,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								423,
-								427
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "models/usermasterDAO.cfc",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 7129,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								178,
-								207
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1114,7 +993,7 @@
 	},
 	"output.sftp":
 	{
-		"height": 25.0
+		"height": 119.0
 	},
 	"pinned_build_system": "",
 	"project": "demo.sublime-project",
@@ -1129,6 +1008,26 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"usermastergatewaybase",
+				"models\\usermasterGatewayBase.cfc"
+			],
+			[
+				"usermastergateway",
+				"models\\usermasterGateway.cfc"
+			],
+			[
+				"usermastergatewa",
+				"models\\usermasterGateway.cfc"
+			],
+			[
+				"ousermasterservice",
+				"models\\usermasterService.cfc"
+			],
+			[
+				"inqueryform",
+				"views\\inqueryform.cfm"
+			],
 			[
 				"gene",
 				"handlers\\general.cfc"
@@ -1620,26 +1519,6 @@
 			[
 				"hw_content_managementservic",
 				"model/hw_content_managementServiceBase.cfc"
-			],
-			[
-				"ohw_listingeventgate",
-				"model/hw_listingeventGatewayBase.cfc"
-			],
-			[
-				"hw_listingevent",
-				"handlers/admin/hw_listingevent.cfc"
-			],
-			[
-				"hw_listingevent.cfm",
-				"views/admin/hw_listingevent.cfm"
-			],
-			[
-				"ohw_sitegatewaybase",
-				"model/hw_siteGatewayBase.cfc"
-			],
-			[
-				"ohw_siteservice",
-				"model/hw_siteService.cfc"
 			]
 		],
 		"width": 0.0

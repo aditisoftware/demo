@@ -18,6 +18,7 @@
 		<cfargument name="country" type="string" required="false" />
 		<cfargument name="username" type="string" required="false" />
 		<cfargument name="password" type="string" required="false" />
+		<cfargument name="passwordsalt" type="string" default="" />		
 		<cfargument name="usertype" type="string" required="false" />
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
@@ -46,6 +47,7 @@
 		<cfargument name="country" type="string" required="false" />
 		<cfargument name="username" type="string" required="false" />
 		<cfargument name="password" type="string" required="false" />
+		<cfargument name="passwordsalt" type="string" default="" />		
 		<cfargument name="usertype" type="string" required="false" />
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
@@ -64,6 +66,7 @@
 				usermaster.country,
 				usermaster.username,
 				usermaster.password,
+				usermaster.passwordsalt,
 				usermaster.usertype,
 				usermaster.createddate,
 				usermaster.createdby
@@ -98,6 +101,9 @@
 			</cfif>
 			<cfif structKeyExists(arguments,"password") and len(arguments.password)>
 				AND	usermaster.password = <cfqueryparam value="#arguments.password#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"passwordsalt") and len(arguments.passwordsalt)>
+				AND	usermaster.passwordsalt = <cfqueryparam value="#arguments.passwordsalt#" CFSQLType="cf_sql_varchar" />
 			</cfif>
 			<cfif structKeyExists(arguments,"usertype") and len(arguments.usertype)>
 				AND	usermaster.usertype = <cfqueryparam value="#arguments.usertype#" CFSQLType="cf_sql_varchar" />
@@ -136,7 +142,6 @@
 				usermaster.state,
 				usermaster.country,
 				usermaster.username,
-				usermaster.password,
 				usermaster.usertype,
 				usermaster.createddate,
 				usermaster.createdby

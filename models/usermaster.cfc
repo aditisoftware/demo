@@ -10,6 +10,7 @@
 	<cfproperty name="country" type="string" default="" />
 	<cfproperty name="username" type="string" default="" />
 	<cfproperty name="password" type="string" default="" />
+	<cfproperty name="passwordsalt" type="string" default="" />
 	<cfproperty name="usertype" type="string" default="" />
 	<cfproperty name="createddate" type="date" default="" />
 	<cfproperty name="createdby" type="numeric" default="" />
@@ -33,6 +34,7 @@
 		<cfargument name="country" type="string" default="" />
 		<cfargument name="username" type="string" default="" />
 		<cfargument name="password" type="string" default="" />
+		<cfargument name="passwordsalt" type="string" default="" />		
 		<cfargument name="usertype" type="string" default="" />
 		<cfargument name="createddate" type="string" default="" />
 		<cfargument name="createdby" type="string" default="" />
@@ -48,6 +50,7 @@
 		<cfset setcountry(arguments.country) />
 		<cfset setusername(arguments.username) />
 		<cfset setpassword(arguments.password) />
+		<cfset setpasswordsalt(arguments.passwordsalt) />
 		<cfset setusertype(arguments.usertype) />
 		<cfset setcreateddate(arguments.createddate) />
 		<cfset setcreatedby(arguments.createdby) />
@@ -162,6 +165,19 @@
 			<cfset thisError.field = "password" />
 			<cfset thisError.type = "maxlength" />
 			<cfset thisError.message = "password no more than 128 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif (NOT len(trim(getpasswordsalt())))>
+			<cfset thisError.field = "passwordsalt" />
+			<cfset thisError.type = "required" />
+			<cfset thisError.message = "passwordsalt is required" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif> 
+		<cfif len(trim(getpasswordsalt())) AND (len(trim(getpasswordsalt())) GT 128) >
+			<cfset thisError.field = "passwordsalt" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "passwordsalt no more than 128 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
@@ -283,6 +299,14 @@
 	<cffunction name="getpassword" access="public" returntype="string" output="false">
 		<cfreturn variables.instance.password />
 	</cffunction>
+
+	<cffunction name="setpasswordsalt" access="public" returntype="void" output="false">
+		<cfargument name="passwordsalt" type="string" required="true" />
+		<cfset variables.instance.passwordsalt = arguments.passwordsalt />
+	</cffunction>
+	<cffunction name="getpasswordsalt" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.passwordsalt />
+	</cffunction>	
 
 	<cffunction name="setusertype" access="public" returntype="void" output="false">
 		<cfargument name="usertype" type="string" required="true" />

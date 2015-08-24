@@ -115,7 +115,7 @@
 			ousermasterBean.setcreateddate(now());
 			ousermasterBean.setcreatedby(1);
 		}
-		
+		passStruct = encryptPassword(password = trim(rc.password));
 		if (StructKeyExists(rc, 'Id'))
 			ousermasterBean.setId(rc.Id);
 		if (StructKeyExists(rc, 'firstname'))
@@ -134,8 +134,10 @@
 			ousermasterBean.setcountry(rc.country);
 		if (StructKeyExists(rc, 'username'))
 			ousermasterBean.setusername(rc.username);
-		if (StructKeyExists(rc, 'password'))
-			ousermasterBean.setpassword(rc.password);
+		if (StructKeyExists(rc, 'password')){
+			ousermasterBean.setpassword(trim(passStruct.password));
+			ousermasterBean.setpasswordsalt(trim(passStruct.passsalt));
+		}
 		if (StructKeyExists(rc, 'usertype'))
 			ousermasterBean.setusertype(rc.usertype);
 		

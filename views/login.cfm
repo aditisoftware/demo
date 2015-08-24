@@ -3,6 +3,7 @@
         <title>Admin Login-AntInquery</title>
         <meta name="viewport" content="width=device-width" />
         <link href="/includes/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="/includes/css/errorbox.css">
     </head>
     <body>
         <div class="row">
@@ -12,6 +13,10 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
+                #getInstance("ErrorBox").renderIt("loginError")#
+                <div id="inqueryJSError" class="errorbox" style="display:none">
+                    <ul id="inqueryULError"></ul>
+                </div>
                 <div class="panel panel-success">
                     <div class="panel-heading">Enter username and password.</div>
                     <cfoutput>

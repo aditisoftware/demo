@@ -24,7 +24,8 @@
 					state, 
 					country, 
 					username, 
-					password, 
+					password,
+					passwordsalt, 
 					usertype, 
 					createddate, 
 					createdby)
@@ -38,6 +39,7 @@
 					<cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 
 					<cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 
 					<cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 
+					<cfqueryparam value="#arguments.usermaster.getpasswordsalt()#" cfsqltype="cf_sql_varchar"  />, 					
 					<cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 
 					<cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 
 					<cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />
@@ -60,7 +62,7 @@
 		<cfset var strReturn = structNew() />
 		
 		<cfquery name="qRead" datasource="#variables.dsn#">
-			SELECT	Id,firstname,lastname,address1,address2,city,state,country,username,password,usertype,createddate,createdby
+			SELECT	Id,firstname,lastname,address1,address2,city,state,country,username,password,passwordsalt,usertype,createddate,createdby
 			FROM		`usermaster`
 			WHERE		0=0
 			AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
@@ -88,9 +90,11 @@
 					country = <cfqueryparam value="#arguments.usermaster.getcountry()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getcountry())#" />, 
 					username = <cfqueryparam value="#arguments.usermaster.getusername()#" cfsqltype="cf_sql_varchar"  />, 
 					password = <cfqueryparam value="#arguments.usermaster.getpassword()#" cfsqltype="cf_sql_varchar"  />, 
+					passwordsalt = <cfqueryparam value="#arguments.usermaster.getpasswordsalt()#" cfsqltype="cf_sql_varchar"  />, 
 					usertype = <cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 
 					createddate = <cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 
-					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  /> 
+					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />,
+					
 			WHERE		0=0
 				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />
 		</cfquery>

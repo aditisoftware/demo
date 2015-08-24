@@ -25,19 +25,33 @@
 		<cfargument name="rc" />
 		<cfargument name="prc" />
 		<cfset event.paramValue("xehDoLogin","general.dologin") />
-		<cfscript>
-			rc.qusermaster = instance.ousermasterService.getusermasters(username=rc.username,password=rc.password);
-			if(rc.qusermaster.recordcount){
-				session.username=rc.qusermaster.username;
-				session.userid=rc.qusermaster.id;
-				session.usertype=rc.qusermaster.usertype;
-				event.setView("admin/home").setLayout('layout.admin');
-			}
-			else{
-				session.clear();
-				event.setView("login").NoLayout();
-			}
-		</cfscript>
+		<cfset event.paramValue("backevent","general.login") />
+
+		<cfif structKeyExists(rc,"username") AND len(rc.username)>
+			<cfset local.qusermaster = instance.ousermasterService.getusermasters(username=rc.username)>
+			<cfif local.qusermaster.recordCount GT 0>
+			    <cfif hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA") EQ trim(local.qusermaster.password) >
+				    <CFLOCK SCOPE="Session" TIMEOUT="30" TYPE="Exclusive">
+				        <CFSET session.username=rc.qusermaster.username>
+						<CFSET session.userid=rc.qusermaster.id>
+						<CFSET session.usertype=rc.qusermaster.usertype>
+				    </CFLOCK>
+				    <cflogin idletimeout="54000">
+				        <cfloginuser name = "#local.qusermaster.firstname#" password = "#local.qusermaster.id#" roles = "#lcase(local.qusermaster.usertype)#"/>
+				    </cflogin>
+				    <cfset event.setView("admin/home").setLayout('layout.admin')>
+				<cfelse>
+					<CFSET rc.msg="Please enter correct login information.">
+					<cfset setNextEvent(event= rc.backevent,persistStruct=rc)>
+				</cfif>
+			<cfelse>
+				<CFSET rc.msg="Please enter correct login information.">
+				<cfset setNextEvent(event= rc.backevent,persistStruct=rc)>
+			</cfif>
+		<cfelse>
+			<CFSET rc.msg="Please enter correct login information.">
+			<cfset setNextEvent(event= rc.backevent,persistStruct=rc)>
+		</cfif>
 	</cffunction>
 	
 

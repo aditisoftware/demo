@@ -18,6 +18,7 @@
 		<cfargument name="country" type="string" required="false" />
 		<cfargument name="username" type="string" required="false" />
 		<cfargument name="password" type="string" required="false" />
+		<cfargument name="passwordsalt" type="string" default="" />
 		<cfargument name="usertype" type="string" required="false" />
 		<cfargument name="createddate" type="string" required="false" />
 		<cfargument name="createdby" type="string" required="false" />
@@ -69,6 +70,7 @@
 		<cfargument name="country" type="string" required="false" />
 		<cfargument name="username" type="string" required="false" />
 		<cfargument name="password" type="string" required="false" />
+		<cfargument name="passwordsalt" type="string" default="" />
 		<cfargument name="usertype" type="string" required="false" />
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
