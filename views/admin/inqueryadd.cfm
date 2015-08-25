@@ -5,17 +5,7 @@
 	<script type="text/javascript">
 		$(function() {
 
-			$("##departuredate").datetimepicker({
-				showSecond: true,
-				ampm: true,
-				timeFormat: 'hh:mm:ss tt'
-			});
-		
-			$("##createddate").datetimepicker({
-				showSecond: true,
-				ampm: true,
-				timeFormat: 'hh:mm:ss tt'
-			});
+			$("##departuredate").datepicker();
 		
 			$("##editor_form").validate({
 				rules: {
@@ -127,670 +117,304 @@
 </cfsavecontent>
 <cfhtmlhead text="#AddScript#" />
 <div class="content_header">
-	<div class="content_options">
-		<a href="#event.buildlink(rc.xehList)#" class="button">Back To Listing</a>
-	</div>
-	<h1>inquery</h1>
+	<h1>Inquery Add</h1>
 </div>
 </cfoutput>
 <cfoutput>
 <form name="editor_form" id="editor_form" action="#event.buildlink(rc.xehSave)#" method="post" >
-<!--- #getInstance("ErrorBox").renderIt("inqueryError")# --->
-<div id="inqueryJSError" class="errorbox" style="display:none">
-	<ul id="inqueryULError"></ul>
-</div>
-<input type="hidden" name="Id" value="#rc.Id#" /> 
-<fieldset>
-<legend><cfif rc.Id eq 0 >Add<cfelse>Edit</cfif> Record</legend>
-
-<ul class="formLayout"> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
+	#getInstance("ErrorBox").renderIt("inqueryError")#
+	<div id="inqueryJSError" class="errorbox" style="display:none">
+		<ul id="inqueryULError"></ul>
+	</div>
+	<input type="hidden" name="Id" value="#rc.Id#" /> 
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="tourtype">Tour Type</label>
+				<select name="tourid" id="tourid" class="form-control">
+					<option value="">Select Type</option>
+					<cfloop query="rc.tourtype">
+						<option value="#rc.tourtype.id#">#rc.tourtype.tourtitle#</option>
+					</cfloop>
+				</select>
+			</div>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Client detail</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="companyname">Company name</label>
+						<input class="form-control" id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="contactperson">Contact person</label>
+						<input class="form-control" id="contactperson" name="contactperson" type="text" value="#rc.contactperson#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="address">Address</label>
+						<input class="form-control" id="address" name="address" type="text" value="#rc.address#" maxlength="250" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="city">City</label>
+						<input class="form-control" id="city" name="city" type="text" value="#rc.city#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="state">State</label>
+						<input class="form-control" id="state" name="state" type="text" value="#rc.state#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="country">Country</label>
+						<input class="form-control" id="country" name="country" type="text" value="#rc.country#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="zipcode">Zipcode</label>
+						<input class="form-control" id="zipcode" name="zipcode" type="text" value="#rc.zipcode#" maxlength="10" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="phone1">Phone1</label>
+						<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="phone2">Phone2</label>
+						<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="mobile">Mobile</label>
+						<input class="form-control" id="mobile" name="mobile" type="text" value="#rc.mobile#" maxlength="15" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input class="form-control" id="email" name="email" type="text" value="#rc.email#" maxlength="50" size="32"  />
+					</div>
 				</div>
-			<div class="label-container">
-				<label for="companyname">companyname:</label>
 			</div>
-			<div class="input-container">
-				
-				<input id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
 		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Inquery detail</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="destination">Destination</label>
+						<input class="form-control" id="destination" name="destination" type="text" value="#rc.destination#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="departuredate">Departure date</label>
+						<input class="form-control" id="departuredate" name="departuredate" type="text" value="<cfif len(trim(rc.departuredate))>#dateFormat(rc.departuredate,'MM/DD/YYYY')# #TimeFormat(rc.departuredate,'hh:mm:ss tt')#</cfif>" maxlength="10" size="32" />
+					</div>
+					<div class="form-group">
+						<label for="totalpassenger">Total passenger</label>
+						<input class="form-control" id="totalpassenger" name="totalpassenger" type="text" value="#rc.totalpassenger#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="adult">Adult</label>
+						<input class="form-control" id="adult" name="adult" type="text" value="#rc.adult#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="child">Child</label>
+						<input class="form-control" id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="child511year">Child 5- 11 year</label>
+						<input class="form-control" id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="child11plus">Child 11 +</label>
+						<input class="form-control" id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="hotelcategory">Hotel category</label>
+						<select class="form-control" id="hotelcategory" name="hotelcategory" >
+							<option <cfif rc.hotelcategory eq "" >selected</cfif> value="">Select</option>
+							<option <cfif rc.hotelcategory eq "ECONOMY" >selected</cfif> value="ECONOMY">ECONOMY</option>
+							<option <cfif rc.hotelcategory eq "BUDGET" >selected</cfif> value="BUDGET">BUDGET</option>
+							<option <cfif rc.hotelcategory eq "STANDARD" >selected</cfif> value="STANDARD">STANDARD</option>
+							<option <cfif rc.hotelcategory eq "DELUXE" >selected</cfif> value="DELUXE">DELUXE</option>
+							<option <cfif rc.hotelcategory eq "SUPER DELUXE" >selected</cfif> value="SUPER DELUXE">SUPER DELUXE</option>
+							<option <cfif rc.hotelcategory eq "LUXURY" >selected</cfif> value="LUXURY">LUXURY</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="roomsharing">Room sharing</label>
+						<select class="form-control" id="roomsharing" name="roomsharing">
+							<option <cfif rc.roomsharing eq "" >selected</cfif> value="">Select</option>
+							<option <cfif rc.roomsharing eq "DOUBLE SHARING" >selected</cfif> value="DOUBLE SHARING">DOUBLE SHARING</option>
+							<option <cfif rc.roomsharing eq "TRIPLE SHARING" >selected</cfif> value="TRIPLE SHARING">TRIPLE SHARING</option>
+							<option <cfif rc.roomsharing eq "QUAD SHARING" >selected</cfif> value="QUAD SHARING">QUAD SHARING</option>
+							<option <cfif rc.roomsharing eq "FIVE SHARING" >selected</cfif> value="FIVE SHARING">FIVE SHARING</option>
+							<option <cfif rc.roomsharing eq "DORMITORY" >selected</cfif> value="DORMITORY">DORMITORY"</option>
+						</select>				
+					</div>
 				</div>
-			<div class="label-container">
-				<label for="contactperson">contactperson:</label>
 			</div>
-			<div class="input-container">
-				
-				<input id="contactperson" name="contactperson" type="text" value="#rc.contactperson#" maxlength="50" size="32"  />
 		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Special Service</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="DJParty">DJ Party</label>
+						<input class="form-control" id="DJParty" name="DJParty" type="checkbox" value="1"
+						<cfif rc.DJParty eq 1>
+							checked="true"
+						</cfif>
+						 maxlength="15" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="cocktailparty">Cocktail party</label>
+						<input class="form-control" id="cocktailparty" name="cocktailparty" type="checkbox" value="1"
+						<cfif rc.cocktailparty eq 1>
+							checked="true"
+						</cfif>
+						maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="artist">Artist</label>
+						<input class="form-control" id="artist" name="artist" type="checkbox"
+						<cfif rc.artist eq 1>
+							checked
+						</cfif>
+						 maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="cultureparty">Culture party</label>
+						<input class="form-control" id="cultureparty" name="cultureparty" type="checkbox" 
+						<cfif rc.cultureparty eq 1>
+							checked
+						</cfif>
+						maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="productlaunching">Product launching</label>
+						<input class="form-control" id="productlaunching" name="productlaunching" type="checkbox" 
+						<cfif rc.productlaunching eq 1>
+							checked
+						</cfif>
+						 maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="sitevisit">Site visit</label>
+						<input class="form-control" id="sitevisit" name="sitevisit" type="checkbox" 
+						<cfif rc.sitevisit eq 1>
+							checked
+						</cfif>
+						maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="soundsystem">Sound system</label>
+						<input class="form-control" id="soundsystem" name="soundsystem" type="checkbox"
+						<cfif rc.soundsystem eq 1>
+							checked
+						</cfif>
+						 />
+					</div>
+					<div class="form-group">
+						<label for="project">Projector</label>
+						<input class="form-control" id="project" name="project" type="checkbox"
+						<cfif rc.project eq 1>
+							checked
+						</cfif>
+						 />
+					</div>
+					<div class="form-group">
+						<label for="stagedecoration">Stage Decoration</label>
+						<input class="form-control" id="stagedecoration" name="stagedecoration"  type="checkbox"
+						<cfif rc.project eq 1>
+							checked
+						</cfif>
+						 />
+					</div>
+					<div class="form-group">
+						<label for="amt_pmt">Amt-Pmt</label>
+						<input class="" id="amt" name="amt_pmt" type="radio" value="amt"
+						<cfif rc.amt_pmt eq 1>
+							checked
+						</cfif>
+						 />
+						<input class="" id="pmt" name="amt_pmt" type="radio" value="pmt"
+						<cfif rc.amt_pmt eq 1>
+							checked
+						</cfif>
+						 />
+					</div>
 				</div>
-			<div class="label-container">
-				<label for="address">address:</label>
 			</div>
-			<div class="input-container">
-				
-				<input id="address" name="address" type="text" value="#rc.address#" maxlength="250" size="32"  />
 		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Additional Information</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="transporttype">Transport type</label>
+						<select class="form-control" id="transporttype" name="transporttype">
+							<option value="">Any</option>	
+							<option <cfif rc.transporttype eq "Slepper Bus">selected</cfif> value="Slepper Bus">Slepper Bus</option>	
+							<option <cfif rc.transporttype eq "3*2seater">selected</cfif> value="nonac">3x2 Seater</option>
+							<option <cfif rc.transporttype eq "2*2seater">selected</cfif> value="nonac">2x2 Seater</option>
+							<option <cfif rc.transporttype eq "Train">selected</cfif> value="nonac">Train</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="vehicletype">Vehicle type</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Any</option>	
+							<option <cfif rc.vehicletype eq "ac">selected</cfif> value="ac">A.C</option>	
+							<option <cfif rc.vehicletype eq "nonac">selected</cfif> value="nonac">Non A.C</option>	
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="traintype">Train type</label>
+						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="allss">All ss</label>
+						<input class="form-control" id="allss" name="allss" type="text" value="#rc.allss#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="allentry">All entry</label>
+						<input class="form-control" id="allentry" name="allentry" type="text" value="#rc.allentry#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="foodtype">Food type</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Selct</option>
+							<option value="VEG. REGULAR"<cfif rc.foodtype eq "VEG. REGULAR">selected</cfif>>VEG. REGULAR</option>
+							<option value="JAIN"<cfif rc.foodtype eq "JAIN">selected</cfif>>JAIN</option>
+							<option value="SWAMINARAYAN"<cfif rc.foodtype eq "SWAMINARAYAN">selected</cfif>>SWAMINARAYAN</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="mealplan">Meal plan</label>
+						<select class="form-control" id="mealplan" name="mealplan">
+							<option value="">Selct</option>
+							<option value="HOTEL FOOD"<cfif rc.mealplan eq "HOTEL FOOD">selected</cfif>>HOTEL FOOD</option>
+							<option value="KITCHEN GROUP"<cfif rc.mealplan eq "KITCHEN GROUP">selected</cfif>>KITCHEN GROUP</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="B2B">B2B</label>
+						<input class="form-control" id="B2B" name="B2B" type="text" value="#rc.B2B#" maxlength="15" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="remark">Remark</label>
+						<textarea type="textarea" class="form-control" id="remark" name="remark" maxlength="250" rows="5">#rc.remark#</textarea>
+					</div>
 				</div>
-			<div class="label-container">
-				<label for="city">city:</label>
 			</div>
-			<div class="input-container">
-				
-				<input id="city" name="city" type="text" value="#rc.city#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="state">state:</label>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+			   	<input type="submit" value="Submit" class="btn btn-primary" />
+				<a href="#event.buildlink(rc.xehList)#" class="btn btn-default"> << Back</a>
 			</div>
-			<div class="input-container">
-				
-				<input id="state" name="state" type="text" value="#rc.state#" maxlength="50" size="32"  />
 		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="country">country:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="country" name="country" type="text" value="#rc.country#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="zipcode">zipcode:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="zipcode" name="zipcode" type="text" value="#rc.zipcode#" maxlength="10" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="phone1">phone1:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="phone2">phone2:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="mobile">mobile:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="mobile" name="mobile" type="text" value="#rc.mobile#" maxlength="15" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="email">email:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="email" name="email" type="text" value="#rc.email#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="tourtype">tourtype:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="tourtype" name="tourtype" type="text" value="#rc.tourtype#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="destination">destination:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="destination" name="destination" type="text" value="#rc.destination#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="totalpassenger">totalpassenger:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="totalpassenger" name="totalpassenger" type="text" value="#rc.totalpassenger#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="adult">adult:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="adult" name="adult" type="text" value="#rc.adult#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="child">child:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="child511year">child511year:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="child11plus">child11plus:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="hotelcategory">hotelcategory:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="hotelcategory" name="hotelcategory" type="text" value="#rc.hotelcategory#" maxlength="5" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="roomsharing">roomsharing:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="roomsharing" name="roomsharing" type="text" value="#rc.roomsharing#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="vehicletype">vehicletype:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="vehicletype" name="vehicletype" type="text" value="#rc.vehicletype#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="allss">allss:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="allss" name="allss" type="text" value="#rc.allss#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="allentry">allentry:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="allentry" name="allentry" type="text" value="#rc.allentry#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="departuredate">departuredate:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="departuredate" name="departuredate" type="text" value="<cfif len(trim(rc.departuredate))>#dateFormat(rc.departuredate,'MM/DD/YYYY')# #TimeFormat(rc.departuredate,'hh:mm:ss tt')#</cfif>" maxlength="10" size="32" />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="transporttype">transporttype:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="transporttype" name="transporttype" type="text" value="#rc.transporttype#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="traintype">traintype:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="foodtype">foodtype:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="foodtype" name="foodtype" type="text" value="#rc.foodtype#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="mealplan">mealplan:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="mealplan" name="mealplan" type="text" value="#rc.mealplan#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="noofPassenger">noofPassenger:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="noofPassenger" name="noofPassenger" type="text" value="#rc.noofPassenger#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="soundsystem">soundsystem:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="soundsystem" name="soundsystem" type="text" value="#rc.soundsystem#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="project">project:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="project" name="project" type="text" value="#rc.project#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="amt_pmt">amt_pmt:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="amt_pmt" name="amt_pmt" type="text" value="#rc.amt_pmt#" maxlength="5" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="stagedecoration">stagedecoration:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="stagedecoration" name="stagedecoration" type="text" value="#rc.stagedecoration#" maxlength="3" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="B2B">B2B:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="B2B" name="B2B" type="text" value="#rc.B2B#" maxlength="15" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="DJParty">DJParty:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="DJParty" name="DJParty" type="text" value="#rc.DJParty#" maxlength="15" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="cocktailparty">cocktailparty:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="cocktailparty" name="cocktailparty" type="text" value="#rc.cocktailparty#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="artist">artist:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="artist" name="artist" type="text" value="#rc.artist#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="cultureparty">cultureparty:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="cultureparty" name="cultureparty" type="text" value="#rc.cultureparty#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="productlaunching">productlaunching:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="productlaunching" name="productlaunching" type="text" value="#rc.productlaunching#" maxlength="50" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="sitevisit">sitevisit:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="sitevisit" name="sitevisit" type="text" value="#rc.sitevisit#" maxlength="1" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				
-					&nbsp;
-				</div>
-			<div class="label-container">
-				<label for="remark">remark:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="remark" name="remark" type="text" value="#rc.remark#" maxlength="250" size="32"  />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				<em>*</em>
-				</div>
-			<div class="label-container">
-				<label for="createddate">createddate:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="createddate" name="createddate" type="text" value="<cfif len(trim(rc.createddate))>#dateFormat(rc.createddate,'MM/DD/YYYY')# #TimeFormat(rc.createddate,'hh:mm:ss tt')#</cfif>" maxlength="10" size="32" />
-		</div>
-		</div>
-	</li> 
-	<li>
-		<div class="field-container">
-			<div class="required-container">
-				<em>*</em>
-				</div>
-			<div class="label-container">
-				<label for="createdby">createdby:</label>
-			</div>
-			<div class="input-container">
-				
-				<input id="createdby" name="createdby" type="text" value="#rc.createdby#" maxlength="10" size="32"  />
-		</div>
-		</div>
-	</li>
-</ul>
-<div class="requiredText"><em>*</em> Indicates required field</div>
-<input type="submit" value="Submit" class="button" />
-</fieldset>
+	</div>
 </form>
 </cfoutput>
 

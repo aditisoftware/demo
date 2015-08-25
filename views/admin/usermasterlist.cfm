@@ -1,4 +1,3 @@
-
 <cfsavecontent variable="ListScript">
 <cfoutput>
 	<script type="text/javascript">
@@ -76,9 +75,10 @@
 			<td valign="top">
 				 <select ID="searchusertype" name="searchusertype"  class="form-control">
 				 	<option value="">Select Type</option>
-		            <option value="Admin">Admin</option>
-		            <option value="Agent">Agent</option>
-		            <option value="Staff">Staff</option>
+				 	<option <cfif rc.searchusertype eq "SuperAdmin">selected</cfif>value="SuperAdmin">Super Admin</option>
+		            <option <cfif rc.searchusertype eq "Admin">selected</cfif>value="Admin">Admin</option>
+		            <option <cfif rc.searchusertype eq "Agent">selected</cfif>value="Agent">Agent</option>
+		            <option <cfif rc.searchusertype eq "Staff">selected</cfif>value="Staff">Staff</option>
 		        </select>
 			</td>
 			<td>&nbsp;</td>
@@ -91,9 +91,9 @@
 	</table>
 </cfoutput>	
 <div class="table_container">
-	<table border="0" cellpadding="0" cellspacing="0" class="table">
+	<table border="0" cellpadding="0" cellspacing="0" class="table table-hover table-bordered">
 		<cfoutput>
-		<tr>
+		<tr class="active">
 			<th>
 				<a href="#event.buildlink(rc.xehList)#?sortBy=firstname&sortOrder=#rc.sortOrder#">Firstname</a>&nbsp;<span <cfif rc.sortBy eq 'firstname'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 			</th> 

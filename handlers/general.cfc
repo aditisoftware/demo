@@ -15,7 +15,6 @@
 		<cfargument name="event" />
 		<cfargument name="rc" />
 		<cfargument name="prc" />
-
 		<cfset event.paramValue("xehDoLogin","general.dologin") />
 
 		<cfset event.setView("login").NoLayout()>
@@ -25,6 +24,7 @@
 		<cfargument name="event" />
 		<cfargument name="rc" />
 		<cfargument name="prc" />
+		<cfset event.paramValue("xehDoLogin","general.dologin") />
 		<cfscript>
 			rc.qusermaster = instance.ousermasterService.getusermasters(username=rc.username,password=rc.password);
 			if(rc.qusermaster.recordcount){
@@ -35,7 +35,7 @@
 			}
 			else{
 				session.clear();
-				event.setView("login").setLayout('layout.admin');
+				event.setView("login").NoLayout();
 			}
 		</cfscript>
 	</cffunction>

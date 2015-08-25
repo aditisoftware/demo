@@ -62,11 +62,6 @@
 	<div class="requiredText"><em>*</em> Indicates required field</div>
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
 	<div class="col-md-6">
-	    <div class="row">
-	        <div class="col-md-6 margin-bottom-15">
-	            <Label ID="lblStatus" Text="Label" class="alert-danger" Visible="false"></Label>
-	        </div>
-	    </div>
 	    <div class="form-group">
 	        <label>First Name</label>
 	        <input type="text" ID="firstname" name="firstname" class="form-control" placeholder="First Name" value="#rc.firstname#" />

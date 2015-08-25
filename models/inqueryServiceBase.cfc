@@ -37,7 +37,6 @@
 		<cfargument name="traintype" type="string" required="false" />
 		<cfargument name="foodtype" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
-		<cfargument name="noofPassenger" type="string" required="false" />
 		<cfargument name="soundsystem" type="string" required="false" />
 		<cfargument name="project" type="string" required="false" />
 		<cfargument name="amt_pmt" type="string" required="false" />
@@ -52,7 +51,8 @@
 		<cfargument name="remark" type="string" required="false" />
 		<cfargument name="createddate" type="string" required="false" />
 		<cfargument name="createdby" type="string" required="false" />
-		
+		<cfargument name="tourid" type="string" required="false" />
+
 		<cfset var minquery = createObject("component","inquery").init(argumentCollection=arguments) />
 		<cfreturn minquery />
 	</cffunction>
@@ -119,7 +119,6 @@
 		<cfargument name="traintype" type="string" required="false" />
 		<cfargument name="foodtype" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
-		<cfargument name="noofPassenger" type="string" required="false" />
 		<cfargument name="soundsystem" type="string" required="false" />
 		<cfargument name="project" type="string" required="false" />
 		<cfargument name="amt_pmt" type="string" required="false" />
@@ -135,6 +134,7 @@
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
+		<cfargument name="tourid" type="string" required="false" />
 		
 		<cfif arguments.datatype eq "query">
 			<cfreturn instance.inqueryGateway.getByAttributesQuery(argumentCollection=arguments) />

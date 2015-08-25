@@ -8,7 +8,7 @@
 		<cfargument name="searchname" default="" />
 		<cfargument name="searchcity" default="" />
 		<cfargument name="searchusertype" default="" />
-		
+		<cfdump var="#arguments#" />
 		<cfset var startrow = (arguments.page-1) * arguments.pagesize>		
 		<cfset var gridstruct = structNew()>
 		
@@ -30,18 +30,18 @@
 			FROM `usermaster` where 1 = 1
 			<cfif structKeyExists(arguments,"searchname") and len(arguments.searchname)>
 				AND	(
-					usermaster.firstname like <cfqueryparam value="%#arguments.firstname#%" CFSQLType="cf_sql_varchar" />
+					usermaster.firstname like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
 					OR 
-					usermaster.lastname like <cfqueryparam value="%#arguments.lastname#%" CFSQLType="cf_sql_varchar" />
+					usermaster.lastname like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
 					OR 
-					usermaster.username like <cfqueryparam value="%#arguments.username#%" CFSQLType="cf_sql_varchar" />
+					usermaster.username like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
 				)
 			</cfif>
 			<cfif structKeyExists(arguments,"searchcity") and len(arguments.searchcity)>
 				AND	usermaster.city like <cfqueryparam value="%#arguments.searchcity#%" CFSQLType="cf_sql_varchar" />
 			</cfif>
-			<cfif structKeyExists(arguments,"usertype") and len(arguments.usertype)>
-				AND	usermaster.usertype = <cfqueryparam value="#arguments.usertype#" CFSQLType="cf_sql_varchar" />
+			<cfif structKeyExists(arguments,"searchusertype") and len(arguments.searchusertype)>
+				AND	usermaster.usertype = <cfqueryparam value="#arguments.searchusertype#" CFSQLType="cf_sql_varchar" />
 			</cfif>
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#
@@ -61,8 +61,8 @@
 			<cfif structKeyExists(arguments,"searchcity") and len(arguments.searchcity)>
 				AND	usermaster.city like <cfqueryparam value="%#arguments.searchcity#%" CFSQLType="cf_sql_varchar" />
 			</cfif>
-			<cfif structKeyExists(arguments,"usertype") and len(arguments.usertype)>
-				AND	usermaster.usertype = <cfqueryparam value="#arguments.usertype#" CFSQLType="cf_sql_varchar" />
+			<cfif structKeyExists(arguments,"searchusertype") and len(arguments.searchusertype)>
+				AND	usermaster.usertype = <cfqueryparam value="#arguments.searchusertype#" CFSQLType="cf_sql_varchar" />
 			</cfif>
 		</cfquery>
 		

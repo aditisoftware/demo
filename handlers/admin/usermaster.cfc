@@ -41,9 +41,8 @@
 			rc.sortOrder = "asc";
 		}
 		//Get the listing
+		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
 
-		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,rc.searchname = searchname,rc.searchcity = searchcity,rc.searchusertype = searchusertype);		
-		writeDump(rc.qusermaster);abort;
 		//Set the view to render
 		event.setView("admin/usermasterList");
 		</cfscript>

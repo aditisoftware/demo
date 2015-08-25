@@ -37,7 +37,6 @@
 		<cfargument name="traintype" type="string" required="false" />
 		<cfargument name="foodtype" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
-		<cfargument name="noofPassenger" type="string" required="false" />
 		<cfargument name="soundsystem" type="string" required="false" />
 		<cfargument name="project" type="string" required="false" />
 		<cfargument name="amt_pmt" type="string" required="false" />
@@ -52,6 +51,7 @@
 		<cfargument name="remark" type="string" required="false" />
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
+		<cfargument name="tourid" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
 		<cfset var qList = getByAttributesQuery(argumentCollection=arguments) />		
@@ -96,7 +96,6 @@
 		<cfargument name="traintype" type="string" required="false" />
 		<cfargument name="foodtype" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
-		<cfargument name="noofPassenger" type="string" required="false" />
 		<cfargument name="soundsystem" type="string" required="false" />
 		<cfargument name="project" type="string" required="false" />
 		<cfargument name="amt_pmt" type="string" required="false" />
@@ -111,6 +110,7 @@
 		<cfargument name="remark" type="string" required="false" />
 		<cfargument name="createddate" type="date" required="false" />
 		<cfargument name="createdby" type="numeric" required="false" />
+		<cfargument name="tourid" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		
 		<cfset var qList = "" />		
@@ -145,7 +145,6 @@
 				inquery.traintype,
 				inquery.foodtype,
 				inquery.mealplan,
-				inquery.noofPassenger,
 				inquery.soundsystem,
 				inquery.project,
 				inquery.amt_pmt,
@@ -159,7 +158,8 @@
 				inquery.sitevisit,
 				inquery.remark,
 				inquery.createddate,
-				inquery.createdby
+				inquery.createdby,
+				inquery.tourid
 			FROM `inquery`
 			WHERE 0=0
 			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
@@ -249,9 +249,6 @@
 			<cfif structKeyExists(arguments,"mealplan") and len(arguments.mealplan)>
 				AND	inquery.mealplan = <cfqueryparam value="#arguments.mealplan#" CFSQLType="cf_sql_varchar" />
 			</cfif>
-			<cfif structKeyExists(arguments,"noofPassenger") and len(arguments.noofPassenger)>
-				AND	inquery.noofPassenger = <cfqueryparam value="#arguments.noofPassenger#" CFSQLType="cf_sql_varchar" />
-			</cfif>
 			<cfif structKeyExists(arguments,"soundsystem") and len(arguments.soundsystem)>
 				AND	inquery.soundsystem = <cfqueryparam value="#arguments.soundsystem#" CFSQLType="cf_sql_varchar" />
 			</cfif>
@@ -294,6 +291,10 @@
 			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
 				AND	inquery.createdby = <cfqueryparam value="#arguments.createdby#" CFSQLType="cf_sql_integer" />
 			</cfif>
+			<cfif structKeyExists(arguments,"tourid") and len(arguments.tourid)>
+				AND	inquery.tourid = <cfqueryparam value="#arguments.tourid#" CFSQLType="cf_sql_integer" />
+			</cfif>
+
 			<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
 				ORDER BY #arguments.orderby#
 			</cfif>
@@ -342,7 +343,6 @@
 				inquery.traintype,
 				inquery.foodtype,
 				inquery.mealplan,
-				inquery.noofPassenger,
 				inquery.soundsystem,
 				inquery.project,
 				inquery.amt_pmt,
@@ -356,7 +356,8 @@
 				inquery.sitevisit,
 				inquery.remark,
 				inquery.createddate,
-				inquery.createdby
+				inquery.createdby,
+				inquery.tourid
 			FROM `inquery` 
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#

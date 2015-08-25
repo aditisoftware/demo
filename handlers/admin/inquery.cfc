@@ -2,7 +2,6 @@
 <cfcomponent name="inquery" extends="coldbox.system.eventhandler" output="false">
 	<cfproperty name="oinqueryService" inject="model:inqueryService" scope="instance" />
 	
-	
 	<cffunction name="init" access="public" returntype="inquery" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
@@ -17,14 +16,15 @@
 		
 		<cfscript>
 		//set The exit handlers
-		rc.xehEditor = "inquery.dspEditor";
-		rc.xehDelete = "inquery.doDelete";
-		rc.xehList = "inquery.list";
+		rc.xehEditor = "admin.inquery.dspEditor";
+		rc.xehDelete = "admin.inquery.doDelete";
+		rc.xehList = "admin.inquery.list";
 		
 		event.paramValue("page", "1");
 		event.paramValue("pageSize", getSetting("PagingMaxRows"));
 		event.paramValue("bandSize", getSetting("PagingBandGap"));
-		
+		event.paramValue("searchname","");
+		event.paramValue("searchcity","");
 		//Sorting Logic.
 		event.paramValue("sortBy", "Id");
 		if ( event.getValue("sortOrder","") neq ""){
@@ -41,7 +41,7 @@
 		rc.qinquery = instance.oinqueryService.getByPage(Page=rc.page, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder);		
 		
 		//Set the view to render
-		event.setView("inqueryList");
+		event.setView("admin/inqueryList");
 		</cfscript>
 	</cffunction>
 	
@@ -54,21 +54,19 @@
 		var oinqueryBean = "";
 		
 		//set the exit handlers
-		rc.xehSave = "inquery.doSave";
-		rc.xehList = "inquery.list";
-		
+		rc.xehSave = "admin.inquery.doSave";
+		rc.xehList = "admin.inquery.list";
+
 		if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
 			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
 		} else {
 			oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
 		}
 		StructAppend(rc, oinqueryBean.getMemento(), true);
-		
-		
+		rc.tourtype = instance.oinqueryService.getTourtype();
 		
 		//Set view to render
-		//event.setView("inqueryAdd");
-		event.setView("inqueryform");
+		event.setView("admin/inqueryAdd");
 		</cfscript>		
 	</cffunction>
 	
@@ -81,7 +79,7 @@
 		var oinqueryBean = "";
 		
 		//set the exit handlers
-		rc.xehList = "inquery.list";
+		rc.xehList = "admin.inquery.list";
 		
 		if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
 			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
@@ -91,7 +89,7 @@
 		StructAppend(rc, oinqueryBean.getMemento(), true);
 		
 		//Set view to render
-		event.setView("inqueryview");
+		event.setView("admin/inqueryview");
 		</cfscript>		
 	</cffunction>
 	
@@ -110,6 +108,9 @@
 			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
 		} else {
 			oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			oinqueryBean.setcreateddate(now());
+			oinqueryBean.setcreatedby(session.userid);
+
 		}
 		
 		if (StructKeyExists(rc, 'Id'))
@@ -196,23 +197,19 @@
 			oinqueryBean.setsitevisit(rc.sitevisit);
 		if (StructKeyExists(rc, 'remark'))
 			oinqueryBean.setremark(rc.remark);
-		if (StructKeyExists(rc, 'createddate'))
-			oinqueryBean.setcreateddate(rc.createddate);
-		if (StructKeyExists(rc, 'createdby'))
-			oinqueryBean.setcreatedby(rc.createdby);
-		
 		//Send to service for saving
 		result = instance.oinqueryService.saveinquery(oinqueryBean);
 		
-		setNextRoute("inquery/list");
-		/*
+		
 		if (!result.success){
-			getMyPlugin("ErrorBox").error(result.errors);
-			setNextEvent(event="inquery.dspEditor",persistStruct=rc);
+			getInstance("ErrorBox").error(renderto="inqueryError",message = result.errors);
+			rc.event = "admin.inquery.dspEditor";
+			setNextEvent(event=rc.event,persistStruct=rc);
 		}
 		else {
-			setNextRoute("inquery/list");
-		}*/
+			rc.event = "admin.inquery.list";
+			setNextEvent(event=rc.event);
+		}
 		</cfscript>		
 	</cffunction>
 	
@@ -228,10 +225,10 @@
 		result = instance.oinqueryService.deleteinquery(rc.Id);
 		
 		if (!result.success) {
-			getMyPlugin("ErrorBox").error(result.errors);
+			getInstance("ErrorBox").error(renderto="inqueryError",message = result.errors);
 		}
 		else {
-			getMyPlugin("ErrorBox").info("The record was successfully deleted");
+			getInstance("ErrorBox").info(renderto="inqueryError",message = "The record was successfully deleted");
 		}
 		//Set redirect
 		setNextRoute("inquery/list");

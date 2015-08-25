@@ -15,7 +15,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">Enter username and password.</div>
                     <cfoutput>
-                        <form id="Form1" action="#event.buildlink("#rc.xehDoLogin#")#">
+                        <form name="editor_form" id="editor_form" action="#event.buildlink("#rc.xehDoLogin#")#" method="post" >
                             <div class="row panel-body">
                                 <div class="col-md-offset-2 col-md-8 margin-bottom-15">
                                     <label for="username">Username</label>

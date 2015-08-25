@@ -29,7 +29,6 @@
 	<cfproperty name="traintype" type="string" default="" />
 	<cfproperty name="foodtype" type="string" default="" />
 	<cfproperty name="mealplan" type="string" default="" />
-	<cfproperty name="noofPassenger" type="string" default="" />
 	<cfproperty name="soundsystem" type="string" default="" />
 	<cfproperty name="project" type="string" default="" />
 	<cfproperty name="amt_pmt" type="string" default="" />
@@ -44,6 +43,7 @@
 	<cfproperty name="remark" type="string" default="" />
 	<cfproperty name="createddate" type="date" default="" />
 	<cfproperty name="createdby" type="numeric" default="" />
+	<cfproperty name="tourid" type="numeric" default="" />
 	
 	<!---
 	PROPERTIES
@@ -83,7 +83,6 @@
 		<cfargument name="traintype" type="string" default="" />
 		<cfargument name="foodtype" type="string" default="" />
 		<cfargument name="mealplan" type="string" default="" />
-		<cfargument name="noofPassenger" type="string" default="" />
 		<cfargument name="soundsystem" type="string" default="" />
 		<cfargument name="project" type="string" default="" />
 		<cfargument name="amt_pmt" type="string" default="" />
@@ -98,6 +97,7 @@
 		<cfargument name="remark" type="string" default="" />
 		<cfargument name="createddate" type="string" default="" />
 		<cfargument name="createdby" type="string" default="" />
+		<cfargument name="tourid" type="string" default="" />
 		
 		<!--- run setters --->
 		<cfset setId(arguments.Id) />
@@ -129,7 +129,6 @@
 		<cfset settraintype(arguments.traintype) />
 		<cfset setfoodtype(arguments.foodtype) />
 		<cfset setmealplan(arguments.mealplan) />
-		<cfset setnoofPassenger(arguments.noofPassenger) />
 		<cfset setsoundsystem(arguments.soundsystem) />
 		<cfset setproject(arguments.project) />
 		<cfset setamt_pmt(arguments.amt_pmt) />
@@ -144,7 +143,8 @@
 		<cfset setremark(arguments.remark) />
 		<cfset setcreateddate(arguments.createddate) />
 		<cfset setcreatedby(arguments.createdby) />
-		
+		<cfset settourid(arguments.tourid) />
+
 		<cfreturn this />
  	</cffunction>
 
@@ -367,13 +367,6 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(getnoofPassenger())) AND (len(trim(getnoofPassenger())) GT 3) >
-			<cfset thisError.field = "noofPassenger" />
-			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "noofPassenger no more than 3 characters" />
-			<cfset arrayAppend(errors,duplicate(thisError)) />
-		</cfif>
-		
 		<cfif len(trim(getsoundsystem())) AND (len(trim(getsoundsystem())) GT 3) >
 			<cfset thisError.field = "soundsystem" />
 			<cfset thisError.type = "maxlength" />
@@ -484,6 +477,18 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
+		<cfif (NOT len(trim(gettourid())))>
+			<cfset thisError.field = "tourid" />
+			<cfset thisError.type = "required" />
+			<cfset thisError.message = "Tourid is required" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+		<cfif len(trim(gettourid())) AND (NOT isvalid("numeric",trim(gettourid())))>
+			<cfset thisError.field = "tourid" />
+			<cfset thisError.type = "digits" />
+			<cfset thisError.message = "Tourid must be numeric" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
 		<cfreturn errors />
 	</cffunction>
 	
@@ -722,14 +727,6 @@
 		<cfreturn variables.instance.mealplan />
 	</cffunction>
 
-	<cffunction name="setnoofPassenger" access="public" returntype="void" output="false">
-		<cfargument name="noofPassenger" type="string" required="true" />
-		<cfset variables.instance.noofPassenger = arguments.noofPassenger />
-	</cffunction>
-	<cffunction name="getnoofPassenger" access="public" returntype="string" output="false">
-		<cfreturn variables.instance.noofPassenger />
-	</cffunction>
-
 	<cffunction name="setsoundsystem" access="public" returntype="void" output="false">
 		<cfargument name="soundsystem" type="string" required="true" />
 		<cfset variables.instance.soundsystem = arguments.soundsystem />
@@ -842,5 +839,12 @@
 		<cfreturn variables.instance.createdby />
 	</cffunction>
 
+	<cffunction name="settourid" access="public" returntype="void" output="false">
+		<cfargument name="tourid" type="string" required="true" />
+		<cfset variables.instance.tourid = arguments.tourid />
+	</cffunction>
+	<cffunction name="gettourid" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.tourid />
+	</cffunction>
 </cfcomponent>
 
