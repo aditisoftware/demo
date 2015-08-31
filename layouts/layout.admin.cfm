@@ -3,6 +3,7 @@
     <html lang="en">
     <head runat="server">
         <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/includes/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
@@ -41,7 +42,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">ANT Inquery</a>
+                    <a class="navbar-brand" href="index.html">Rahi Inquiry</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -53,7 +54,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="logout.aspx"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="#event.buildLink('general.logout')#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -65,11 +66,32 @@
                             <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users Add</a>
+                            <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users</a>
                         </li>
                         <li>
-                            <a href="#event.buildLink('admin.inquery.list')#"><i class="fa fa-fw fa-table"></i> Inquery</a>
+                            <a href="#event.buildLink('admin.inquery.list')#"><i class="fa fa-fw fa-table"></i> Inquiry</a>
                         </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.escortedtour')#"><i class="fa fa-fw fa-table"></i> ESCORTED TOUR</a>
+                        </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.bhaktiyatra')#"><i class="fa fa-fw fa-table"></i> BHAKTI YATRA</a>
+                        </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.educationaltour')#"><i class="fa fa-fw fa-table"></i> EDUCATIONAL TOUR</a>
+                        </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.adventuretour')#"><i class="fa fa-fw fa-table"></i> ADVENTURE TOUR</a>
+                        </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.corporatetour')#"><i class="fa fa-fw fa-table"></i> CORPORATE TOUR</a>
+                        </li>
+                        <li>
+                            <a href="#event.buildLink('admin.inquery.individualtour')#"><i class="fa fa-fw fa-table"></i>INDIVIDUAL TOUR</a>
+                        </li>
+                        <!--- <li>
+                            <a href="#event.buildLink('admin.inquery.hotelbooking')#"><i class="fa fa-fw fa-table"></i> HOTEL BOOKING</a>
+                        </li> --->
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

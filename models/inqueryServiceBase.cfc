@@ -52,6 +52,17 @@
 		<cfargument name="createddate" type="string" required="false" />
 		<cfargument name="createdby" type="string" required="false" />
 		<cfargument name="tourid" type="string" required="false" />
+		<cfargument name="infant" type="string" required="false" />
+		<cfargument name="tourname" type="string" required="false" />
+		<cfargument name="tourcode" type="string" required="false" />
+		<cfargument name="schoolname" type="string" required="false" />
+		<cfargument name="totaldays" type="string" required="false" />
+		<cfargument name="entryfees" type="string" required="false" />
+		<cfargument name="hotelrooms" type="string" required="false" />
+		<cfargument name="extramatress" type="string" required="false" />
+		<cfargument name="mealplan" type="string" required="false" />
+		<cfargument name="vehicle" type="string" required="false" />
+
 
 		<cfset var minquery = createObject("component","inquery").init(argumentCollection=arguments) />
 		<cfreturn minquery />
@@ -135,7 +146,17 @@
 		<cfargument name="createdby" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
 		<cfargument name="tourid" type="string" required="false" />
-		
+		<cfargument name="infant" type="string" required="false" />
+		<cfargument name="tourname" type="string" required="false" />
+		<cfargument name="tourcode" type="string" required="false" />
+		<cfargument name="schoolname" type="string" required="false" />
+		<cfargument name="totaldays" type="string" required="false" />
+		<cfargument name="entryfees" type="string" required="false" />
+		<cfargument name="hotelrooms" type="string" required="false" />
+		<cfargument name="extramatress" type="string" required="false" />
+		<cfargument name="mealplan" type="string" required="false" />
+		<cfargument name="vehicle" type="string" required="false" />
+
 		<cfif arguments.datatype eq "query">
 			<cfreturn instance.inqueryGateway.getByAttributesQuery(argumentCollection=arguments) />
 		<cfelse>
@@ -148,7 +169,9 @@
 	    <cfargument name="pagesize" default="30">
 	    <cfargument name="gridsortcolumn" default="Id">
 	    <cfargument name="gridstartdirection" default="">
-		
+		<cfargument name="searchname" default="" >
+		<cfargument name="searchcity" default="" >
+		<cfargument name="searchusertype" default="" >
 		<cfreturn instance.inqueryGateway.getBypage(argumentCollection=arguments) />
 		
 	</cffunction>

@@ -30,8 +30,6 @@
 		<cfargument name="hotelcategory" type="string" required="false" />
 		<cfargument name="roomsharing" type="string" required="false" />
 		<cfargument name="vehicletype" type="string" required="false" />
-		<cfargument name="allss" type="string" required="false" />
-		<cfargument name="allentry" type="string" required="false" />
 		<cfargument name="departuredate" type="date" required="false" />
 		<cfargument name="transporttype" type="string" required="false" />
 		<cfargument name="traintype" type="string" required="false" />
@@ -53,7 +51,17 @@
 		<cfargument name="createdby" type="numeric" required="false" />
 		<cfargument name="tourid" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
-		
+		<cfargument name="infant" type="string" required="false" />
+		<cfargument name="tourname" type="string" required="false" />
+		<cfargument name="tourcode" type="string" required="false" />
+		<cfargument name="schoolname" type="string" required="false" />
+		<cfargument name="totaldays" type="string" required="false" />
+		<cfargument name="entryfees" type="string" required="false" />
+		<cfargument name="hotelrooms" type="string" required="false" />
+		<cfargument name="extramatress" type="string" required="false" />
+		<cfargument name="mealplan" type="string" required="false" />
+		<cfargument name="vehicle" type="string" required="false" />
+
 		<cfset var qList = getByAttributesQuery(argumentCollection=arguments) />		
 		<cfset var arrObjects = arrayNew(1) />
 		<cfset var tmpObj = "" />
@@ -89,8 +97,6 @@
 		<cfargument name="hotelcategory" type="string" required="false" />
 		<cfargument name="roomsharing" type="string" required="false" />
 		<cfargument name="vehicletype" type="string" required="false" />
-		<cfargument name="allss" type="string" required="false" />
-		<cfargument name="allentry" type="string" required="false" />
 		<cfargument name="departuredate" type="date" required="false" />
 		<cfargument name="transporttype" type="string" required="false" />
 		<cfargument name="traintype" type="string" required="false" />
@@ -112,7 +118,17 @@
 		<cfargument name="createdby" type="numeric" required="false" />
 		<cfargument name="tourid" type="numeric" required="false" />
 		<cfargument name="orderby" type="string" required="false" />
-		
+		<cfargument name="infant" type="string" required="false" />
+		<cfargument name="tourname" type="string" required="false" />
+		<cfargument name="tourcode" type="string" required="false" />
+		<cfargument name="schoolname" type="string" required="false" />
+		<cfargument name="totaldays" type="string" required="false" />
+		<cfargument name="entryfees" type="string" required="false" />
+		<cfargument name="hotelrooms" type="string" required="false" />
+		<cfargument name="extramatress" type="string" required="false" />
+		<cfargument name="mealplan" type="string" required="false" />
+		<cfargument name="vehicle" type="string" required="false" />
+
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
 			SELECT	
@@ -138,8 +154,6 @@
 				inquery.hotelcategory,
 				inquery.roomsharing,
 				inquery.vehicletype,
-				inquery.allss,
-				inquery.allentry,
 				inquery.departuredate,
 				inquery.transporttype,
 				inquery.traintype,
@@ -159,7 +173,17 @@
 				inquery.remark,
 				inquery.createddate,
 				inquery.createdby,
-				inquery.tourid
+				inquery.tourid,
+				inquery.infant,
+				inquery.tourname,
+				inquery.tourcode,
+				inquery.schoolname,
+				inquery.totaldays,
+				inquery.entryfees,
+				inquery.hotelrooms,
+				inquery.extramatress,
+				inquery.mealplan,
+				inquery.vehicle
 			FROM `inquery`
 			WHERE 0=0
 			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
@@ -228,12 +252,6 @@
 			<cfif structKeyExists(arguments,"vehicletype") and len(arguments.vehicletype)>
 				AND	inquery.vehicletype = <cfqueryparam value="#arguments.vehicletype#" CFSQLType="cf_sql_varchar" />
 			</cfif>
-			<cfif structKeyExists(arguments,"allss") and len(arguments.allss)>
-				AND	inquery.allss = <cfqueryparam value="#arguments.allss#" CFSQLType="cf_sql_varchar" />
-			</cfif>
-			<cfif structKeyExists(arguments,"allentry") and len(arguments.allentry)>
-				AND	inquery.allentry = <cfqueryparam value="#arguments.allentry#" CFSQLType="cf_sql_varchar" />
-			</cfif>
 			<cfif structKeyExists(arguments,"departuredate") and len(arguments.departuredate)>
 				AND	inquery.departuredate = <cfqueryparam value="#arguments.departuredate#" CFSQLType="cf_sql_timestamp" />
 			</cfif>
@@ -294,6 +312,36 @@
 			<cfif structKeyExists(arguments,"tourid") and len(arguments.tourid)>
 				AND	inquery.tourid = <cfqueryparam value="#arguments.tourid#" CFSQLType="cf_sql_integer" />
 			</cfif>
+			<cfif structKeyExists(arguments,"infant") and len(arguments.infant)>
+				AND inquery.infant = <cfqueryparam value="#arguments.infant#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"tourname") and len(arguments.tourname)>
+				AND inquery.tourname = <cfqueryparam value="#arguments.tourname#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"tourcode") and len(arguments.tourcode)>
+				AND inquery.tourcode = <cfqueryparam value="#arguments.tourcode#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"schoolname") and len(arguments.schoolname)>
+				AND inquery.schoolname = <cfqueryparam value="#arguments.schoolname#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"totaldays") and len(arguments.totaldays)>
+				AND inquery.totaldays = <cfqueryparam value="#arguments.totaldays#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"entryfees") and len(arguments.entryfees)>
+				AND inquery.entryfees = <cfqueryparam value="#arguments.entryfees#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"hotelrooms") and len(arguments.hotelrooms)>
+				AND inquery.hotelrooms = <cfqueryparam value="#arguments.hotelrooms#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"extramatress") and len(arguments.extramatress)>
+				AND inquery.extramatress = <cfqueryparam value="#arguments.extramatress#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"mealplan") and len(arguments.mealplan)>
+				AND inquery.mealplan = <cfqueryparam value="#arguments.mealplan#" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"vehicle") and len(arguments.vehicle)>
+				AND inquery.vehicle = <cfqueryparam value="#arguments.vehicle#" CFSQLType="cf_sql_varchar" />
+			</cfif>
 
 			<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
 				ORDER BY #arguments.orderby#
@@ -308,7 +356,9 @@
 		<cfargument name="pagesize" default="30">
 		<cfargument name="gridsortcolumn" default="Id">
 		<cfargument name="gridstartdirection" default="">
-		
+		<cfargument name="searchname" default="" >
+		<cfargument name="searchcity" default="" >
+		<cfargument name="searchusertype" default="" >
 		<cfset var startrow = (arguments.page-1) * arguments.pagesize>		
 		<cfset var gridstruct = structNew()>
 		
@@ -336,8 +386,6 @@
 				inquery.hotelcategory,
 				inquery.roomsharing,
 				inquery.vehicletype,
-				inquery.allss,
-				inquery.allentry,
 				inquery.departuredate,
 				inquery.transporttype,
 				inquery.traintype,
@@ -359,6 +407,18 @@
 				inquery.createdby,
 				inquery.tourid
 			FROM `inquery` 
+			<cfif structKeyExists(arguments,"searchname") and len(arguments.searchname)>
+				AND	inquery.contactperson like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"searchcity") and len(arguments.searchcity)>
+				AND	inquery.city like <cfqueryparam value="%#arguments.searchcity#%" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
+				AND	inquery.createddate = <cfqueryparam value="#arguments.createddate#" CFSQLType="cf_sql_timestamp" />
+			</cfif>
+			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
+				AND	inquery.createdby = <cfqueryparam value="#arguments.createdby#" CFSQLType="cf_sql_integer" />
+			</cfif>
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#
 		</cfquery>

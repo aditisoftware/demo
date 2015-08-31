@@ -25,6 +25,8 @@
 		event.paramValue("bandSize", getSetting("PagingBandGap"));
 		event.paramValue("searchname","");
 		event.paramValue("searchcity","");
+		event.paramValue("searchusertype","");
+		
 		//Sorting Logic.
 		event.paramValue("sortBy", "Id");
 		if ( event.getValue("sortOrder","") neq ""){
@@ -38,7 +40,15 @@
 		}
 		
 		//Get the listing
-		rc.qinquery = instance.oinqueryService.getByPage(Page=rc.page, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder);		
+		rc.qinquery = instance.oinqueryService.getByPage(
+			Page=rc.page, 
+			pagesize=rc.pageSize,
+			gridsortcolumn=rc.sortBy,
+			gridstartdirection=rc.sortOrder,
+			searchname=rc.searchname,
+			searchcity=rc.searchcity,
+			searchusertype=rc.searchusertype
+			);		
 		
 		//Set the view to render
 		event.setView("admin/inqueryList");
@@ -51,23 +61,23 @@
 		<cfargument name="prc">
 
 		<cfscript>
-		var oinqueryBean = "";
-		
-		//set the exit handlers
-		rc.xehSave = "admin.inquery.doSave";
-		rc.xehList = "admin.inquery.list";
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
 
-		if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
-			oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
-		} else {
-			oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
-		}
-		StructAppend(rc, oinqueryBean.getMemento(), true);
-		rc.tourtype = instance.oinqueryService.getTourtype();
-		
-		//Set view to render
-		event.setView("admin/inqueryAdd");
-		</cfscript>		
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/inqueryAdd");
+		</cfscript>
 	</cffunction>
 	
 	<cffunction name="view" access="public" returntype="void" output="false">
@@ -112,7 +122,9 @@
 			oinqueryBean.setcreatedby(session.userid);
 
 		}
-		
+		if (StructKeyExists(rc, 'tourid'))
+			oinqueryBean.settourid(rc.tourid);
+
 		if (StructKeyExists(rc, 'Id'))
 			oinqueryBean.setId(rc.Id);
 		if (StructKeyExists(rc, 'companyname'))
@@ -197,13 +209,47 @@
 			oinqueryBean.setsitevisit(rc.sitevisit);
 		if (StructKeyExists(rc, 'remark'))
 			oinqueryBean.setremark(rc.remark);
+
+		if (StructKeyExists(rc, 'infant'))
+			oinqueryBean.setinfant(rc.infant);
+		if (StructKeyExists(rc, 'tourname'))
+			oinqueryBean.settourname(rc.tourname);
+		if (StructKeyExists(rc, 'tourcode'))
+			oinqueryBean.settourcode(rc.tourcode);
+		if (StructKeyExists(rc, 'schoolname'))
+			oinqueryBean.setschoolname(rc.schoolname);
+		if (StructKeyExists(rc, 'totaldays'))
+			oinqueryBean.settotaldays(rc.totaldays);
+		if (StructKeyExists(rc, 'entryfees'))
+			oinqueryBean.setentryfees(rc.entryfees);
+		if (StructKeyExists(rc, 'hotelrooms'))
+			oinqueryBean.sethotelrooms(rc.hotelrooms);
+		if (StructKeyExists(rc, 'extramatress'))
+			oinqueryBean.setextramatress(rc.extramatress);
+		if (StructKeyExists(rc, 'mealplan'))
+			oinqueryBean.setmealplan(rc.mealplan);
+		if (StructKeyExists(rc, 'vehicle'))
+			oinqueryBean.setvehicle(rc.vehicle);
+
 		//Send to service for saving
 		result = instance.oinqueryService.saveinquery(oinqueryBean);
 		
 		
 		if (!result.success){
 			getInstance("ErrorBox").error(renderto="inqueryError",message = result.errors);
-			rc.event = "admin.inquery.dspEditor";
+			if(rc.tourtype eq 1)
+				rc.event = "admin.inquery.escortedtour";
+			else if(rc.tourtype eq 2)
+				rc.event = "admin.inquery.bhaktiyatra";
+			else if(rc.tourtype eq 3)
+				rc.event = "admin.inquery.educationaltour";
+			else if(rc.tourtype eq 4)
+				rc.event = "admin.inquery.adventuretour";
+			else if(rc.tourtype eq 5)
+				rc.event = "admin.inquery.corporatetour";
+			else if(rc.tourtype eq 6)
+				rc.event = "admin.inquery.individualtour";
+
 			setNextEvent(event=rc.event,persistStruct=rc);
 		}
 		else {
@@ -231,9 +277,212 @@
 			getInstance("ErrorBox").info(renderto="inqueryError",message = "The record was successfully deleted");
 		}
 		//Set redirect
-		setNextRoute("inquery/list");
+		rc.event = "admin.inquery.list";
+		setNextEvent(event=rc.event);
 		</cfscript>		
 	</cffunction>	
-	
+
+	<cffunction name="escortedtour" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.infant = "";
+			rc.tourname = "";
+			rc.tourcode = "";*/
+
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/escortedtour");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="bhaktiyatra" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.infant = "";
+			rc.tourname = "";
+			rc.tourcode = "";*/
+
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/bhaktiyatra");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="educationaltour" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.tourtype = "";
+			rc.tourname = "";
+			rc.tourcode = "";
+			rc.schoolname = "";
+			rc.totaldays = "";
+			rc.entryfees = "";*/
+			
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			
+			//Set view to render
+			event.setView("admin/educationaltour");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="adventuretour" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.tourtype = "";
+			rc.tourname = "";
+			rc.tourcode = "";
+			rc.schoolname = "";
+			rc.totaldays = "";
+			rc.entryfees = "";*/
+			
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			
+			//Set view to render
+			event.setView("admin/adventuretour");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="corporatetour" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.infant = "";
+			rc.tourname = "";
+			rc.tourcode = "";
+			rc.entryfees = "";
+			rc.b2b = "";*/
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/corporatetour");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="xhotelbooking" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+		<cfabort />
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/hotelbooking");
+		</cfscript>
+	</cffunction>
+
+	<cffunction name="individualtour" access="public" returntype="void" output="false">
+		<cfargument name="rc" />
+		<cfargument name="prc" />
+		<cfargument name="event" />
+
+		<cfscript>
+			var oinqueryBean = "";
+			
+			//set the exit handlers
+			rc.xehSave = "admin.inquery.doSave";
+			rc.xehList = "admin.inquery.list";
+			/*rc.infant = "";
+			rc.tourname = "";
+			rc.tourcode = "";
+			rc.entryfees = "";
+			rc.totaldays = "";
+			rc.hotelrooms = "";
+			rc.extramatress = "";
+			rc.mealplan = "";
+			rc.vehicle = "";*/
+			if (StructKeyExists(rc,'Id') AND len(rc.Id)) {
+				oinqueryBean = instance.oinqueryService.getinquery(rc.Id);
+			} else {
+				oinqueryBean = instance.oinqueryService.createinquery(argumentCollection=rc);
+			}
+			StructAppend(rc, oinqueryBean.getMemento(), true);
+			rc.tourtype = instance.oinqueryService.getTourtype();
+			
+			//Set view to render
+			event.setView("admin/individualtour");
+		</cfscript>
+	</cffunction>
 </cfcomponent>
 
