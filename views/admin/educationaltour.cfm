@@ -117,7 +117,7 @@
 </cfsavecontent>
 <cfhtmlhead text="#AddScript#" />
 <div class="content_header">
-	<h1>Inquery Add</h1>
+	<h1>EDUCATION TOUR</h1>
 </div>
 </cfoutput>
 <cfoutput>
@@ -127,27 +127,15 @@
 		<ul id="inqueryULError"></ul>
 	</div>
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="tourtype">Tour Type</label>
-				<select name="tourid" id="tourid" class="form-control">
-					<option value="">Select Type</option>
-					<cfloop query="rc.tourtype">
-						<option value="#rc.tourtype.id#">#rc.tourtype.tourtitle#</option>
-					</cfloop>
-				</select>
-			</div>	
-		</div>
-	</div>
+	<input type="hidden" name="tourid" id="tourid" value="3" /> 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Client detail</div>
 				<div class="panel-body">
 					<div class="form-group">
-						<label for="companyname">Company name</label>
-						<input class="form-control" id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
+						<label for="schoolname">School Name/Class Name</label>
+						<input class="form-control" id="schoolname" name="schoolname" type="text" value="#rc.schoolname#" maxlength="50" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="contactperson">Contact person</label>
@@ -173,13 +161,17 @@
 						<label for="zipcode">Zipcode</label>
 						<input class="form-control" id="zipcode" name="zipcode" type="text" value="#rc.zipcode#" maxlength="10" size="32"  />
 					</div>
-					<div class="form-group">
-						<label for="phone1">Phone1</label>
-						<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="phone1">Phone1</label>
+							<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="phone2">Phone2</label>
-						<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="phone2">Phone2</label>
+							<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="mobile">Mobile</label>
@@ -197,6 +189,27 @@
 				<div class="panel-heading">Inquery detail</div>
 				<div class="panel-body">
 					<div class="form-group">
+						<label for="tourtype">Tour type</label>
+						<select class="form-control" id="tourtype" name="tourtype">
+							<option value="">Select Tour Type</option>
+							<option value="ONE DAY" <cfif rc.tourtype eq "ONE DAY">selected></cfif>>ONE DAY</option>
+							<option value="TWO DAY" <cfif rc.tourtype eq "TWO DAY">selected></cfif>>TWO DAY</option>
+							<option value="THREE DAY" <cfif rc.tourtype eq "THREE DAY">selected></cfif>>THREE DAY</option>
+							<option value="TREKKING & CAMPING" <cfif rc.tourtype eq "TREKKING & CAMPING">selected></cfif>>TREKKING & CAMPING</option>
+							<option value="WILDLIFE" <cfif rc.tourtype eq "WILDLIFE">selected></cfif>>WILDLIFE</option>
+							<option value="WATER SPORTS" <cfif rc.tourtype eq "WATER SPORTS">selected></cfif>>WATER SPORTS</option>
+							<option value="RESORT & AMUZEMENT PARK" <cfif rc.tourtype eq "RESORT & AMUZEMENT PARK">selected></cfif>>RESORT & AMUZEMENT PARK</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="tourname">Tour Name</label>
+						<input class="form-control" id="tourname" name="tourname" type="text" value="#rc.tourname#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="tourcode">Tour Code</label>
+						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
 						<label for="destination">Destination</label>
 						<input class="form-control" id="destination" name="destination" type="text" value="#rc.destination#" maxlength="50" size="32"  />
 					</div>
@@ -209,20 +222,8 @@
 						<input class="form-control" id="totalpassenger" name="totalpassenger" type="text" value="#rc.totalpassenger#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="adult">Adult</label>
-						<input class="form-control" id="adult" name="adult" type="text" value="#rc.adult#" maxlength="3" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="child">Child</label>
-						<input class="form-control" id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="child511year">Child 5- 11 year</label>
-						<input class="form-control" id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="child11plus">Child 11 +</label>
-						<input class="form-control" id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
+						<label for="totaldays">Total days</label>
+						<input class="form-control" id="totaldays" name="totaldays" type="text" value="#rc.totaldays#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="hotelcategory">Hotel category</label>
@@ -252,7 +253,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
+		<!-- <div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Special Service</div>
 				<div class="panel-body">
@@ -343,7 +344,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Additional Information</div>
@@ -371,14 +372,6 @@
 						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="allss">All ss</label>
-						<input class="form-control" id="allss" name="allss" type="text" value="#rc.allss#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="allentry">All entry</label>
-						<input class="form-control" id="allentry" name="allentry" type="text" value="#rc.allentry#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
 						<label for="foodtype">Food type</label>
 						<select class="form-control" id="foodtype" name="foodtype">
 							<option value="">Selct</option>
@@ -396,8 +389,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="B2B">B2B</label>
-						<input class="form-control" id="B2B" name="B2B" type="text" value="#rc.B2B#" maxlength="15" size="32"  />
+						<label for="Entry Fees">Entry Fees</label>
+						<input class="form-control" id="Entry Fees" name="Entry Fees" type="text" value="#rc.entryfees#" maxlength="15" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="remark">Remark</label>

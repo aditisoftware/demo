@@ -117,7 +117,7 @@
 </cfsavecontent>
 <cfhtmlhead text="#AddScript#" />
 <div class="content_header">
-	<h1>ESCORTED TOUR</h1>
+	<h1>Individual Tour</h1>
 </div>
 </cfoutput>
 <cfoutput>
@@ -127,20 +127,12 @@
 		<ul id="inqueryULError"></ul>
 	</div>
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
-	<input type="hidden" name="tourid" id="tourid" value="1" /> 
+	<input type="hidden" name="tourid" id="tourid" value="6" />
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Client detail</div>
 				<div class="panel-body">
-					<div class="form-group">
-						<label for="tourname">Tour Name</label>
-						<input class="form-control" id="tourname" name="tourname" type="text" value="#rc.tourname#" maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="tourcode">Tour Code</label>
-						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
-					</div>
 					<div class="form-group">
 						<label for="companyname">Company name</label>
 						<input class="form-control" id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
@@ -169,17 +161,13 @@
 						<label for="zipcode">Zipcode</label>
 						<input class="form-control" id="zipcode" name="zipcode" type="text" value="#rc.zipcode#" maxlength="10" size="32"  />
 					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="phone1">Phone1</label>
-							<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
-						</div>
+					<div class="form-group">
+						<label for="phone1">Phone1</label>
+						<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
 					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="phone2">Phone2</label>
-							<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
-						</div>
+					<div class="form-group">
+						<label for="phone2">Phone2</label>
+						<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="mobile">Mobile</label>
@@ -197,12 +185,24 @@
 				<div class="panel-heading">Inquery detail</div>
 				<div class="panel-body">
 					<div class="form-group">
+						<label for="tourname">Tour Name</label>
+						<input class="form-control" id="tourname" name="tourname" type="text" value="#rc.tourname#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="tourcode">Tour Code</label>
+						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
 						<label for="destination">Destination</label>
 						<input class="form-control" id="destination" name="destination" type="text" value="#rc.destination#" maxlength="50" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="departuredate">Departure date</label>
 						<input class="form-control" id="departuredate" name="departuredate" type="text" value="<cfif len(trim(rc.departuredate))>#dateFormat(rc.departuredate,'MM/DD/YYYY')# #TimeFormat(rc.departuredate,'hh:mm:ss tt')#</cfif>" maxlength="10" size="32" />
+					</div>
+					<div class="form-group">
+						<label for="totaldays">totaldays</label>
+						<input class="form-control" id="totaldays" name="totaldays" type="text" value="#rc.totaldays#" maxlength="50" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="totalpassenger">Total passenger</label>
@@ -217,7 +217,7 @@
 						<input class="form-control" id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="child511year">Child 5 - 11 year</label>
+						<label for="child511year">Child 5- 11 year</label>
 						<input class="form-control" id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
@@ -225,31 +225,90 @@
 						<input class="form-control" id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="infant">Infant</label>
-						<input class="form-control" id="infant" name="infant" type="text" value="#rc.infant#" maxlength="3" size="32"  />
-					</div>
-					<div class="form-group">
 						<label for="hotelcategory">Hotel category</label>
 						<select class="form-control" id="hotelcategory" name="hotelcategory" >
 							<option <cfif rc.hotelcategory eq "" >selected</cfif> value="">Select</option>
-							<option <cfif rc.hotelcategory eq "ECONOMY" >selected</cfif> value="ECONOMY">ECONOMY</option>
 							<option <cfif rc.hotelcategory eq "BUDGET" >selected</cfif> value="BUDGET">BUDGET</option>
-							<option <cfif rc.hotelcategory eq "STANDARD" >selected</cfif> value="STANDARD">STANDARD</option>
-							<option <cfif rc.hotelcategory eq "DELUXE" >selected</cfif> value="DELUXE">DELUXE</option>
-							<option <cfif rc.hotelcategory eq "SUPER DELUXE" >selected</cfif> value="SUPER DELUXE">SUPER DELUXE</option>
-							<option <cfif rc.hotelcategory eq "LUXURY" >selected</cfif> value="LUXURY">LUXURY</option>
+							<option <cfif rc.hotelcategory eq "2 Star" >selected</cfif> value="2 Star">2 Star</option>
+							<option <cfif rc.hotelcategory eq "3 Star" >selected</cfif> value="3 Star">3 Star</option>
+							<option <cfif rc.hotelcategory eq "4 Star" >selected</cfif> value="4 Star">4 Star</option>
+							<option <cfif rc.hotelcategory eq "5 Star" >selected</cfif> value="5 Star">5 Star</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="roomsharing">Room sharing</label>
-						<select class="form-control" id="roomsharing" name="roomsharing">
-							<option <cfif rc.roomsharing eq "" >selected</cfif> value="">Select</option>
-							<option <cfif rc.roomsharing eq "DOUBLE SHARING" >selected</cfif> value="DOUBLE SHARING">DOUBLE SHARING</option>
-							<option <cfif rc.roomsharing eq "TRIPLE SHARING" >selected</cfif> value="TRIPLE SHARING">TRIPLE SHARING</option>
-							<option <cfif rc.roomsharing eq "QUAD SHARING" >selected</cfif> value="QUAD SHARING">QUAD SHARING</option>
-							<option <cfif rc.roomsharing eq "FIVE SHARING" >selected</cfif> value="FIVE SHARING">FIVE SHARING</option>
-							<option <cfif rc.roomsharing eq "DORMITORY" >selected</cfif> value="DORMITORY">DORMITORY"</option>
-						</select>				
+						<label for="hotelrooms">Hotel rooms</label>
+						<input class="form-control" id="hotelrooms" name="hotelrooms" type="text" value="#rc.hotelrooms#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="extramatress">Extra Matress</label>
+						<input class="form-control" id="extramatress" name="extramatress" type="text" value="#rc.extramatress#" maxlength="3" size="32"  />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Additional Information</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="vehicle">Vehicle</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Any</option>	
+							<option value="INDICA" <cfif rc.vehicle eq "INDICA">selected</cfif>	>INDICA</option>
+							<option value="INDIGO" <cfif rc.vehicle eq "INDIGO">selected</cfif>	>INDIGO</option>
+							<option value="SWIFT" <cfif rc.vehicle eq "SWIFT">selected</cfif>	>SWIFT</option>
+							<option value="TAVERA" <cfif rc.vehicle eq "TAVERA">selected</cfif>	>TAVERA</option>
+							<option value="INNOVA" <cfif rc.vehicle eq "INNOVA">selected</cfif>	>INNOVA</option>
+							<option value="XYLO" <cfif rc.vehicle eq "XYLO">selected</cfif>	>XYLO</option>
+							<option value="WINGER" <cfif rc.vehicle eq "WINGER">selected</cfif>	>WINGER</option>
+							<option value="TEMPO TRAVELLER (12 SEAT)" <cfif rc.vehicle eq "TEMPO TRAVELLER (12 SEAT)">selected</cfif>>TEMPO TRAVELLER (12 SEAT)</option>
+							<option value="TEMPO TRAVELLER (14 SEAT)" <cfif rc.vehicle eq "TEMPO TRAVELLER (14 SEAT)">selected</cfif>>TEMPO TRAVELLER (14 SEAT)</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="vehicletype">Vehicle type</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Any</option>	
+							<option <cfif rc.vehicletype eq "ac">selected</cfif> value="ac">A.C</option>	
+							<option <cfif rc.vehicletype eq "nonac">selected</cfif> value="nonac">Non A.C</option>	
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="traintype">Train type</label>
+						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="allss">All ss</label>
+						<input class="form-control" id="allss" name="allss" type="text" value="#rc.allss#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="allentry">All entry</label>
+						<input class="form-control" id="allentry" name="allentry" type="text" value="#rc.allentry#" maxlength="1" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="foodtype">Food type</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Selct</option>
+							<option value="VEG. REGULAR"<cfif rc.foodtype eq "VEG. REGULAR">selected</cfif>>VEG. REGULAR</option>
+							<option value="JAIN"<cfif rc.foodtype eq "JAIN">selected</cfif>>JAIN</option>
+							<option value="SWAMINARAYAN"<cfif rc.foodtype eq "SWAMINARAYAN">selected</cfif>>SWAMINARAYAN</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="mealplan">Meal plan</label>
+						<select class="form-control" id="mealplan" name="mealplan">
+							<option value="">Selct</option>
+							<option value="EP" <cfif rc.mealplan eq "EP">selected</cfif>>EP EUROPEAN PLAN (ONLY ACCOMMODATION)</option>
+							<option value="CP" <cfif rc.mealplan eq "CP">selected</cfif>>CP = CONTINENTAL PLAN (ACCOMMODATION + BREAKFAST)</option>
+							<option value="MAP" <cfif rc.mealplan eq "MAP">selected</cfif>>MAP = MODIFIED AMERICAN PLAN (ACCOMMODATION + BREAKFAST + LUNCH / DINNER)</option>
+							<option value="AP" <cfif rc.mealplan eq "AP">selected</cfif>>AP = AMERICAN PLAN (ACCOMMODATION + BREAKFAST + LUNCH + DINNER)</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="Entry Fees">Entry Fees</label>
+						<input class="form-control" id="Entry Fees" name="Entry Fees" type="text" value="#rc.entryfees#" maxlength="15" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="remark">Remark</label>
@@ -257,7 +316,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 	<div class="row">
 		<div class="col-md-6">

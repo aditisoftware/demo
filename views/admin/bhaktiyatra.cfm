@@ -117,7 +117,7 @@
 </cfsavecontent>
 <cfhtmlhead text="#AddScript#" />
 <div class="content_header">
-	<h1>Inquery Add</h1>
+	<h1>BHAKTI YATRA</h1>
 </div>
 </cfoutput>
 <cfoutput>
@@ -127,24 +127,20 @@
 		<ul id="inqueryULError"></ul>
 	</div>
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="tourtype">Tour Type</label>
-				<select name="tourid" id="tourid" class="form-control">
-					<option value="">Select Type</option>
-					<cfloop query="rc.tourtype">
-						<option value="#rc.tourtype.id#">#rc.tourtype.tourtitle#</option>
-					</cfloop>
-				</select>
-			</div>	
-		</div>
-	</div>
+	<input type="hidden" name="tourid" id="tourid" value="2" /> 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Client detail</div>
 				<div class="panel-body">
+					<div class="form-group">
+						<label for="tourname">Tour Name</label>
+						<input class="form-control" id="tourname" name="tourname" type="text" value="#rc.tourname#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="tourcode">Tour Code</label>
+						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
+					</div>
 					<div class="form-group">
 						<label for="companyname">Company name</label>
 						<input class="form-control" id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
@@ -173,13 +169,17 @@
 						<label for="zipcode">Zipcode</label>
 						<input class="form-control" id="zipcode" name="zipcode" type="text" value="#rc.zipcode#" maxlength="10" size="32"  />
 					</div>
-					<div class="form-group">
-						<label for="phone1">Phone1</label>
-						<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="phone1">Phone1</label>
+							<input class="form-control" id="phone1" name="phone1" type="text" value="#rc.phone1#" maxlength="15" size="32"  />
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="phone2">Phone2</label>
-						<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="phone2">Phone2</label>
+							<input class="form-control" id="phone2" name="phone2" type="text" value="#rc.phone2#" maxlength="15" size="32"  />
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="mobile">Mobile</label>
@@ -217,12 +217,16 @@
 						<input class="form-control" id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="child511year">Child 5- 11 year</label>
+						<label for="child511year">Child 5 - 11 year</label>
 						<input class="form-control" id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="child11plus">Child 11 +</label>
 						<input class="form-control" id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="infant">Infant</label>
+						<input class="form-control" id="infant" name="infant" type="text" value="#rc.infant#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="hotelcategory">Hotel category</label>
@@ -247,165 +251,13 @@
 							<option <cfif rc.roomsharing eq "DORMITORY" >selected</cfif> value="DORMITORY">DORMITORY"</option>
 						</select>				
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Special Service</div>
-				<div class="panel-body">
-					<div class="form-group">
-						<label for="DJParty">DJ Party</label>
-						<input class="form-control" id="DJParty" name="DJParty" type="checkbox" value="1"
-						<cfif rc.DJParty eq 1>
-							checked="true"
-						</cfif>
-						 maxlength="15" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="cocktailparty">Cocktail party</label>
-						<input class="form-control" id="cocktailparty" name="cocktailparty" type="checkbox" value="1"
-						<cfif rc.cocktailparty eq 1>
-							checked="true"
-						</cfif>
-						maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="artist">Artist</label>
-						<input class="form-control" id="artist" name="artist" type="checkbox"
-						<cfif rc.artist eq 1>
-							checked
-						</cfif>
-						 maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="cultureparty">Culture party</label>
-						<input class="form-control" id="cultureparty" name="cultureparty" type="checkbox" 
-						<cfif rc.cultureparty eq 1>
-							checked
-						</cfif>
-						maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="productlaunching">Product launching</label>
-						<input class="form-control" id="productlaunching" name="productlaunching" type="checkbox" 
-						<cfif rc.productlaunching eq 1>
-							checked
-						</cfif>
-						 maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="sitevisit">Site visit</label>
-						<input class="form-control" id="sitevisit" name="sitevisit" type="checkbox" 
-						<cfif rc.sitevisit eq 1>
-							checked
-						</cfif>
-						maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="soundsystem">Sound system</label>
-						<input class="form-control" id="soundsystem" name="soundsystem" type="checkbox"
-						<cfif rc.soundsystem eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="project">Projector</label>
-						<input class="form-control" id="project" name="project" type="checkbox"
-						<cfif rc.project eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="stagedecoration">Stage Decoration</label>
-						<input class="form-control" id="stagedecoration" name="stagedecoration"  type="checkbox"
-						<cfif rc.project eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="amt_pmt">Amt-Pmt</label>
-						<input class="" id="amt" name="amt_pmt" type="radio" value="amt"
-						<cfif rc.amt_pmt eq 1>
-							checked
-						</cfif>
-						 />
-						<input class="" id="pmt" name="amt_pmt" type="radio" value="pmt"
-						<cfif rc.amt_pmt eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Additional Information</div>
-				<div class="panel-body">
-					<div class="form-group">
-						<label for="transporttype">Transport type</label>
-						<select class="form-control" id="transporttype" name="transporttype">
-							<option value="">Any</option>	
-							<option <cfif rc.transporttype eq "Slepper Bus">selected</cfif> value="Slepper Bus">Slepper Bus</option>	
-							<option <cfif rc.transporttype eq "3*2seater">selected</cfif> value="nonac">3x2 Seater</option>
-							<option <cfif rc.transporttype eq "2*2seater">selected</cfif> value="nonac">2x2 Seater</option>
-							<option <cfif rc.transporttype eq "Train">selected</cfif> value="nonac">Train</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="vehicletype">Vehicle type</label>
-						<select class="form-control" id="foodtype" name="foodtype">
-							<option value="">Any</option>	
-							<option <cfif rc.vehicletype eq "ac">selected</cfif> value="ac">A.C</option>	
-							<option <cfif rc.vehicletype eq "nonac">selected</cfif> value="nonac">Non A.C</option>	
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="traintype">Train type</label>
-						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="allss">All ss</label>
-						<input class="form-control" id="allss" name="allss" type="text" value="#rc.allss#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="allentry">All entry</label>
-						<input class="form-control" id="allentry" name="allentry" type="text" value="#rc.allentry#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="foodtype">Food type</label>
-						<select class="form-control" id="foodtype" name="foodtype">
-							<option value="">Selct</option>
-							<option value="VEG. REGULAR"<cfif rc.foodtype eq "VEG. REGULAR">selected</cfif>>VEG. REGULAR</option>
-							<option value="JAIN"<cfif rc.foodtype eq "JAIN">selected</cfif>>JAIN</option>
-							<option value="SWAMINARAYAN"<cfif rc.foodtype eq "SWAMINARAYAN">selected</cfif>>SWAMINARAYAN</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="mealplan">Meal plan</label>
-						<select class="form-control" id="mealplan" name="mealplan">
-							<option value="">Selct</option>
-							<option value="HOTEL FOOD"<cfif rc.mealplan eq "HOTEL FOOD">selected</cfif>>HOTEL FOOD</option>
-							<option value="KITCHEN GROUP"<cfif rc.mealplan eq "KITCHEN GROUP">selected</cfif>>KITCHEN GROUP</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="B2B">B2B</label>
-						<input class="form-control" id="B2B" name="B2B" type="text" value="#rc.B2B#" maxlength="15" size="32"  />
-					</div>
 					<div class="form-group">
 						<label for="remark">Remark</label>
 						<textarea type="textarea" class="form-control" id="remark" name="remark" maxlength="250" rows="5">#rc.remark#</textarea>
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">

@@ -3,6 +3,7 @@
     <html lang="en">
     <head runat="server">
         <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/includes/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
@@ -86,8 +87,11 @@
                             <a href="#event.buildLink('admin.inquery.corporatetour')#"><i class="fa fa-fw fa-table"></i> CORPORATE TOUR</a>
                         </li>
                         <li>
+                            <a href="#event.buildLink('admin.inquery.individualtour')#"><i class="fa fa-fw fa-table"></i>INDIVIDUAL TOUR</a>
+                        </li>
+                        <!--- <li>
                             <a href="#event.buildLink('admin.inquery.hotelbooking')#"><i class="fa fa-fw fa-table"></i> HOTEL BOOKING</a>
-                        </li>                        
+                        </li> --->
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

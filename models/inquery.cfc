@@ -44,7 +44,19 @@
 	<cfproperty name="createddate" type="date" default="" />
 	<cfproperty name="createdby" type="numeric" default="" />
 	<cfproperty name="tourid" type="numeric" default="" />
-	
+
+
+	<cfproperty name="infant" type="string" default = "" />
+	<cfproperty name="tourname" type="string" default = "" />
+	<cfproperty name="tourcode" type="string" default = "" />
+	<cfproperty name="schoolname" type="string" default = "" />
+	<cfproperty name="totaldays" type="string" default = "" />
+	<cfproperty name="entryfees" type="string" default = "" />
+	<cfproperty name="hotelrooms" type="string" default = "" />
+	<cfproperty name="extramatress" type="string" default = "" />
+	<cfproperty name="mealplan" type="string" default = "" />
+	<cfproperty name="vehicle" type="string" default = "" />
+
 	<!---
 	PROPERTIES
 	--->
@@ -98,7 +110,15 @@
 		<cfargument name="createddate" type="string" default="" />
 		<cfargument name="createdby" type="string" default="" />
 		<cfargument name="tourid" type="string" default="" />
-		
+		<cfargument name="infant" type="string" default="" />
+		<cfargument name="tourname" type="string" default="" />
+		<cfargument name="tourcode" type="string" default="" />
+		<cfargument name="schoolname" type="string" default="" />
+		<cfargument name="totaldays" type="string" default="" />
+		<cfargument name="entryfees" type="string" default="" />
+		<cfargument name="hotelrooms" type="string" default="" />
+		<cfargument name="extramatress" type="string" default="" />
+		<cfargument name="vehicle" type="string" default="" />
 		<!--- run setters --->
 		<cfset setId(arguments.Id) />
 		<cfset setcompanyname(arguments.companyname) />
@@ -128,7 +148,6 @@
 		<cfset settransporttype(arguments.transporttype) />
 		<cfset settraintype(arguments.traintype) />
 		<cfset setfoodtype(arguments.foodtype) />
-		<cfset setmealplan(arguments.mealplan) />
 		<cfset setsoundsystem(arguments.soundsystem) />
 		<cfset setproject(arguments.project) />
 		<cfset setamt_pmt(arguments.amt_pmt) />
@@ -144,6 +163,16 @@
 		<cfset setcreateddate(arguments.createddate) />
 		<cfset setcreatedby(arguments.createdby) />
 		<cfset settourid(arguments.tourid) />
+		<cfset setinfant(arguments.infant) />
+		<cfset settourname(arguments.tourname) />
+		<cfset settourcode(arguments.tourcode) />
+		<cfset setschoolname(arguments.schoolname) />
+		<cfset settotaldays(arguments.totaldays) />
+		<cfset setentryfees(arguments.entryfees) />
+		<cfset sethotelrooms(arguments.hotelrooms) />
+		<cfset setextramatress(arguments.extramatress) />
+		<cfset setmealplan(arguments.mealplan) />
+		<cfset setvehicle(arguments.vehicle) />
 
 		<cfreturn this />
  	</cffunction>
@@ -297,20 +326,6 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(gethotelcategory())) AND (len(trim(gethotelcategory())) GT 5) >
-			<cfset thisError.field = "hotelcategory" />
-			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "hotelcategory no more than 5 characters" />
-			<cfset arrayAppend(errors,duplicate(thisError)) />
-		</cfif>
-		
-		<cfif len(trim(getroomsharing())) AND (len(trim(getroomsharing())) GT 3) >
-			<cfset thisError.field = "roomsharing" />
-			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "roomsharing no more than 3 characters" />
-			<cfset arrayAppend(errors,duplicate(thisError)) />
-		</cfif>
-		
 		<cfif len(trim(getvehicletype())) AND (len(trim(getvehicletype())) GT 1) >
 			<cfset thisError.field = "vehicletype" />
 			<cfset thisError.type = "maxlength" />
@@ -339,31 +354,31 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(gettransporttype())) AND (len(trim(gettransporttype())) GT 1) >
+		<cfif len(trim(gettransporttype())) AND (len(trim(gettransporttype())) GT 50) >
 			<cfset thisError.field = "transporttype" />
 			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "transporttype no more than 1 characters" />
+			<cfset thisError.message = "transporttype no more than 50 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(gettraintype())) AND (len(trim(gettraintype())) GT 1) >
+		<cfif len(trim(gettraintype())) AND (len(trim(gettraintype())) GT 50) >
 			<cfset thisError.field = "traintype" />
 			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "traintype no more than 1 characters" />
+			<cfset thisError.message = "traintype no more than 50 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(getfoodtype())) AND (len(trim(getfoodtype())) GT 1) >
+		<cfif len(trim(getfoodtype())) AND (len(trim(getfoodtype())) GT 100) >
 			<cfset thisError.field = "foodtype" />
 			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "foodtype no more than 1 characters" />
+			<cfset thisError.message = "foodtype no more than 100 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(getmealplan())) AND (len(trim(getmealplan())) GT 1) >
+		<cfif len(trim(getmealplan())) AND (len(trim(getmealplan())) GT 100) >
 			<cfset thisError.field = "mealplan" />
 			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "mealplan no more than 1 characters" />
+			<cfset thisError.message = "mealplan no more than 100 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
@@ -437,10 +452,10 @@
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
-		<cfif len(trim(getsitevisit())) AND (len(trim(getsitevisit())) GT 1) >
+		<cfif len(trim(getsitevisit())) AND (len(trim(getsitevisit())) GT 50) >
 			<cfset thisError.field = "sitevisit" />
 			<cfset thisError.type = "maxlength" />
-			<cfset thisError.message = "sitevisit no more than 1 characters" />
+			<cfset thisError.message = "sitevisit no more than 50 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		
@@ -487,6 +502,83 @@
 			<cfset thisError.field = "tourid" />
 			<cfset thisError.type = "digits" />
 			<cfset thisError.message = "Tourid must be numeric" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getinfant())) AND (len(trim(getinfant())) GT 2) >
+			<cfset thisError.field = "infant" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "infant no more than 20 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(gettourname())) AND (len(trim(gettourname())) GT 50) >
+			<cfset thisError.field = "tourname" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "tourname no more than 50 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(gettourcode())) AND (len(trim(gettourcode())) GT 50) >
+			<cfset thisError.field = "tourcode" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "tourcode no more than 50 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getschoolname())) AND (len(trim(getschoolname())) GT 100) >
+			<cfset thisError.field = "schoolname" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "schoolname no more than 100 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getschoolname())) AND (len(trim(getschoolname())) GT 100) >
+			<cfset thisError.field = "schoolname" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "schoolname no more than 100 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(gettotaldays())) AND (len(trim(gettotaldays())) GT 3) >
+			<cfset thisError.field = "totaldays" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "totaldays no more than 3 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getentryfees())) AND (len(trim(getentryfees())) GT 3) >
+			<cfset thisError.field = "entryfees" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "entryfees no more than 3 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(gethotelrooms())) AND (len(trim(gethotelrooms())) GT 3) >
+			<cfset thisError.field = "hotelrooms" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "hotelrooms no more than 3 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getextramatress())) AND (len(trim(getextramatress())) GT 3) >
+			<cfset thisError.field = "extramatress" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "extramatress no more than 3 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getmealplan())) AND (len(trim(getmealplan())) GT 50) >
+			<cfset thisError.field = "mealplan" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "mealplan no more than 50 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getvehicle())) AND (len(trim(getvehicle())) GT 50) >
+			<cfset thisError.field = "vehicle" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "vehicle no more than 50 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		<cfreturn errors />
@@ -846,5 +938,86 @@
 	<cffunction name="gettourid" access="public" returntype="string" output="false">
 		<cfreturn variables.instance.tourid />
 	</cffunction>
+
+	<cffunction name="setinfant" access="public" returntype="void" output="false">
+		<cfargument name="infant" type="string" required="true" />
+		<cfset variables.instance.infant = arguments.infant />
+	</cffunction>
+	<cffunction name="getinfant" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.infant />
+	</cffunction>
+
+	<cffunction name="settourname" access="public" returntype="void" output="false">
+		<cfargument name="tourname" type="string" required="true" />
+		<cfset variables.instance.tourname = arguments.tourname />
+	</cffunction>
+	<cffunction name="gettourname" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.tourname />
+	</cffunction>
+
+	<cffunction name="settourcode" access="public" returntype="void" output="false">
+		<cfargument name="tourcode" type="string" required="true" />
+		<cfset variables.instance.tourcode = arguments.tourcode />
+	</cffunction>
+	<cffunction name="gettourcode" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.tourcode />
+	</cffunction>
+
+	<cffunction name="setschoolname" access="public" returntype="void" output="false">
+		<cfargument name="schoolname" type="string" required="true" />
+		<cfset variables.instance.schoolname = arguments.schoolname />
+	</cffunction>
+	<cffunction name="getschoolname" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.schoolname />
+	</cffunction>	
+
+	<cffunction name="settotaldays" access="public" returntype="void" output="false">
+		<cfargument name="totaldays" type="string" required="true" />
+		<cfset variables.instance.totaldays = arguments.totaldays />
+	</cffunction>
+	<cffunction name="gettotaldays" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.totaldays />
+	</cffunction>	
+
+	<cffunction name="setentryfees" access="public" returntype="void" output="false">
+		<cfargument name="entryfees" type="string" required="true" />
+		<cfset variables.instance.entryfees = arguments.entryfees />
+	</cffunction>
+	<cffunction name="getentryfees" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.entryfees />
+	</cffunction>	
+
+	<cffunction name="sethotelrooms" access="public" returntype="void" output="false">
+		<cfargument name="hotelrooms" type="string" required="true" />
+		<cfset variables.instance.hotelrooms = arguments.hotelrooms />
+	</cffunction>
+	<cffunction name="gethotelrooms" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.hotelrooms />
+	</cffunction>
+
+	<cffunction name="setextramatress" access="public" returntype="void" output="false">
+		<cfargument name="extramatress" type="string" required="true" />
+		<cfset variables.instance.extramatress = arguments.extramatress />
+	</cffunction>
+	<cffunction name="getextramatress" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.extramatress />
+	</cffunction>
+
+	<cffunction name="setmealplan" access="public" returntype="void" output="false">
+		<cfargument name="mealplan" type="string" required="true" />
+		<cfset variables.instance.mealplan = arguments.mealplan />
+	</cffunction>
+	<cffunction name="getmealplan" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.mealplan />
+	</cffunction>
+
+	<cffunction name="setvehicle" access="public" returntype="void" output="false">
+		<cfargument name="vehicle" type="string" required="true" />
+		<cfset variables.instance.vehicle = arguments.vehicle />
+	</cffunction>
+	<cffunction name="getvehicle" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.vehicle />
+	</cffunction>
+	
 </cfcomponent>
 

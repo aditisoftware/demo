@@ -38,7 +38,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="10%" class="lbl" valign="top"><label for="searchusertype">Created date</label></td>
+				<td width="10%" class="lbl" valign="top"><label for="searchusertype">Created By</label></td>
 				<td valign="top">
 					<select ID="searchusertype" name="searchusertype"  class="form-control">
 					 	<option value="">Select Type</option>
@@ -52,7 +52,6 @@
 				<td >
 					<button type="submit" name="Search" id="Search" class="btn btn-info"><i class="icon-search"></i> Search</button> 
 					<button type="button" name="Reset" id="Reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
-					<a href="#event.buildlink(rc.xehEditor)#" class="btn btn-warning">Add</a> 
 				</td>
 			</tr>
 		</table>
@@ -61,6 +60,9 @@
 			<table border="0" cellpadding="0" cellspacing="0" class="table table-hover table-bordered">
 				<cfoutput>
 					<tr class="active">
+						<th>
+							<a href="#event.buildlink(rc.xehList)#?sortBy=tourid&sortOrder=#rc.sortOrder#">Tour</a>&nbsp;<span <cfif rc.sortBy eq 'tourid'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
+						</th>
 						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=contactperson&sortOrder=#rc.sortOrder#">Contact person</a>&nbsp;<span <cfif rc.sortBy eq 'contactperson'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 						</th> 
@@ -89,6 +91,22 @@
 				<cfoutput query="rc.qinquery.query">
 				<tr <cfif currentrow mod 2 eq 0>class="even"</cfif>>
 					<td>
+						<cfif tourid eq 1>
+							Escorted tour
+						<cfelseif tourid eq 2>
+							Bhakti yatra
+						<cfelseif tourid eq 3>
+							Educational tour
+						<cfelseif tourid eq 4>
+							Adventure tour
+						<cfelseif tourid eq 5>
+							Corporate tour
+						<cfelseif tourid eq 6 >
+							Individual tour
+						</cfif>	
+						&nbsp;
+					</td>
+					<td>
 						#contactperson#&nbsp;
 					</td>
 					<td>
@@ -110,7 +128,20 @@
 						#createdby#&nbsp;
 					</td>
 					<td>
-						<a href="#event.buildlink(rc.xehEditor)#?Id=#Id#&">
+						<cfif tourid eq 1>
+							<cfset rc.event = "admin.inquery.escortedtour">
+						<cfelseif tourid eq 2>
+							<cfset rc.event = "admin.inquery.bhaktiyatra">
+						<cfelseif tourid eq 3>
+							<cfset rc.event = "admin.inquery.educationaltour">
+						<cfelseif tourid eq 4>
+							<cfset rc.event = "admin.inquery.adventuretour">
+						<cfelseif tourid eq 5>
+							<cfset rc.event = "admin.inquery.corporatetour">							
+						<cfelseif tourid eq 6 >
+							<cfset rc.event = "admin.inquery.individualtour">
+						</cfif>	
+						<a href="#event.buildlink(rc.event)#?Id=#Id#&">
 							<span class="fa fa-edit"></span>
 						</a>&nbsp;
 						<a onclick="javascript:return confirm('Are you sure you wish to delete? This action cannot be undone.')" href="#event.buildlink(rc.xehDelete)#?Id=#Id#&">

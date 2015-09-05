@@ -117,7 +117,7 @@
 </cfsavecontent>
 <cfhtmlhead text="#AddScript#" />
 <div class="content_header">
-	<h1>Inquery Add</h1>
+	<h1>Corporate Tour</h1>
 </div>
 </cfoutput>
 <cfoutput>
@@ -127,19 +127,7 @@
 		<ul id="inqueryULError"></ul>
 	</div>
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-group">
-				<label for="tourtype">Tour Type</label>
-				<select name="tourid" id="tourid" class="form-control">
-					<option value="">Select Type</option>
-					<cfloop query="rc.tourtype">
-						<option value="#rc.tourtype.id#">#rc.tourtype.tourtitle#</option>
-					</cfloop>
-				</select>
-			</div>	
-		</div>
-	</div>
+	<input type="hidden" name="tourid" id="tourid" value="5" />
 	<div class="row">
 		<div class="col-md-6">
 			<div class="panel panel-primary">
@@ -196,6 +184,14 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">Inquery detail</div>
 				<div class="panel-body">
+					<div class="form-group">
+						<label for="tourname">Tour Name</label>
+						<input class="form-control" id="tourname" name="tourname" type="text" value="#rc.tourname#" maxlength="50" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="tourcode">Tour Code</label>
+						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
+					</div>
 					<div class="form-group">
 						<label for="destination">Destination</label>
 						<input class="form-control" id="destination" name="destination" type="text" value="#rc.destination#" maxlength="50" size="32"  />
@@ -329,6 +325,14 @@
 						 />
 					</div>
 					<div class="form-group">
+						<label for="B2B">B2B</label>
+						<input class="form-control" id="B2B" name="B2B"  type="checkbox"
+						<cfif rc.project eq 1>
+							checked
+						</cfif>
+						 />
+					</div>
+					<div class="form-group">
 						<label for="amt_pmt">Amt-Pmt</label>
 						<input class="" id="amt" name="amt_pmt" type="radio" value="amt"
 						<cfif rc.amt_pmt eq 1>
@@ -396,8 +400,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="B2B">B2B</label>
-						<input class="form-control" id="B2B" name="B2B" type="text" value="#rc.B2B#" maxlength="15" size="32"  />
+						<label for="Entry Fees">Entry Fees</label>
+						<input class="form-control" id="Entry Fees" name="Entry Fees" type="text" value="#rc.entryfees#" maxlength="15" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="remark">Remark</label>

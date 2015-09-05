@@ -129,19 +129,6 @@
 	<input type="hidden" name="Id" value="#rc.Id#" /> 
 	<div class="row">
 		<div class="col-md-6">
-			<div class="form-group">
-				<label for="tourtype">Tour Type</label>
-				<select name="tourid" id="tourid" class="form-control">
-					<option value="">Select Type</option>
-					<cfloop query="rc.tourtype">
-						<option value="#rc.tourtype.id#">#rc.tourtype.tourtitle#</option>
-					</cfloop>
-				</select>
-			</div>	
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Client detail</div>
 				<div class="panel-body">
