@@ -75,9 +75,9 @@
 				emailLog = {
 					class="coldbox.system.logging.appenders.EmailAppender",
 					properties = {
-						from="error@hauntworld.com",
-						to="naresh@isummation.com",
-						subject="Error occured at hwstate.com.",
+						from="jani.parixit@gmail.com",
+						to="jani.praixit@gmail.com",
+						subject="Error occured.",
 						mailserver = "127.0.0.1",
 						mailusername = "",
 						mailpassword = "",
@@ -123,16 +123,16 @@
 		};
 		
 		datasources = {
-			demo = {name="demo", dbType="mysql", username="root", password="!isummation1"}
+			demo = {name="rahienquiry", dbType="mysql", username="rahienquiry", password="enquiryrahi12$"}
 		};
 
 	}
 
-	/**
+	/**104.194.14.25
 	* Development environment
 	*/
 	function development(){
-		structAppend(datasources,{demo = {name="demo", dbType="mysql", username="root", password="!isummation1"}});
+		structAppend(datasources,{demo = {name="demo", dbType="mysql", username="root", password="##isummation1"}});
 		mailSettings ={
 			protocol = {
 				class = "cbmailservices.models.protocols.FileProtocol",

@@ -65,9 +65,11 @@
                         <li>
                             <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
-                        <li>
-                            <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users</a>
-                        </li>
+                        <cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+                            <li>
+                                <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users</a>
+                            </li>
+                        </cfif>
                         <li>
                             <a href="#event.buildLink('admin.inquery.list')#"><i class="fa fa-fw fa-table"></i> Inquiry</a>
                         </li>

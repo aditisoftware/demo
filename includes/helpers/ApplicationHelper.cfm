@@ -24,3 +24,18 @@
 	</cfscript>
 	<cfreturn hash(token) eq arguments.requesttoken>
 </cffunction>
+
+<cffunction name="encryptPassword" access="public" description="generate passoword and password salt" output="false" returntype="struct">
+	<cfargument name="password" required="true" type="string">
+
+	<cfscript>
+		var retStruct = {};
+		var saltpass = "";
+		
+		retStruct.passsalt = hash(createUUID(), "SHA");
+		saltpass = retStruct.passsalt & arguments.password;
+		retStruct.password = hash(saltpass, "SHA");
+
+		return retStruct;
+	</cfscript>
+</cffunction>

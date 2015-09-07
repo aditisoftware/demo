@@ -6,9 +6,9 @@
 	<cffunction name="init" access="public" returntype="usermaster" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
-		<cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+		<!--- <cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
 			<cfset setNextEvent(event="general.login") />
-		</cfif>
+		</cfif> --->
 		<cfreturn this>
 	</cffunction>
 	
@@ -41,8 +41,12 @@
 			rc.sortOrder = "asc";
 		}
 		//Get the listing
-		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
-
+		if((StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")){
+			rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
+		}
+		else{
+			rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = session.usertype);	
+		}
 		//Set the view to render
 		event.setView("admin/usermasterList");
 		</cfscript>

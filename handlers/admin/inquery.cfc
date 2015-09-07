@@ -5,7 +5,9 @@
 	<cffunction name="init" access="public" returntype="inquery" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
-		
+		<cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username))>
+			<cfset setNextEvent(event="general.login") />
+		</cfif>
 		<cfreturn this>
 	</cffunction>
 	
@@ -25,7 +27,7 @@
 		event.paramValue("bandSize", getSetting("PagingBandGap"));
 		event.paramValue("searchname","");
 		event.paramValue("searchcity","");
-		event.paramValue("searchusertype","");
+		event.paramValue("searchcreatedby","#session.userid#");
 		
 		//Sorting Logic.
 		event.paramValue("sortBy", "Id");
@@ -47,7 +49,7 @@
 			gridstartdirection=rc.sortOrder,
 			searchname=rc.searchname,
 			searchcity=rc.searchcity,
-			searchusertype=rc.searchusertype
+			searchcreatedby=rc.searchcreatedby
 			);		
 		
 		//Set the view to render

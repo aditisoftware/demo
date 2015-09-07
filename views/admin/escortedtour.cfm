@@ -142,10 +142,6 @@
 						<input class="form-control" id="tourcode" name="tourcode" type="text" value="#rc.tourcode#" maxlength="50" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="companyname">Company name</label>
-						<input class="form-control" id="companyname" name="companyname" type="text" value="#rc.companyname#" maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
 						<label for="contactperson">Contact person</label>
 						<input class="form-control" id="contactperson" name="contactperson" type="text" value="#rc.contactperson#" maxlength="50" size="32"  />
 					</div>
@@ -209,7 +205,7 @@
 						<input class="form-control" id="totalpassenger" name="totalpassenger" type="text" value="#rc.totalpassenger#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="adult">Adult</label>
+						<label for="adult">Couple</label>
 						<input class="form-control" id="adult" name="adult" type="text" value="#rc.adult#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
@@ -221,7 +217,7 @@
 						<input class="form-control" id="child511year" name="child511year" type="text" value="#rc.child511year#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="child11plus">Child 11 +</label>
+						<label for="child11plus">Child 2-5 year</label>
 						<input class="form-control" id="child11plus" name="child11plus" type="text" value="#rc.child11plus#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
@@ -229,27 +225,21 @@
 						<input class="form-control" id="infant" name="infant" type="text" value="#rc.infant#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="hotelcategory">Hotel category</label>
-						<select class="form-control" id="hotelcategory" name="hotelcategory" >
-							<option <cfif rc.hotelcategory eq "" >selected</cfif> value="">Select</option>
-							<option <cfif rc.hotelcategory eq "ECONOMY" >selected</cfif> value="ECONOMY">ECONOMY</option>
-							<option <cfif rc.hotelcategory eq "BUDGET" >selected</cfif> value="BUDGET">BUDGET</option>
-							<option <cfif rc.hotelcategory eq "STANDARD" >selected</cfif> value="STANDARD">STANDARD</option>
-							<option <cfif rc.hotelcategory eq "DELUXE" >selected</cfif> value="DELUXE">DELUXE</option>
-							<option <cfif rc.hotelcategory eq "SUPER DELUXE" >selected</cfif> value="SUPER DELUXE">SUPER DELUXE</option>
-							<option <cfif rc.hotelcategory eq "LUXURY" >selected</cfif> value="LUXURY">LUXURY</option>
+						<label for="foodtype">Food type</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Selct</option>
+							<option value="VEG. REGULAR"<cfif rc.foodtype eq "VEG. REGULAR">selected</cfif>>VEG. REGULAR</option>
+							<option value="JAIN"<cfif rc.foodtype eq "JAIN">selected</cfif>>JAIN</option>
+							<option value="SWAMINARAYAN"<cfif rc.foodtype eq "SWAMINARAYAN">selected</cfif>>SWAMINARAYAN</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="roomsharing">Room sharing</label>
-						<select class="form-control" id="roomsharing" name="roomsharing">
-							<option <cfif rc.roomsharing eq "" >selected</cfif> value="">Select</option>
-							<option <cfif rc.roomsharing eq "DOUBLE SHARING" >selected</cfif> value="DOUBLE SHARING">DOUBLE SHARING</option>
-							<option <cfif rc.roomsharing eq "TRIPLE SHARING" >selected</cfif> value="TRIPLE SHARING">TRIPLE SHARING</option>
-							<option <cfif rc.roomsharing eq "QUAD SHARING" >selected</cfif> value="QUAD SHARING">QUAD SHARING</option>
-							<option <cfif rc.roomsharing eq "FIVE SHARING" >selected</cfif> value="FIVE SHARING">FIVE SHARING</option>
-							<option <cfif rc.roomsharing eq "DORMITORY" >selected</cfif> value="DORMITORY">DORMITORY"</option>
-						</select>				
+						<label for="hotelrooms">Hotel rooms</label>
+						<input class="form-control" id="hotelrooms" name="hotelrooms" type="text" value="#rc.hotelrooms#" maxlength="3" size="32"  />
+					</div>
+					<div class="form-group">
+						<label for="extramatress">Extra Matress</label>
+						<input class="form-control" id="extramatress" name="extramatress" type="text" value="#rc.extramatress#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
 						<label for="remark">Remark</label>

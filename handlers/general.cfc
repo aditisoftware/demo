@@ -29,9 +29,10 @@
 		<cfset event.paramValue("backevent","general.login") />
 		<cfif structKeyExists(rc,"username") AND len(rc.username)>
 			<cfset local.qusermaster = instance.ousermasterService.getusermasters(username=rc.username)>
+
 			<cfif local.qusermaster.recordCount GT 0>
-			    <!--- <cfif hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA") EQ trim(local.qusermaster.password) > --->
-			    <cfif rc.password EQ trim(local.qusermaster.password) >
+			    <cfif hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA") EQ trim(local.qusermaster.password) >
+			    <!--- <cfif rc.password EQ trim(local.qusermaster.password) > --->
 				    <CFLOCK SCOPE="Session" TIMEOUT="30" TYPE="Exclusive">
 				        <CFSET session.username=local.qusermaster.username>
 						<CFSET session.userid=local.qusermaster.id>
