@@ -6,9 +6,9 @@
 	<cffunction name="init" access="public" returntype="usermaster" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
-		<cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+		<!--- <cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
 			<cfset setNextEvent(event="general.login") />
-		</cfif>
+		</cfif> --->
 		<cfreturn this>
 	</cffunction>
 	
@@ -41,9 +41,9 @@
 			rc.sortOrder = "asc";
 		}
 		//Get the listing
-		if((StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")){
+		//if((StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")){
 			rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
-		}
+		//}
 		//Set the view to render
 		event.setView("admin/usermasterList");
 		</cfscript>
@@ -115,9 +115,13 @@
 		} else {
 			ousermasterBean = instance.ousermasterService.createusermaster(argumentCollection=rc);
 			ousermasterBean.setcreateddate(now());
-			ousermasterBean.setcreatedby(1);
+			ousermasterBean.setcreatedby(session.userid);
+			passStruct = encryptPassword(password = trim(rc.password));
+			if (StructKeyExists(rc, 'password')){
+				ousermasterBean.setpassword(trim(passStruct.password));
+				ousermasterBean.setpasswordsalt(trim(passStruct.passsalt));
+			}
 		}
-		passStruct = encryptPassword(password = trim(rc.password));
 		if (StructKeyExists(rc, 'Id'))
 			ousermasterBean.setId(rc.Id);
 		if (StructKeyExists(rc, 'firstname'))
@@ -136,10 +140,6 @@
 			ousermasterBean.setcountry(rc.country);
 		if (StructKeyExists(rc, 'username'))
 			ousermasterBean.setusername(rc.username);
-		if (StructKeyExists(rc, 'password')){
-			ousermasterBean.setpassword(trim(passStruct.password));
-			ousermasterBean.setpasswordsalt(trim(passStruct.passsalt));
-		}
 		if (StructKeyExists(rc, 'usertype'))
 			ousermasterBean.setusertype(rc.usertype);
 		

@@ -94,10 +94,10 @@
 	        <label>Username</label>
 	        <input type="text" ID="username" name="username" class="form-control" placeholder="Username" value="#rc.username#" />
 	    </div>
-	    <div class="form-group">
+	    <!--- <div class="form-group">
 	        <label>Password</label>
 	        <input type="text" ID="password" name="password" class="form-control" placeholder="Password" value="#rc.password#" />
-	    </div>
+	    </div> --->
 	    <div class="form-group">
 	        <label>Usertype</label>
 	        <select ID="usertype" name="usertype"  class="form-control">

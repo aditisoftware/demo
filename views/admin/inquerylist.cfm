@@ -18,6 +18,7 @@
 	<div class="content_header">
 		<h1>Inquery</h1>
 	</div>
+
 	#getInstance("ErrorBox").renderIt("inqueryError")#
 	<div id="inqueryJSError" class="errorbox" style="display:none">
 		<ul id="inqueryULError"></ul>
@@ -40,10 +41,12 @@
 			<tr>
 				<td width="10%" class="lbl" valign="top"><label for="session.userid">Created By</label></td>
 				<td valign="top">
-					<cfif (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+					<cfif StructKeyExists(session,"username") and len(trim(session.username)) and session.usertype eq "admin">
 						<select ID="searchcreatedby" name="searchcreatedby"  class="form-control">
 						 	<option value="">Select Type</option>
-				            <option <cfif rc.session.userid eq "Staff">selected</cfif>value="Staff">Staff</option>
+						 	<cfloop query="rc.qusermaster">
+				            	<option <cfif rc.searchcreatedby eq rc.qusermaster.id>selected</cfif> value="#id#">#rc.qusermaster.firstname# #rc.qusermaster.lastname#</option>
+						 	</cfloop>
 				        </select>
 					<cfelse>
 						<input type="hidden" name="searchcreatedby" id="searchcreatedby" value="#rc.searchcreatedby#" />
@@ -56,7 +59,6 @@
 				</td>
 			</tr>
 		</table>
-
 		<div class="table_container">
 			<table border="0" cellpadding="0" cellspacing="0" class="table table-hover table-bordered">
 				<cfoutput>
@@ -88,7 +90,7 @@
 						<th>&nbsp;&nbsp;actions&nbsp;&nbsp;</th>
 					</tr>
 				</cfoutput>
-				
+
 				<cfoutput query="rc.qinquery.query">
 				<tr <cfif currentrow mod 2 eq 0>class="even"</cfif>>
 					<td>

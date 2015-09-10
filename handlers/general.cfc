@@ -31,7 +31,6 @@
 			<cfset local.qusermaster = instance.ousermasterService.getusermasters(username=rc.username)>
 
 			<cfif local.qusermaster.recordCount GT 0>
-				<cfdump var="#hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA")#" />
 			    <cfif hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA") EQ trim(local.qusermaster.password) >
 				    <CFLOCK SCOPE="Session" TIMEOUT="30" TYPE="Exclusive">
 				        <CFSET session.username=local.qusermaster.username>

@@ -1,7 +1,8 @@
 
 <cfcomponent name="inquery" extends="coldbox.system.eventhandler" output="false">
 	<cfproperty name="oinqueryService" inject="model:inqueryService" scope="instance" />
-	
+	<cfproperty name="ousermasterService" inject="model:usermasterService" scope="instance" />
+
 	<cffunction name="init" access="public" returntype="inquery" output="false">
 		<cfargument name="controller" type="any" required="true">
 		<cfset super.init(arguments.controller)>
@@ -42,6 +43,7 @@
 		}
 		
 		//Get the listing
+
 		rc.qinquery = instance.oinqueryService.getByPage(
 			Page=rc.page, 
 			pagesize=rc.pageSize,
@@ -50,8 +52,8 @@
 			searchname=rc.searchname,
 			searchcity=rc.searchcity,
 			searchcreatedby=rc.searchcreatedby
-			);		
-		
+			);
+		rc.qusermaster = instance.ousermasterService.getusermasters();
 		//Set the view to render
 		event.setView("admin/inqueryList");
 		</cfscript>
