@@ -113,6 +113,11 @@
 			ousermasterBean = instance.ousermasterService.getusermaster(rc.Id);
 			ousermasterBean.setcreateddate(now());
 			ousermasterBean.setcreatedby(session.userid);
+			if (StructKeyExists(rc, 'resetpassword') and len(trim(StructKeyExists(rc, 'resetpassword')))){
+				passStruct = encryptPassword(password = trim(rc.resetpassword));
+				ousermasterBean.setpassword(trim(passStruct.password));
+				ousermasterBean.setpasswordsalt(trim(passStruct.passsalt));
+			}
 		} else {
 			ousermasterBean = instance.ousermasterService.createusermaster(argumentCollection=rc);
 			ousermasterBean.setcreateddate(now());

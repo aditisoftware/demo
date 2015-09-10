@@ -4,29 +4,16 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
+				"su",
+				"SuperAdmin"
+			],
+			[
 				"cfels",
 				"cfelse	Tag (cmfl)"
 			],
 			[
 				"struct",
 				"StructKeyExists"
-=======
-				"c",
-				"cfscript"
-			],
-			[
-				"cf",
-				"cffunction"
-			],
-			[
-				"clea",
-				"structClear	fn. (cfscript)"
-			],
-			[
-				"create",
-				"createUUID	fn. (cfscript)"
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 			],
 			[
 				"inlin",
@@ -161,6 +148,10 @@
 				"component"
 			],
 			[
+				"create",
+				"createObject	fn. (cfscript)"
+			],
+			[
 				"compo",
 				"component	New CFC"
 			],
@@ -201,10 +192,6 @@
 				"categoryid"
 			],
 			[
-				"struct",
-				"structNew	fn. (cfscript)"
-			],
-			[
 				"s",
 				"struct"
 			],
@@ -239,6 +226,10 @@
 			[
 				"margin",
 				"margin"
+			],
+			[
+				"cf",
+				"cffarg	arg"
 			],
 			[
 				"categ",
@@ -523,191 +514,11 @@
 			[
 				"styl",
 				"style"
-<<<<<<< HEAD
-			],
-			[
-				"sql",
-				"sqlText"
-=======
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-<<<<<<< HEAD
-			"file": "handlers/admin/usermaster.cfc",
-			"settings":
-			{
-				"buffer_size": 6106,
-=======
-<<<<<<< HEAD
-			"file": "handlers/admin/inquery.cfc",
-			"settings":
-			{
-				"buffer_size": 13687,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/individualtour.cfm",
-			"settings":
-			{
-				"buffer_size": 16144,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/inqueryadd.cfm",
-			"settings":
-			{
-				"buffer_size": 18444,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/corporatetour.cfm",
-			"settings":
-			{
-				"buffer_size": 18806,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/adventuretour.cfm",
-			"settings":
-			{
-				"buffer_size": 15657,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/bhaktiyatra.cfm",
-			"settings":
-			{
-				"buffer_size": 12875,
-=======
-			"file": "models/usermasterServiceBase.cfc",
-			"settings":
-			{
-				"buffer_size": 5051,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-				"line_ending": "Windows"
-			}
-		},
-		{
-<<<<<<< HEAD
-			"file": "models/usermasterService.cfc",
-=======
-<<<<<<< HEAD
-			"file": "layouts/layout.admin.cfm",
-			"settings":
-			{
-				"buffer_size": 5615,
-=======
-			"file": "models/usermasterGatewayBase.cfc",
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-			"settings":
-			{
-				"buffer_size": 652,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "handlers/admin/inquery.cfc",
-			"settings":
-			{
-				"buffer_size": 15345,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/inquerylist.cfm",
-			"settings":
-			{
-				"buffer_size": 6546,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/inqueryServiceBase.cfc",
-			"settings":
-			{
-				"buffer_size": 10294,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/inqueryGatewayBase.cfc",
-			"settings":
-			{
-				"buffer_size": 23198,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "handlers/general.cfc",
-			"settings":
-			{
-				"buffer_size": 3119,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin/usermasteradd.cfm",
-			"settings":
-			{
-				"buffer_size": 4913,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "layouts/layout.admin.cfm",
-			"settings":
-			{
-				"buffer_size": 6060,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/login.cfm",
-			"settings":
-			{
-<<<<<<< HEAD
-				"buffer_size": 3880,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/Coldbox.cfc",
-			"settings":
-			{
-				"buffer_size": 3601,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Application.cfc",
-			"settings":
-			{
-				"buffer_size": 2316,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "handlers/Main.cfc",
-			"settings":
-			{
-				"buffer_size": 1257,
-=======
-				"buffer_size": 2639,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -761,71 +572,54 @@
 	},
 	"expanded_folders":
 	[
-<<<<<<< HEAD
-		"/D/Development/demo",
-		"/D/Development/demo/handlers",
-		"/D/Development/demo/layouts",
-		"/D/Development/demo/views",
-		"/D/Development/demo/views/admin"
-	],
-	"file_history":
-	[
-		"/D/Development/demo/views/admin/educationaltour.cfm",
-		"/D/Development/demo/views/admin/bhaktiyatra.cfm",
-		"/D/Development/demo/views/admin/escortedtour.cfm",
-		"/D/Development/demo/views/admin/inquerylist.cfm",
-		"/D/Development/demo/layouts/layout.admin.cfm",
-		"/D/Development/demo/handlers/general.cfc",
-		"/D/Development/demo/views/login.cfm",
-		"/D/Development/demo/includes/mailspool/mail.04-29-2015.17-57-57-928.html",
-		"/D/Development/demo/views/admin/inqueryadd.cfm",
-		"/D/Development/demo/models/inqueryDAO.cfc",
-		"/D/Development/demo/models/inqueryGatewayBase.cfc",
-		"/D/Development/demo/handlers/admin/usermaster.cfc",
-		"/D/Development/demo/handlers/admin/inquery.cfc",
-		"/D/Development/demo/models/inqueryServiceBase.cfc",
-		"/D/Development/demo/views/admin/usermasterlist.cfm",
-		"/C/Users/Aditijani/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/Aditijani/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Users/Aditijani/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/D/Development/demo/views/admin/usermasteradd.cfm",
-		"/D/Development/demo/models/inquery.cfc",
-		"/D/Development/demo/demo.sublime-project",
-		"/D/Development/demo/config/Coldbox.cfc",
-=======
 		"/C/Project/demo",
-		"/C/Project/demo/config",
-		"/C/Project/demo/handlers",
 		"/C/Project/demo/handlers/admin",
-		"/C/Project/demo/layouts",
-		"/C/Project/demo/views",
 		"/C/Project/demo/views/admin"
 	],
 	"file_history":
 	[
-		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441625450/rahi/wwwroot/config/Coldbox.cfc",
+		"/C/Project/demo/views/admin/useradd.cfm",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441782663/rahi/wwwroot/views/admin/usermasteradd.cfm",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441782614/rahi/wwwroot/handlers/general.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441782973/rahi/wwwroot/layouts/layout.admin.cfm",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441782302/rahi/wwwroot/handlers/admin/usermaster.cfc",
+		"/C/Project/demo/handlers/general.cfc",
 		"/C/Project/demo/models/usermasterGateway.cfc",
+		"/C/Project/demo/config/Coldbox.cfc",
+		"/C/Project/demo/models/usermasterDAO.cfc",
+		"/C/Project/demo/layouts/layout.admin.cfm",
+		"/C/Project/demo/handlers/admin/usermaster.cfc",
+		"/C/Project/demo/handlers/admin/inquery.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441778305/rahi/wwwroot/views/admin/usermasteradd.cfm",
+		"/C/Project/demo/views/admin/usermasteradd.cfm",
+		"/C/Project/demo/views/admin/bhaktiyatra.cfm",
+		"/C/Project/demo/views/admin/escortedtour.cfm",
+		"/C/Project/demo/views/admin/adventuretour.cfm",
+		"/C/Project/demo/views/admin/corporatetour.cfm",
+		"/C/Project/demo/views/admin/individualtour.cfm",
+		"/C/Project/demo/views/admin/educationaltour.cfm",
+		"/C/Project/demo/demodb.sql",
+		"/C/Project/demo/views/admin/inqueryadd.cfm",
+		"/C/Project/demo/views/admin/hotelbooking.cfm",
+		"/C/Project/demo/views/login.cfm",
+		"/C/Project/demo/models/inqueryGatewayBase.cfc",
+		"/C/Project/demo/models/inqueryServiceBase.cfc",
+		"/C/Project/demo/models/usermasterService.cfc",
+		"/C/Project/demo/views/admin/inquerylist.cfm",
+		"/C/Project/demo/handlers/Main.cfc",
+		"/C/Project/demo/Application.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441625450/rahi/wwwroot/config/Coldbox.cfc",
 		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/rahi",
 		"/C/Project/demo/tests/test.cfm",
 		"/C/Project/demo/includes/helpers/ApplicationHelper.cfm",
 		"/C/Project/demo/models/usermaster.cfc",
-		"/C/Project/demo/models/usermasterDAO.cfc",
 		"/C/Project/demo/models/usermasterGatewayBase.cfc",
 		"/C/Project/demo/models/usermasterServiceBase.cfc",
-		"/C/Project/demo/layouts/layout.admin.cfm",
-		"/C/Project/demo/views/admin/useradd.cfm",
-		"/C/Project/demo/views/admin/inquerylist.cfm",
-		"/C/Project/demo/handlers/admin/inquery.cfc",
 		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/enq",
-		"/C/Project/demo/handlers/admin/usermaster.cfc",
 		"/C/Project/demo/sftp-config.json",
 		"/C/Project/demo/views/admin/sftp-config.json",
-		"/C/Project/demo/views/admin/usermasteradd.cfm",
 		"/C/Project/demo/views/admin/usermasterlist.cfm",
-		"/C/Project/demo/models/usermasterService.cfc",
-		"/C/Project/demo/handlers/general.cfc",
 		"/C/Project/demo/views/usermasterlist.cfm",
-		"/C/Project/demo/config/Coldbox.cfc",
 		"/C/Project/demo/models/Paging.cfc",
 		"/C/Project/demo/views/usermasteradd.cfm",
 		"/C/Project/demo/handlers/usermaster.cfc",
@@ -835,23 +629,14 @@
 		"/C/Project/demo/views/inqueryadd.cfm",
 		"/C/Project/demo/views/usermasterview.cfm",
 		"/C/Project/demo/views/useradd.cfm",
-		"/C/Project/demo/models/inqueryGatewayBase.cfc",
 		"/C/Project/demo/models/inqueryDAO.cfc",
 		"/C/Project/demo/handlers/inquery.cfc",
 		"/C/Project/demo/views/inqueryform.cfm",
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
 		"/C/Project/demo/modules/codegenerator/ModuleConfig.cfc",
-		"/D/Development/demo/handlers/usermaster.cfc",
-		"/C/Project/demo/config/Coldbox.cfc",
 		"/C/Project/demo/modules/codegenerator/layouts/codegenerator.main.cfm",
-		"/C/Project/demo/views/login.cfm",
 		"/C/Project/demo/views/home.cfm",
-		"/C/Project/demo/layouts/layout.admin.cfm",
 		"/C/Project/demo/views/New Text Document.txt",
 		"/C/Project/demo/views/userlist.cfm",
-		"/C/Project/demo/views/useradd.cfm",
-		"/C/Project/demo/views/inquerylist.cfm",
-		"/C/Project/demo/views/inqueryform.cfm",
 		"/C/Project/demo/views/Default.cfm",
 		"/C/Project/hauntworld.local/handlers/general.cfc",
 		"/C/Project/hauntworld.local/views/haunted_houses.cfm",
@@ -920,40 +705,7 @@
 		"/C/Project/HWAdmin.local/model/yp_hauntblogsServiceBase.cfc",
 		"/C/Project/HWAdmin.local/model/hw_hauntblogsDAO.cfc",
 		"/C/Project/HWAdmin.local/model/hw_siteGatewayBase.cfc",
-		"/C/Project/HWAdmin.local/handlers/Main.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_skullrating.cfm",
-		"/C/Project/HWAdmin.local/model/hw_listingGateway.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingService.cfc",
-		"/C/Project/HWAdmin.local/views/admin/hw_listinglist.cfm",
-		"/C/Project/HWAdmin.local/handlers/admin/yp_categorylisting.cfc",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_listing.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingGateway.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_hauntblogslist.cfm",
-		"/C/Project/HWAdmin.local/model/yp_categoryGateway.cfc",
-		"/C/Project/HWAdmin.local/model/yp_categoryService.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingstateGateway.cfc",
-		"/C/Project/HWAdmin.local/model/hw_listingstateService.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_categorylistingadd.cfm",
-		"/C/Project/HWAdmin.local/model/yp_category.cfc",
-		"/C/Project/HWAdmin.local/views/admin/hw_listingstateadd.cfm",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_listingstate.cfc",
-<<<<<<< HEAD
-		"/C/Project/HWAdmin.local/model/yp_categorylistingService.cfc"
-=======
-		"/C/Project/HWAdmin.local/model/yp_categorylistingService.cfc",
-		"/C/Project/HWAdmin.local/model/yp_categorylistingDAO.cfc",
-		"/C/Project/HWAdmin.local/model/yp_categorylistingServiceBase.cfc",
-<<<<<<< HEAD
-		"/C/Project/HWAdmin.local/model/yp_categoryGatewayBase.cfc",
-		"/C/Project/HWAdmin.local/model/yp_categoryServiceBase.cfc",
-		"/C/Project/HWAdmin.local/handlers/admin/yp_category.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingphotoGatewayBase.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingcategoryratingGateway.cfc",
-		"/C/Project/HWAdmin.local/model/yp_listingcategoryratingService.cfc"
-=======
-		"/C/Project/HWAdmin.local/model/yp_categoryGatewayBase.cfc"
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
+		"/C/Project/HWAdmin.local/handlers/Main.cfc"
 	],
 	"find":
 	{
@@ -964,7 +716,10 @@
 		"height": 90.0,
 		"where_history":
 		[
-			"D:\\Development\\demo\\models",
+			"C:\\Project\\demo\\views\\admin",
+			"C:\\Project\\demo\\",
+			"C:\\Project\\demo\\views\\",
+			"C:\\Project\\demo\\models",
 			"C:\\Project\\HWstate.local",
 			"C:\\Project\\HWAdmin.local",
 			"C:\\Project\\HWAdmin.local\\handlers\\admin",
@@ -992,7 +747,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-<<<<<<< HEAD
+			"<cfif session.usertype eq",
+			"ALLENTRY",
+			"ALL ENTRY",
+			"ALLENTRY",
+			"ALL ENTRY",
+			"ALLENTRY",
+			"ALL ENTRY",
+			"allss",
+			"ALL ENTRY",
+			"allss",
+			"EUROPEAN PLAN",
+			"EP",
+			"food",
+			"hotelrooms",
+			"rooms",
+			"ROOMS",
+			"couple",
 			"searchcreatedby",
 			"session.userid",
 			"searchusertype",
@@ -1000,49 +771,6 @@
 			"usertype",
 			"		\n",
 			"encryptPassword",
-=======
-<<<<<<< HEAD
-			"vehicle",
-			"TEMPO TRAVELLER (selected4 SEAT)>",
-			"TEMPO TRAVELLER (selected",
-			"TEMPO TRAVELLER",
-			"<option ",
-			"vehicletype",
-			"rc mealplan",
-			"mealplan",
-			"•	",
-			"hotelrooms",
-			"child511year",
-			"roomsharing",
-			"Star",
-			"BUDGET",
-			"destination",
-			"Destination",
-			"destination",
-			"totaldays",
-			"stagedecoration",
-			"B2B",
-			"adult",
-			"Adult",
-			"adult",
-			"companyname",
-			"rc.type",
-			"destination",
-			"Destination",
-			"destination",
-			"tourtype",
-			"child11plus",
-			"<cffunction name=\"",
-			"		<cfargument name=\"rc\" />\n		<cfargument name=\"prc\" />\n		<cfargument name=\"event\" />",
-			"</cfscript",
-			"		<cfargument name=\"rc\" />\n		<cfargument name=\"prc\" />\n		<cfargument name=\"event\" />",
-			"<cffunction",
-			"admin.inquery.",
-			"</i>",
-			"rc.qusermaster",
-			"encryptPassword",
-=======
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 			"rc.qusermaster",
 			"qmember",
 			"emaillogin",
@@ -1067,22 +795,11 @@
 			"admin",
 			"{\n",
 			"runat=\"server\"",
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
 			"OnClick",
-			"resources",
-			"inqueryError",
-			",persistStruct=rc",
-			"ErrorBox",
-			"getMyPlugin",
-			"noofPassenger",
-			"text",
-			"eq ",
-			"value=",
-			"foodtype",
-			"departuredate",
-			"roomsharing",
-			"hotelcategory",
-			"<option",
+			"admin",
+			"<cfset variables.dsn = arguments.dsn.getName() >",
+			"getName",
+			"coldbox:datasource:hauntworld",
 			"includes",
 			"dbo.",
 			"INT           IDENTITY (1, 1) NOT NULL",
@@ -1156,40 +873,8 @@
 			"getfacebookcount",
 			"init",
 			"getfacebookcount",
-<<<<<<< HEAD
-			"qstateSEO"
-=======
 			"qstateSEO",
-			"rc.stateid",
-			"qGetStateurl",
-			"																					",
-			"																				",
-			"																			",
-			"																		",
-			"																	",
-			"																",
-			"															",
-			"														",
-			"application.s3cdnpath",
-			"application.bucketname",
-			"application.s3.",
-			"application.s3",
-			"zip_",
-			"zip_latitude",
-			"accress",
-<<<<<<< HEAD
-			"getSetting"
-=======
-			"getSetting",
-			"PageKeyword",
-			"pagekeyword",
-			"PageKeyword",
-			"#",
-			"CreepyWorld / Silo-X in Saint Louis/Fenton, Missouri - 50055 Views",
-			"##",
-			"#"
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
+			"rc.stateid"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1197,6 +882,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"getInstance",
+			"<cfset variables.dsn = arguments.dsn.Name >",
+			"coldbox:datasource:demo",
 			"",
 			"##",
 			"hw_topList",
@@ -1226,705 +914,14 @@
 	"groups":
 	[
 		{
-<<<<<<< HEAD
-			"selected": 5,
-=======
-			"selected": 1,
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 			"sheets":
 			[
-				{
-					"buffer": 0,
-<<<<<<< HEAD
-					"file": "handlers/admin/usermaster.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6106,
-=======
-<<<<<<< HEAD
-					"file": "handlers/admin/inquery.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13687,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13232,
-								13242
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7465.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "views/admin/individualtour.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16144,
-=======
-					"file": "models/usermasterServiceBase.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5051,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								4858,
-								4858
-=======
-<<<<<<< HEAD
-								11831,
-								11831
-=======
-								1511,
-								1511
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
-						},
-						"translation.x": 0.0,
-<<<<<<< HEAD
-						"translation.y": 588.0,
-=======
-						"translation.y": 4161.0,
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-<<<<<<< HEAD
-					"buffer": 2,
-					"file": "views/admin/inqueryadd.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18444,
-=======
-					"buffer": 1,
-					"file": "models/usermasterService.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 652,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								557,
-								574
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "handlers/admin/inquery.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-<<<<<<< HEAD
-						"buffer_size": 15345,
-=======
-						"buffer_size": 7378,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								1920,
-								1920
-=======
-<<<<<<< HEAD
-								17923,
-								17735
-=======
-								0,
-								0
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7398.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 448.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 6,
-=======
-					"stack_index": 5,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-<<<<<<< HEAD
-					"file": "views/admin/inquerylist.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6546,
-=======
-<<<<<<< HEAD
-					"file": "views/admin/corporatetour.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18806,
-=======
-					"file": "models/usermaster.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14058,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								1634,
-								1634
-=======
-<<<<<<< HEAD
-								14817,
-								14817
-=======
-								0,
-								0
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5241.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 196.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 7,
-=======
-					"stack_index": 4,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-<<<<<<< HEAD
-					"file": "models/inqueryServiceBase.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10294,
-=======
-<<<<<<< HEAD
-					"file": "views/admin/adventuretour.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15657,
-=======
-					"file": "handlers/admin/usermaster.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5727,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								9529,
-								9544
-=======
-<<<<<<< HEAD
-								15136,
-								14914
-=======
-								0,
-								0
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5076.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 8,
-=======
-					"stack_index": 3,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-<<<<<<< HEAD
-					"file": "models/inqueryGatewayBase.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23198,
-=======
-<<<<<<< HEAD
-					"file": "views/admin/bhaktiyatra.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12875,
-=======
-					"file": "handlers/general.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2623,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								20463,
-								20463
-=======
-<<<<<<< HEAD
-								8156,
-								7661
-=======
-								978,
-								978
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2808.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-<<<<<<< HEAD
-					"stack_index": 0,
-=======
-					"stack_index": 2,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-<<<<<<< HEAD
-					"file": "handlers/general.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3119,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1703,
-								1703
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 155.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "views/admin/usermasteradd.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4913,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4892,
-								4892
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1253.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-=======
-<<<<<<< HEAD
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"file": "layouts/layout.admin.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-<<<<<<< HEAD
-						"buffer_size": 6060,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3564,
-								3564
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 84.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-=======
-						"buffer_size": 5615,
-=======
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-					"file": "views/login.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-<<<<<<< HEAD
-						"buffer_size": 3880,
-=======
-						"buffer_size": 2639,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-<<<<<<< HEAD
-								1606,
-								1607
-=======
-<<<<<<< HEAD
-								3487,
-								3487
-=======
-								676,
-								686
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-							]
-						],
-						"settings":
-						{
-<<<<<<< HEAD
-							"syntax": "Packages/ColdFusion-master/ColdFusion-master/HTML+CFML.tmLanguage",
-=======
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-<<<<<<< HEAD
-						"translation.y": 224.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "config/Coldbox.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3601,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3373,
-								3373
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1310.0,
-=======
-<<<<<<< HEAD
-						"translation.y": 72.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-=======
-						"translation.y": 0.0,
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Application.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2316,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1698,
-								1698
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 252.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "handlers/Main.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1257,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								942,
-								942
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -1959,17 +956,13 @@
 	},
 	"output.sftp":
 	{
-<<<<<<< HEAD
 		"height": 24.0
-=======
-		"height": 25.0
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 	},
 	"pinned_build_system": "",
 	"project": "demo.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1979,7 +972,18 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
+				"usermasteradd",
+				"views\\admin\\usermasteradd.cfm"
+			],
+			[
+				"usermasterdao",
+				"models\\usermasterDAO.cfc"
+			],
+			[
+				"usermastergateway.cfc",
+				"models\\usermasterGateway.cfc"
+			],
+			[
 				"inquerygateway",
 				"models\\inqueryGatewayBase.cfc"
 			],
@@ -2004,20 +1008,6 @@
 				"Application.cfc"
 			],
 			[
-=======
-<<<<<<< HEAD
-				"individualtour",
-				"views\\admin\\individualtour.cfm"
-			],
-			[
-				"bhaktiyatra",
-				"views\\admin\\bhaktiyatra.cfm"
-			],
-			[
-				"educationaltour",
-				"views\\admin\\educationaltour.cfm"
-=======
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 				"layout",
 				"layouts\\layout.admin.cfm"
 			],
@@ -2038,34 +1028,8 @@
 				"models\\usermasterGatewayBase.cfc"
 			],
 			[
-<<<<<<< HEAD
 				"inqueryform",
 				"views\\inqueryform.cfm"
-=======
-				"usermastergateway",
-				"models\\usermasterGateway.cfc"
->>>>>>> e2f31c589300b8bd6438bb0e02194b41e4024735
-			],
-			[
-				"escortedtour.cfm",
-				"views\\admin\\escortedtour.cfm"
-			],
-			[
-				"login",
-				"views\\login.cfm"
-			],
-			[
-				"inquery.cfc",
-				"handlers\\admin\\inquery.cfc"
-			],
-			[
-				"45",
-				"includes\\mailspool\\mail.04-29-2015.17-57-57-928.html"
-			],
-			[
-				"inquerylist",
-				"views\\admin\\inquerylist.cfm"
->>>>>>> 9803fb92e12474849c04a51c4e6af6d04e1ed44f
 			],
 			[
 				"gene",
@@ -2518,18 +1482,6 @@
 			[
 				"articlepriority",
 				"views/admin/article_priority.cfm"
-			],
-			[
-				"hw_articles",
-				"handlers/admin/hw_articles.cfc"
-			],
-			[
-				"hw_email_t",
-				"views/admin/hw_email_templateadd.cfm"
-			],
-			[
-				"hw_blogser",
-				"model/hw_blogServiceBase.cfc"
 			]
 		],
 		"width": 0.0
@@ -2537,7 +1489,7 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "haun",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -2663,7 +1615,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 190.0,
 	"status_bar_visible": true,
 	"template_settings":

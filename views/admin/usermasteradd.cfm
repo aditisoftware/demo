@@ -99,6 +99,11 @@
 		        <label>Password</label>
 		        <input type="text" ID="password" name="password" class="form-control" placeholder="Password" value="#rc.password#" />
 		    </div>
+		<cfelse>
+			<div class="form-group">
+		        <label>Reset Password</label>
+		        <input type="text" ID="resetpassword" name="resetpassword" class="form-control" placeholder="(Leave Blank If Don't want to change password)" />
+		    </div>
 	    </cfif>
 	    <div class="form-group">
 	        <label>Usertype</label>

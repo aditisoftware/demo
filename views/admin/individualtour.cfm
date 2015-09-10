@@ -280,10 +280,6 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="traintype">Train type</label>
-						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
 						<label for="foodtype">Food type</label>
 						<select class="form-control" id="foodtype" name="foodtype">
 							<option value="">Selct</option>
