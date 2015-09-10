@@ -41,8 +41,9 @@
 			rc.sortOrder = "asc";
 		}
 		//Get the listing
-		rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
-
+		if((StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")){
+			rc.qusermaster = instance.ousermasterService.getByPage(Page=rc.pageno, pagesize=rc.pageSize,gridsortcolumn=rc.sortBy,gridstartdirection=rc.sortOrder,searchname = rc.searchname,searchcity = rc.searchcity,searchusertype = rc.searchusertype);
+		}
 		//Set the view to render
 		event.setView("admin/usermasterList");
 		</cfscript>
@@ -110,6 +111,7 @@
 		//get a new usermaster bean if primary keys are blank
 		if (StructKeyExists(rc, 'Id') AND len(rc.Id)) {
 			ousermasterBean = instance.ousermasterService.getusermaster(rc.Id);
+			ousermasterBean.setcreateddate(now());
 		} else {
 			ousermasterBean = instance.ousermasterService.createusermaster(argumentCollection=rc);
 			ousermasterBean.setcreateddate(now());
@@ -147,10 +149,12 @@
 
 		if (!result.success){
 			getInstance("ErrorBox").error(result.errors);
-			setNextEvent(event="admin.usermaster.dspEditor",persistStruct=rc);
+			rc.event = "admin.usermaster.dspEditor";
+			setNextEvent(event=rc.event,persistStruct=rc);
 		}
 		else {
-			setNextEvent(event="admin.usermaster.list");
+			rc.event = "admin.usermaster.list";
+			setNextEvent(event=rc.event);
 		}
 		</cfscript>		
 	</cffunction>

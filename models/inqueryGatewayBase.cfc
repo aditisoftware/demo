@@ -358,7 +358,7 @@
 		<cfargument name="gridstartdirection" default="">
 		<cfargument name="searchname" default="" >
 		<cfargument name="searchcity" default="" >
-		<cfargument name="searchusertype" default="" >
+		<cfargument name="searchcreatedby" default="" >
 		<cfset var startrow = (arguments.page-1) * arguments.pagesize>		
 		<cfset var gridstruct = structNew()>
 		
@@ -406,7 +406,7 @@
 				inquery.createddate,
 				inquery.createdby,
 				inquery.tourid
-			FROM `inquery` 
+			FROM `inquery` where 1 = 1 
 			<cfif structKeyExists(arguments,"searchname") and len(arguments.searchname)>
 				AND	inquery.contactperson like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
 			</cfif>
@@ -416,15 +416,27 @@
 			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
 				AND	inquery.createddate = <cfqueryparam value="#arguments.createddate#" CFSQLType="cf_sql_timestamp" />
 			</cfif>
-			<cfif structKeyExists(arguments,"createdby") and len(arguments.createdby)>
-				AND	inquery.createdby = <cfqueryparam value="#arguments.createdby#" CFSQLType="cf_sql_integer" />
+			<cfif structKeyExists(arguments,"searchcreatedby") and len(arguments.searchcreatedby)>
+				AND	inquery.createdby = <cfqueryparam value="#arguments.searchcreatedby#" CFSQLType="cf_sql_integer" />
 			</cfif>
 			ORDER BY #arguments.gridsortcolumn# #arguments.gridstartdirection#
 			LIMIT #StartRow#, #pagesize#
 		</cfquery>
 		
 		<cfquery name="qTotalRecord" datasource="#variables.dsn#">
-			SELECT COUNT(*) AS CountAll FROM `inquery`
+			SELECT COUNT(*) AS CountAll FROM `inquery` where 1 = 1 
+			<cfif structKeyExists(arguments,"searchname") and len(arguments.searchname)>
+				AND	inquery.contactperson like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"searchcity") and len(arguments.searchcity)>
+				AND	inquery.city like <cfqueryparam value="%#arguments.searchcity#%" CFSQLType="cf_sql_varchar" />
+			</cfif>
+			<cfif structKeyExists(arguments,"createddate") and len(arguments.createddate)>
+				AND	inquery.createddate = <cfqueryparam value="#arguments.createddate#" CFSQLType="cf_sql_timestamp" />
+			</cfif>
+			<cfif structKeyExists(arguments,"searchcreatedby") and len(arguments.searchcreatedby)>
+				AND	inquery.createdby = <cfqueryparam value="#arguments.searchcreatedby#" CFSQLType="cf_sql_integer" />
+			</cfif>
 		</cfquery>
 		
 		<cfset gridstruct.totalrowcount=qTotalRecord.countall>

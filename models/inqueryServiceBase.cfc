@@ -171,7 +171,7 @@
 	    <cfargument name="gridstartdirection" default="">
 		<cfargument name="searchname" default="" >
 		<cfargument name="searchcity" default="" >
-		<cfargument name="searchusertype" default="" >
+		<cfargument name="searchcreatedby" default="" >
 		<cfreturn instance.inqueryGateway.getBypage(argumentCollection=arguments) />
 		
 	</cffunction>

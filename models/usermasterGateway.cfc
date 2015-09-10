@@ -8,7 +8,7 @@
 		<cfargument name="searchname" default="" />
 		<cfargument name="searchcity" default="" />
 		<cfargument name="searchusertype" default="" />
-		<cfdump var="#arguments#" />
+
 		<cfset var startrow = (arguments.page-1) * arguments.pagesize>		
 		<cfset var gridstruct = structNew()>
 		
