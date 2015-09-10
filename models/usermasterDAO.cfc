@@ -93,7 +93,7 @@
 					passwordsalt = <cfqueryparam value="#arguments.usermaster.getpasswordsalt()#" cfsqltype="cf_sql_varchar"  />, 
 					usertype = <cfqueryparam value="#arguments.usermaster.getusertype()#" cfsqltype="cf_sql_varchar" null="#not len(arguments.usermaster.getusertype())#" />, 
 					createddate = <cfqueryparam value="#arguments.usermaster.getcreateddate()#" cfsqltype="cf_sql_timestamp"  />, 
-					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />,
+					createdby = <cfqueryparam value="#arguments.usermaster.getcreatedby()#" cfsqltype="cf_sql_integer"  />
 					
 			WHERE		0=0
 				AND		Id = <cfqueryparam value="#arguments.usermaster.getId()#" cfsqltype="cf_sql_integer" />

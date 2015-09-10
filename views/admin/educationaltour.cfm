@@ -226,6 +226,16 @@
 						<input class="form-control" id="totaldays" name="totaldays" type="text" value="#rc.totaldays#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
+						<label for="mealplan">Meal plan</label>
+						<select class="form-control" id="mealplan" name="mealplan">
+							<option value="">Selct</option>
+							<option value="EP" <cfif rc.mealplan eq "EP">selected</cfif>>EP EUROPEAN PLAN (ONLY ACCOMMODATION)</option>
+							<option value="CP" <cfif rc.mealplan eq "CP">selected</cfif>>CP = CONTINENTAL PLAN (ACCOMMODATION + BREAKFAST)</option>
+							<option value="MAP" <cfif rc.mealplan eq "MAP">selected</cfif>>MAP = MODIFIED AMERICAN PLAN (ACCOMMODATION + BREAKFAST + LUNCH / DINNER)</option>
+							<option value="AP" <cfif rc.mealplan eq "AP">selected</cfif>>AP = AMERICAN PLAN (ACCOMMODATION + BREAKFAST + LUNCH + DINNER)</option>
+						</select>
+					</div>
+					<div class="form-group">
 						<label for="hotelcategory">Hotel category</label>
 						<select class="form-control" id="hotelcategory" name="hotelcategory" >
 							<option <cfif rc.hotelcategory eq "" >selected</cfif> value="">Select</option>
@@ -253,98 +263,6 @@
 		</div>
 	</div>
 	<div class="row">
-		<!-- <div class="col-md-6">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Special Service</div>
-				<div class="panel-body">
-					<div class="form-group">
-						<label for="DJParty">DJ Party</label>
-						<input class="form-control" id="DJParty" name="DJParty" type="checkbox" value="1"
-						<cfif rc.DJParty eq 1>
-							checked="true"
-						</cfif>
-						 maxlength="15" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="cocktailparty">Cocktail party</label>
-						<input class="form-control" id="cocktailparty" name="cocktailparty" type="checkbox" value="1"
-						<cfif rc.cocktailparty eq 1>
-							checked="true"
-						</cfif>
-						maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="artist">Artist</label>
-						<input class="form-control" id="artist" name="artist" type="checkbox"
-						<cfif rc.artist eq 1>
-							checked
-						</cfif>
-						 maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="cultureparty">Culture party</label>
-						<input class="form-control" id="cultureparty" name="cultureparty" type="checkbox" 
-						<cfif rc.cultureparty eq 1>
-							checked
-						</cfif>
-						maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="productlaunching">Product launching</label>
-						<input class="form-control" id="productlaunching" name="productlaunching" type="checkbox" 
-						<cfif rc.productlaunching eq 1>
-							checked
-						</cfif>
-						 maxlength="50" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="sitevisit">Site visit</label>
-						<input class="form-control" id="sitevisit" name="sitevisit" type="checkbox" 
-						<cfif rc.sitevisit eq 1>
-							checked
-						</cfif>
-						maxlength="1" size="32"  />
-					</div>
-					<div class="form-group">
-						<label for="soundsystem">Sound system</label>
-						<input class="form-control" id="soundsystem" name="soundsystem" type="checkbox"
-						<cfif rc.soundsystem eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="project">Projector</label>
-						<input class="form-control" id="project" name="project" type="checkbox"
-						<cfif rc.project eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="stagedecoration">Stage Decoration</label>
-						<input class="form-control" id="stagedecoration" name="stagedecoration"  type="checkbox"
-						<cfif rc.project eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-					<div class="form-group">
-						<label for="amt_pmt">Amt-Pmt</label>
-						<input class="" id="amt" name="amt_pmt" type="radio" value="amt"
-						<cfif rc.amt_pmt eq 1>
-							checked
-						</cfif>
-						 />
-						<input class="" id="pmt" name="amt_pmt" type="radio" value="pmt"
-						<cfif rc.amt_pmt eq 1>
-							checked
-						</cfif>
-						 />
-					</div>
-				</div>
-			</div>
-		</div> -->
 		<div class="col-md-6">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Additional Information</div>
