@@ -404,6 +404,7 @@
 				inquery.sitevisit,
 				inquery.remark,
 				inquery.createddate,
+				(SELECT CONCAT(firstName," ",lastname) FROM usermaster WHERE id = inquery.createdby) as created,
 				inquery.createdby,
 				inquery.tourid
 			FROM `inquery` where 1 = 1 

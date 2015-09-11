@@ -47,7 +47,7 @@
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown">
-                        <a href="##" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> User Name<b class="caret"></b></a>
+                        <a href="##" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;#session.uname#<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="##"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -60,12 +60,13 @@
                     </li>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="#event.buildLink('admin.inquery.home')#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
-                        <cfif not (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+                        <cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "superadmin">
                             <li>
                                 <a href="#event.buildLink('admin.usermaster.list')#"><i class="fa fa-fw fa-users"></i> Users</a>
                             </li>

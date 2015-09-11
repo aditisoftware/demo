@@ -189,7 +189,7 @@
 					</div>
 					<div class="form-group">
 						<label for="departuredate">Departure date</label>
-						<input class="form-control" id="departuredate" name="departuredate" type="text" value="<cfif len(trim(rc.departuredate))>#dateFormat(rc.departuredate,'MM/DD/YYYY')# #TimeFormat(rc.departuredate,'hh:mm:ss tt')#</cfif>" maxlength="10" size="32" />
+						<input class="form-control" id="departuredate" name="departuredate" type="text" value="<cfif len(trim(rc.departuredate))>#dateFormat(rc.departuredate,'MM/DD/YYYY')#</cfif>" maxlength="10" size="32" />
 					</div>
 					<div class="form-group">
 						<label for="totalpassenger">Total passenger</label>
@@ -200,7 +200,7 @@
 						<input class="form-control" id="adult" name="adult" type="text" value="#rc.adult#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">
-						<label for="child">Child</label>
+						<label for="child">Adult (11 above)</label>
 						<input class="form-control" id="child" name="child" type="text" value="#rc.child#" maxlength="3" size="32"  />
 					</div>
 					<div class="form-group">

@@ -31,17 +31,19 @@
 			<cfset local.qusermaster = instance.ousermasterService.getusermasters(username=rc.username)>
 
 			<cfif local.qusermaster.recordCount GT 0>
+				<cfdump var="#hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA")#" />
 			    <cfif hash(local.qusermaster.passwordsalt & trim(rc.password), "SHA") EQ trim(local.qusermaster.password) >
-			    <!--- <cfif rc.password EQ trim(local.qusermaster.password) > --->
 				    <CFLOCK SCOPE="Session" TIMEOUT="30" TYPE="Exclusive">
 				        <CFSET session.username=local.qusermaster.username>
+				        <CFSET session.uname = local.qusermaster.firstname & ' ' & local.qusermaster.lastname />
 						<CFSET session.userid=local.qusermaster.id>
 						<CFSET session.usertype=local.qusermaster.usertype>
 				    </CFLOCK>
 				    <cflogin idletimeout="54000">
 				        <cfloginuser name = "#local.qusermaster.firstname#" password = "#local.qusermaster.id#" roles = "#lcase(local.qusermaster.usertype)#"/>
 				    </cflogin>
-				    <cfset event.setView("admin/home").setLayout('layout.admin')>
+				    <cfset rc.backevent = 'admin.inquery.home' />
+				    <cfset setNextEvent(event= rc.backevent)>
 				<cfelse>
 					<cfset getInstance("ErrorBox").error(renderto="loginError",message = "Please enter correct login information.")>
 					<cfset setNextEvent(event= rc.backevent)>

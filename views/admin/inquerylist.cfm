@@ -18,6 +18,7 @@
 	<div class="content_header">
 		<h1>Inquery</h1>
 	</div>
+
 	#getInstance("ErrorBox").renderIt("inqueryError")#
 	<div id="inqueryJSError" class="errorbox" style="display:none">
 		<ul id="inqueryULError"></ul>
@@ -40,10 +41,12 @@
 			<tr>
 				<td width="10%" class="lbl" valign="top"><label for="session.userid">Created By</label></td>
 				<td valign="top">
-					<cfif (StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "admin")>
+					<cfif StructKeyExists(session,"username") and len(trim(session.username)) and (session.usertype eq "admin" or session.usertype eq "superadmin")>
 						<select ID="searchcreatedby" name="searchcreatedby"  class="form-control">
 						 	<option value="">Select Type</option>
-				            <option <cfif rc.session.userid eq "Staff">selected</cfif>value="Staff">Staff</option>
+						 	<cfloop query="rc.qusermaster">
+				            	<option <cfif rc.searchcreatedby eq rc.qusermaster.id>selected</cfif> value="#id#">#rc.qusermaster.firstname# #rc.qusermaster.lastname#</option>
+						 	</cfloop>
 				        </select>
 					<cfelse>
 						<input type="hidden" name="searchcreatedby" id="searchcreatedby" value="#rc.searchcreatedby#" />
@@ -52,11 +55,10 @@
 				<td>&nbsp;</td>
 				<td >
 					<button type="submit" name="Search" id="Search" class="btn btn-info"><i class="icon-search"></i> Search</button> 
-					<button type="button" name="Reset" id="Reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
+					<button type="reset" name="Reset" id="Reset" class="btn btn-default"><i class="icon-refresh"></i> Reset</button>
 				</td>
 			</tr>
 		</table>
-
 		<div class="table_container">
 			<table border="0" cellpadding="0" cellspacing="0" class="table table-hover table-bordered">
 				<cfoutput>
@@ -85,10 +87,12 @@
 						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=createdby&sortOrder=#rc.sortOrder#">Created by</a>&nbsp;<span <cfif rc.sortBy eq 'createdby'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 						</th>
-						<th>&nbsp;&nbsp;actions&nbsp;&nbsp;</th>
+						<cfif session.usertype neq "admin">
+							<th>&nbsp;&nbsp;Actions&nbsp;&nbsp;</th>
+						</cfif>
 					</tr>
 				</cfoutput>
-				
+
 				<cfoutput query="rc.qinquery.query">
 				<tr <cfif currentrow mod 2 eq 0>class="even"</cfif>>
 					<td>
@@ -126,29 +130,31 @@
 						#dateFormat(createddate,"MM-DD-YYYY")# #TimeFormat(createddate,"hh:mm:ss tt")#&nbsp;
 					</td>
 					<td>
-						#createdby#&nbsp;
+						#created#&nbsp;
 					</td>
-					<td>
-						<cfif tourid eq 1>
-							<cfset rc.event = "admin.inquery.escortedtour">
-						<cfelseif tourid eq 2>
-							<cfset rc.event = "admin.inquery.bhaktiyatra">
-						<cfelseif tourid eq 3>
-							<cfset rc.event = "admin.inquery.educationaltour">
-						<cfelseif tourid eq 4>
-							<cfset rc.event = "admin.inquery.adventuretour">
-						<cfelseif tourid eq 5>
-							<cfset rc.event = "admin.inquery.corporatetour">							
-						<cfelseif tourid eq 6 >
-							<cfset rc.event = "admin.inquery.individualtour">
-						</cfif>	
-						<a href="#event.buildlink(rc.event)#?Id=#Id#&">
-							<span class="fa fa-edit"></span>
-						</a>&nbsp;
-						<a onclick="javascript:return confirm('Are you sure you wish to delete? This action cannot be undone.')" href="#event.buildlink(rc.xehDelete)#?Id=#Id#&">
-							<span class="fa fa-close"></span>
-						</a>
-					</td>
+					<cfif session.usertype neq "admin">
+						<td>
+							<cfif tourid eq 1>
+								<cfset rc.event = "admin.inquery.escortedtour">
+							<cfelseif tourid eq 2>
+								<cfset rc.event = "admin.inquery.bhaktiyatra">
+							<cfelseif tourid eq 3>
+								<cfset rc.event = "admin.inquery.educationaltour">
+							<cfelseif tourid eq 4>
+								<cfset rc.event = "admin.inquery.adventuretour">
+							<cfelseif tourid eq 5>
+								<cfset rc.event = "admin.inquery.corporatetour">							
+							<cfelseif tourid eq 6 >
+								<cfset rc.event = "admin.inquery.individualtour">
+							</cfif>	
+								<a href="#event.buildlink(rc.event)#?Id=#Id#&">
+									<span class="fa fa-edit"></span>
+								</a>&nbsp;
+								<a onclick="javascript:return confirm('Are you sure you wish to delete? This action cannot be undone.')" href="#event.buildlink(rc.xehDelete)#?Id=#Id#&">
+									<span class="fa fa-close"></span>
+								</a>
+						</td>
+					</cfif>
 				</tr>
 				</cfoutput>
 			</table>

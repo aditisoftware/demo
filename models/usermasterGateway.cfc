@@ -1,5 +1,5 @@
 
-<cfcomponent name="usermasterGateway" output="false" cache="true" cachetimeout="30" extends="usermasterGatewayBase">
+<cfcomponent name="usermasterGateway" output="false" cache="true" cachetimeout="0" extends="usermasterGatewayBase">
 	<cffunction name="getBypage" access="public" returntype="any" output="false">
 		<cfargument name="page" default="1">
 		<cfargument name="pagesize" default="30">

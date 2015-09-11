@@ -94,17 +94,25 @@
 	        <label>Username</label>
 	        <input type="text" ID="username" name="username" class="form-control" placeholder="Username" value="#rc.username#" />
 	    </div>
-	    <div class="form-group">
-	        <label>Password</label>
-	        <input type="text" ID="password" name="password" class="form-control" placeholder="Password" value="#rc.password#" />
-	    </div>
+	    <cfif val(rc.Id) eq 0>
+		    <div class="form-group">
+		        <label>Password</label>
+		        <input type="text" ID="password" name="password" class="form-control" placeholder="Password" value="#rc.password#" />
+		    </div>
+	    </cfif>
 	    <div class="form-group">
 	        <label>Usertype</label>
 	        <select ID="usertype" name="usertype"  class="form-control">
+	            <option <cfif rc.usertype eq "Agent">selected</cfif> value="Agent">Agent</option>
+	            <option <cfif rc.usertype eq "Staff">selected</cfif> value="Staff">Staff</option>
+	            <option <cfif rc.usertype eq "Admin">selected</cfif> value="Admin">Admin</option>
+	            <option <cfif rc.usertype eq "SuperAdmin">selected</cfif> value="SuperAdmin">Super Admin</option>
+	        </select>
+	       <!---  <select ID="usertype" name="usertype"  class="form-control">
 	            <option <cfif session.usertype eq "Agent">selected</cfif>>Agent</option>
 	            <option <cfif session.usertype eq "Admin">selected</cfif>>Admin</option>
 	            <option <cfif session.usertype eq "Staff">selected</cfif>>Staff</option>
-	        </select>
+	        </select> --->
 	    </div>
 	    <div class="form-group">
 	    	<input type="submit" value="Submit" class="btn btn-primary" />
