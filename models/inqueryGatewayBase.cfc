@@ -61,6 +61,7 @@
 		<cfargument name="extramatress" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
 		<cfargument name="vehicle" type="string" required="false" />
+		<cfargument name="goby" type="string" required="false" />
 
 		<cfset var qList = getByAttributesQuery(argumentCollection=arguments) />		
 		<cfset var arrObjects = arrayNew(1) />
@@ -128,6 +129,7 @@
 		<cfargument name="extramatress" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
 		<cfargument name="vehicle" type="string" required="false" />
+		<cfargument name="goby" type="string" required="false" />
 
 		<cfset var qList = "" />		
 		<cfquery name="qList" datasource="#variables.dsn#">
@@ -183,7 +185,8 @@
 				inquery.hotelrooms,
 				inquery.extramatress,
 				inquery.mealplan,
-				inquery.vehicle
+				inquery.vehicle,
+				inquery.goby
 			FROM `inquery`
 			WHERE 0=0
 			<cfif structKeyExists(arguments,"Id") and len(arguments.Id)>
@@ -342,7 +345,9 @@
 			<cfif structKeyExists(arguments,"vehicle") and len(arguments.vehicle)>
 				AND inquery.vehicle = <cfqueryparam value="#arguments.vehicle#" CFSQLType="cf_sql_varchar" />
 			</cfif>
-
+			<cfif structKeyExists(arguments,"goby") and len(arguments.goby)>
+				AND inquery.goby = <cfqueryparam value="#arguments.goby#" CFSQLType="cf_sql_varchar" />
+			</cfif>
 			<cfif structKeyExists(arguments, "orderby") and len(arguments.orderBy)>
 				ORDER BY #arguments.orderby#
 			</cfif>
@@ -406,7 +411,8 @@
 				inquery.createddate,
 				(SELECT CONCAT(firstName," ",lastname) FROM usermaster WHERE id = inquery.createdby) as created,
 				inquery.createdby,
-				inquery.tourid
+				inquery.tourid,
+				goby
 			FROM `inquery` where 1 = 1 
 			<cfif structKeyExists(arguments,"searchname") and len(arguments.searchname)>
 				AND	inquery.contactperson like <cfqueryparam value="%#arguments.searchname#%" CFSQLType="cf_sql_varchar" />

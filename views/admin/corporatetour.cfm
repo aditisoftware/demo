@@ -286,7 +286,7 @@
 						<cfif rc.artist eq 1>
 							checked
 						</cfif>
-						 maxlength="50" size="32"  />
+						 maxlength="50" size="32" value="1"  />
 					</div>
 					<div class="form-group">
 						<label for="cultureparty">Culture party</label>
@@ -294,7 +294,7 @@
 						<cfif rc.cultureparty eq 1>
 							checked
 						</cfif>
-						maxlength="50" size="32"  />
+						maxlength="50" size="32" value="1" />
 					</div>
 					<div class="form-group">
 						<label for="productlaunching">Product launching</label>
@@ -302,7 +302,7 @@
 						<cfif rc.productlaunching eq 1>
 							checked
 						</cfif>
-						 maxlength="50" size="32"  />
+						 maxlength="50" size="32"  value="1" />
 					</div>
 					<div class="form-group">
 						<label for="sitevisit">Site visit</label>
@@ -310,14 +310,14 @@
 						<cfif rc.sitevisit eq 1>
 							checked
 						</cfif>
-						maxlength="1" size="32"  />
+						maxlength="1" size="32"  value="1" />
 					</div>
 					<div class="form-group">
 						<label for="soundsystem">Sound system</label>
 						<input class="form-control" id="soundsystem" name="soundsystem" type="checkbox"
 						<cfif rc.soundsystem eq 1>
 							checked
-						</cfif>
+						</cfif>  value="1"
 						 />
 					</div>
 					<div class="form-group">
@@ -326,6 +326,7 @@
 						<cfif rc.project eq 1>
 							checked
 						</cfif>
+						 value="1"
 						 />
 					</div>
 					<div class="form-group">
@@ -334,6 +335,7 @@
 						<cfif rc.project eq 1>
 							checked
 						</cfif>
+						 value="1"
 						 />
 					</div>
 					<div class="form-group">
@@ -342,17 +344,18 @@
 						<cfif rc.project eq 1>
 							checked
 						</cfif>
+						 value="1"
 						 />
 					</div>
 					<div class="form-group">
 						<label for="amt_pmt">Amt-Pmt</label>
 						<input class="" id="amt" name="amt_pmt" type="radio" value="amt"
-						<cfif rc.amt_pmt eq 1>
+						<cfif rc.amt_pmt eq 'amt'>
 							checked
 						</cfif>
 						 />
 						<input class="" id="pmt" name="amt_pmt" type="radio" value="pmt"
-						<cfif rc.amt_pmt eq 1>
+						<cfif rc.amt_pmt eq 'pmt'>
 							checked
 						</cfif>
 						 />
@@ -364,6 +367,14 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">Additional Information</div>
 				<div class="panel-body">
+					<div class="form-group">
+						<label for="goby">Go By</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Any</option>	
+							<option <cfif rc.goby eq "Train Detail">selected</cfif> value="Train Detail">Train Detail</option>	
+							<option <cfif rc.goby eq "Flight Detail">selected</cfif> value="Flight Detail">Flight Detail</option>	
+						</select>
+					</div>
 					<div class="form-group">
 						<label for="transporttype">Transport type</label>
 						<select class="form-control" id="transporttype" name="transporttype">

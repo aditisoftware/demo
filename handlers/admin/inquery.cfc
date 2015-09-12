@@ -190,28 +190,52 @@
 			oinqueryBean.setmealplan(rc.mealplan);
 		if (StructKeyExists(rc, 'noofPassenger'))
 			oinqueryBean.setnoofPassenger(rc.noofPassenger);
-		if (StructKeyExists(rc, 'soundsystem'))
-			oinqueryBean.setsoundsystem(rc.soundsystem);
-		if (StructKeyExists(rc, 'project'))
-			oinqueryBean.setproject(rc.project);
+
 		if (StructKeyExists(rc, 'amt_pmt'))
 			oinqueryBean.setamt_pmt(rc.amt_pmt);
-		if (StructKeyExists(rc, 'stagedecoration'))
-			oinqueryBean.setstagedecoration(rc.stagedecoration);
-		if (StructKeyExists(rc, 'B2B'))
-			oinqueryBean.setB2B(rc.B2B);
+
 		if (StructKeyExists(rc, 'DJParty'))
 			oinqueryBean.setDJParty(rc.DJParty);
+		else
+			oinqueryBean.setDJParty(0);
 		if (StructKeyExists(rc, 'cocktailparty'))
 			oinqueryBean.setcocktailparty(rc.cocktailparty);
+		else
+			oinqueryBean.setcocktailparty(0);
 		if (StructKeyExists(rc, 'artist'))
 			oinqueryBean.setartist(rc.artist);
+		else
+			oinqueryBean.setartist(0);
 		if (StructKeyExists(rc, 'cultureparty'))
 			oinqueryBean.setcultureparty(rc.cultureparty);
+		else
+			oinqueryBean.setcultureparty(0);
 		if (StructKeyExists(rc, 'productlaunching'))
 			oinqueryBean.setproductlaunching(rc.productlaunching);
+		else
+			oinqueryBean.setproductlaunching(0);
 		if (StructKeyExists(rc, 'sitevisit'))
 			oinqueryBean.setsitevisit(rc.sitevisit);
+		else
+			oinqueryBean.setsitevisit(0);
+		if (StructKeyExists(rc, 'soundsystem'))
+			oinqueryBean.setsoundsystem(rc.soundsystem);
+		else
+			oinqueryBean.setsoundsystem(0);
+		if (StructKeyExists(rc, 'project'))
+			oinqueryBean.setproject(rc.project);
+		else
+			oinqueryBean.setproject(0);
+		if (StructKeyExists(rc, 'stagedecoration'))
+			oinqueryBean.setstagedecoration(rc.stagedecoration);
+		else
+			oinqueryBean.setstagedecoration(0);
+		if (StructKeyExists(rc, 'B2B'))
+			oinqueryBean.setB2B(rc.B2B);
+		else
+			oinqueryBean.setB2B(0);
+
+
 		if (StructKeyExists(rc, 'remark'))
 			oinqueryBean.setremark(rc.remark);
 
@@ -235,7 +259,8 @@
 			oinqueryBean.setmealplan(rc.mealplan);
 		if (StructKeyExists(rc, 'vehicle'))
 			oinqueryBean.setvehicle(rc.vehicle);
-
+		if (StructKeyExists(rc, 'goby'))
+			oinqueryBean.setgoby(rc.goby);
 		//Send to service for saving
 		result = instance.oinqueryService.saveinquery(oinqueryBean);
 		
