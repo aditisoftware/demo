@@ -369,7 +369,7 @@
 				<div class="panel-body">
 					<div class="form-group">
 						<label for="goby">Go By</label>
-						<select class="form-control" id="foodtype" name="foodtype">
+						<select class="form-control" id="goby" name="goby">
 							<option value="">Any</option>	
 							<option <cfif rc.goby eq "Train Detail">selected</cfif> value="Train Detail">Train Detail</option>	
 							<option <cfif rc.goby eq "Flight Detail">selected</cfif> value="Flight Detail">Flight Detail</option>	
