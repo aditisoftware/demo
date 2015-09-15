@@ -45,7 +45,6 @@
 	<cfproperty name="createdby" type="numeric" default="" />
 	<cfproperty name="tourid" type="numeric" default="" />
 
-
 	<cfproperty name="infant" type="string" default = "" />
 	<cfproperty name="tourname" type="string" default = "" />
 	<cfproperty name="tourcode" type="string" default = "" />
@@ -56,6 +55,7 @@
 	<cfproperty name="extramatress" type="string" default = "" />
 	<cfproperty name="mealplan" type="string" default = "" />
 	<cfproperty name="vehicle" type="string" default = "" />
+	<cfproperty name="goby" type="string" default="" />
 
 	<!---
 	PROPERTIES
@@ -119,6 +119,8 @@
 		<cfargument name="hotelrooms" type="string" default="" />
 		<cfargument name="extramatress" type="string" default="" />
 		<cfargument name="vehicle" type="string" default="" />
+		<cfargument name="goby" type="string" default="" />
+
 		<!--- run setters --->
 		<cfset setId(arguments.Id) />
 		<cfset setcompanyname(arguments.companyname) />
@@ -173,6 +175,7 @@
 		<cfset setextramatress(arguments.extramatress) />
 		<cfset setmealplan(arguments.mealplan) />
 		<cfset setvehicle(arguments.vehicle) />
+		<cfset setgoby(arguments.goby) />
 
 		<cfreturn this />
  	</cffunction>
@@ -579,6 +582,13 @@
 			<cfset thisError.field = "vehicle" />
 			<cfset thisError.type = "maxlength" />
 			<cfset thisError.message = "vehicle no more than 50 characters" />
+			<cfset arrayAppend(errors,duplicate(thisError)) />
+		</cfif>
+
+		<cfif len(trim(getgoby())) AND (len(trim(getgoby())) GT 50) >
+			<cfset thisError.field = "goby" />
+			<cfset thisError.type = "maxlength" />
+			<cfset thisError.message = "goby no more than 12 characters" />
 			<cfset arrayAppend(errors,duplicate(thisError)) />
 		</cfif>
 		<cfreturn errors />
@@ -1018,6 +1028,13 @@
 	<cffunction name="getvehicle" access="public" returntype="string" output="false">
 		<cfreturn variables.instance.vehicle />
 	</cffunction>
-	
+
+	<cffunction name="setgoby" access="public" returntype="void" output="false">
+		<cfargument name="goby" type="string" required="true" />
+		<cfset variables.instance.goby = arguments.goby />
+	</cffunction>
+	<cffunction name="getgoby" access="public" returntype="string" output="false">
+		<cfreturn variables.instance.goby />
+	</cffunction>	
 </cfcomponent>
 

@@ -62,6 +62,7 @@
 		<cfargument name="extramatress" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
 		<cfargument name="vehicle" type="string" required="false" />
+		<cfargument name="goby" type="string" required="false" />
 
 
 		<cfset var minquery = createObject("component","inquery").init(argumentCollection=arguments) />
@@ -156,6 +157,7 @@
 		<cfargument name="extramatress" type="string" required="false" />
 		<cfargument name="mealplan" type="string" required="false" />
 		<cfargument name="vehicle" type="string" required="false" />
+		<cfargument name="goby" type="string" required="false" />
 
 		<cfif arguments.datatype eq "query">
 			<cfreturn instance.inqueryGateway.getByAttributesQuery(argumentCollection=arguments) />

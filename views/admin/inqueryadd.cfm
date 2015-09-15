@@ -367,6 +367,14 @@
 						</select>
 					</div>
 					<div class="form-group">
+						<label for="goby">Go By</label>
+						<select class="form-control" id="foodtype" name="foodtype">
+							<option value="">Any</option>	
+							<option <cfif rc.goby eq "Train Detail">selected</cfif> value="Train Detail">Train Detail</option>	
+							<option <cfif rc.goby eq "Flight Detail">selected</cfif> value="Flight Detail">Flight Detail</option>	
+						</select>
+					</div>
+					<div class="form-group">
 						<label for="traintype">Train type</label>
 						<input class="form-control" id="traintype" name="traintype" type="text" value="#rc.traintype#" maxlength="1" size="32"  />
 					</div>
