@@ -494,7 +494,26 @@
 		<cfargument name="rc" />
 		<cfargument name="prc" />
 		<cfargument name="event" />
-		
+		<cfscript>
+			event.paramValue("datefrom", "");
+			event.paramValue("dateto", "");
+			event.paramValue("createdby", "");
+
+			rc.qYesterdayInquiryCount = instance.oinqueryService.getYesterdayInquiryCount();
+			rc.qLastMonthInquiryCount = instance.oinqueryService.getLastMonthInquiryCount();
+			rc.qCurrentYearInquiryCount = instance.oinqueryService.getCurrentYearInquiryCount();
+			rc.qTotalInquiryCount = instance.oinqueryService.getTotalInquiryCount();
+			rc.qRecentInqList = instance.oinqueryService.getRecentInqList();
+			if((StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype eq "superadmin")){
+				rc.qTop10AgentInquery = instance.oinqueryService.getTop10AgentInquery();
+				rc.qLast5MonthInquery = instance.oinqueryService.getqLast5MonthInquery();
+			}
+			else{
+				rc.qAgentLast5DayInquery = instance.oinqueryService.getAgentLast5DayInquery();
+				rc.qAgentLast6MonthInquery = instance.oinqueryService.getAgentLast6MonthInquery();
+			}
+
+		</cfscript>	
 		<cfset event.setView("admin/home") />
 	</cffunction>
 </cfcomponent>
