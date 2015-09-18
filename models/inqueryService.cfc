@@ -17,7 +17,7 @@
 		<cfreturn instance.inqueryGateway.getTotalInquiryCount() />
 	</cffunction>
 	<cffunction name="getRecentInqList" access="public" returntype="any" output="false">
-		<cfreturn instance.inqueryGateway.getReventInqList() />
+		<cfreturn instance.inqueryGateway.getRecentInqList() />
 	</cffunction>
 	<cffunction name="getTop10AgentInquery" access="public" returntype="any" output="false">
 		<cfreturn instance.inqueryGateway.getTop10AgentInquery() />

@@ -8,7 +8,7 @@
 
 	<cffunction name="getYesterdayInquiryCount" access="public" returntype="any" output="false">
 		<cfquery name="list" datasource="#variables.dsn#">
-			SELECT * FROM inquery where 1 = 1 and createddate > <cfqueryparam value="#dateadd("d",-1,now())#" CFSQLType="cf_sql_timestamp" />
+			SELECT count(*) as count FROM inquery where 1 = 1 and createddate > <cfqueryparam value="#dateadd("d",-1,now())#" CFSQLType="cf_sql_timestamp" />
 			<cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype neq "superadmin">
 				and createdby = <cfqueryparam value="#Session.userid#" CFSQLType="cf_sql_integer" />
 			</cfif>
@@ -19,7 +19,7 @@
 		<cfset firstOfThisMonth = createDate(year(now()), month(now())-1, 1)> 
 		<cfset lastOfNextMonth = dateAdd("d", -1, dateAdd("m", 1, firstOfThisMonth))> 
 		<cfquery name="list" datasource="#variables.dsn#">
-			SELECT * FROM inquery where 1 = 1 
+			SELECT count(*) as count FROM inquery where 1 = 1 
 			and createddate >= <cfqueryparam value="#firstOfThisMonth#" CFSQLType="cf_sql_timestamp" />
 			and createddate <= <cfqueryparam value="#lastOfNextMonth#" CFSQLType="cf_sql_timestamp" />
 			<cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype neq "superadmin">
@@ -54,7 +54,7 @@
 			<cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype neq "superadmin">
 				and createdby = <cfqueryparam value="#Session.userid#" CFSQLType="cf_sql_integer" />
 			</cfif>
-			limit 25 order by id desc
+			order by id desc limit 25
 		</cfquery>
 		<cfreturn list>
 	</cffunction>

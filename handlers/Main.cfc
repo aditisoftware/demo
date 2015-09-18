@@ -36,11 +36,18 @@ component{
 	}
 
 	function onException(event,rc,prc){
+
 		var additionalInfo = {
 			CGI = CGI,
 			exception = prc.exception.getMemento()
 		};
 
+        /*mailerService = new mail(); 
+        mailerService.setTo("jani.parixit@gmail.com"); 
+        mailerService.setFrom("jani.parixit007@gmail.com"); 
+        mailerService.setSubject("tset"); 
+        mailerService.setType("html"); 
+        mailerService.send(body="#additionalInfo#"); */
 		logger.error(message = prc.exception.getMessage(), extraInfo = additionalInfo);
 		event.setHTTPHeader(statusCode = "500", statusText = "Error occurred");
         //location url="/" statuscode=302 addtoken="false";

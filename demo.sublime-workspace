@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"local",
+				"localhost"
+			],
+			[
 				"crea",
 				"createdby"
 			],
@@ -510,20 +514,24 @@
 			[
 				"pa",
 				"pageId"
-			],
-			[
-				"bo",
-				"bolder"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "layouts/layout.admin.cfm",
+			"file": "/C/Users/parixit/Desktop/startbootstrap-sb-admin-1.0.3/startbootstrap-sb-admin-1.0.3/index.html",
 			"settings":
 			{
-				"buffer_size": 6121,
+				"buffer_size": 25117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/admin/home.cfm",
+			"settings":
+			{
+				"buffer_size": 2847,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,31 +539,7 @@
 			"file": "handlers/admin/inquery.cfc",
 			"settings":
 			{
-				"buffer_size": 16714,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/inqueryService.cfc",
-			"settings":
-			{
-				"buffer_size": 1819,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/inqueryGateway.cfc",
-			"settings":
-			{
-				"buffer_size": 5214,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "models/inqueryGatewayBase.cfc",
-			"settings":
-			{
-				"buffer_size": 23299,
+				"buffer_size": 17195,
 				"line_ending": "Windows"
 			}
 		},
@@ -568,19 +552,51 @@
 			}
 		},
 		{
-			"file": "views/admin/home.cfm",
+			"file": "models/inqueryGateway.cfc",
 			"settings":
 			{
-				"buffer_size": 4210,
+				"buffer_size": 5246,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/parixit/Desktop/startbootstrap-sb-admin-1.0.3/startbootstrap-sb-admin-1.0.3/index.html",
+			"file": "models/inqueryGatewayBase.cfc",
 			"settings":
 			{
-				"buffer_size": 25117,
-				"line_ending": "Unix"
+				"buffer_size": 23617,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "models/inqueryService.cfc",
+			"settings":
+			{
+				"buffer_size": 1819,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "layouts/layout.admin.cfm",
+			"settings":
+			{
+				"buffer_size": 6121,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "models/logging/errorLogLayout.cfc",
+			"settings":
+			{
+				"buffer_size": 873,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "handlers/Main.cfc",
+			"settings":
+			{
+				"buffer_size": 1553,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -591,10 +607,26 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "",
+		"height": 104.0,
+		"last_filter": "Package Control: install",
 		"selected_items":
 		[
+			[
+				"Package Control: install",
+				"Package Control: Install Local Dependency"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
 			[
 				"Snippet: ",
 				"Snippet: new function (cfscript)"
@@ -610,13 +642,9 @@
 			[
 				"insta",
 				"Package Control: Install Package"
-			],
-			[
-				"",
-				"Convert Case: Lower Case"
 			]
 		],
-		"width": 512.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -637,17 +665,40 @@
 	"expanded_folders":
 	[
 		"/C/Project/demo",
-		"/C/Project/demo/handlers",
-		"/C/Project/demo/handlers/admin",
+		"/C/Project/demo/config",
 		"/C/Project/demo/includes",
 		"/C/Project/demo/layouts",
+		"/C/Project/demo/modules",
+		"/C/Project/demo/modules/cbmailservices",
+		"/C/Project/demo/modules/cbmailservices/models",
+		"/C/Project/demo/tests",
 		"/C/Project/demo/views",
 		"/C/Project/demo/views/admin"
 	],
 	"file_history":
 	[
+		"/C/Project/demo/modules/cbmailservices/models/Mail.cfc",
+		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/Stupid Indent.sublime-settings",
+		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1442320884/rahi/wwwroot/config/Coldbox.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1442320921/rahi/wwwroot/handlers/Main.cfc",
+		"/C/Project/demo/config/Coldbox.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1442319003/rahi/wwwroot/config/Coldbox.cfc",
+		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1442318936/rahi/wwwroot/handlers/Main.cfc",
+		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/Stupid Indent/Stupid Indent.sublime-settings",
+		"/C/Project/demo/handlers/Main.cfc",
+		"/C/Project/demo/tests/test.cfm",
+		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/Base File.sublime-settings",
 		"/C/Users/parixit/Desktop/tmp_demo.sql",
+		"/C/Users/parixit/Desktop/startbootstrap-sb-admin-1.0.3/startbootstrap-sb-admin-1.0.3/index.html",
+		"/C/Project/demo/views/admin/home.cfm",
 		"/C/Project/demo/handlers/admin/usermaster.cfc",
+		"/C/Project/demo/models/inqueryGatewayBase.cfc",
+		"/C/Project/demo/models/inqueryGateway.cfc",
+		"/C/Project/demo/models/inqueryService.cfc",
+		"/C/Project/demo/handlers/admin/inquery.cfc",
+		"/C/Project/demo/layouts/layout.admin.cfm",
 		"/C/Project/demo/views/admin/corporatetour.cfm",
 		"/C/Project/demo/views/admin/individualtour.cfm",
 		"/C/Project/demo/views/admin/usermasteradd.cfm",
@@ -658,10 +709,7 @@
 		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441782302/rahi/wwwroot/handlers/admin/usermaster.cfc",
 		"/C/Project/demo/handlers/general.cfc",
 		"/C/Project/demo/models/usermasterGateway.cfc",
-		"/C/Project/demo/config/Coldbox.cfc",
 		"/C/Project/demo/models/usermasterDAO.cfc",
-		"/C/Project/demo/layouts/layout.admin.cfm",
-		"/C/Project/demo/handlers/admin/inquery.cfc",
 		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441778305/rahi/wwwroot/views/admin/usermasteradd.cfm",
 		"/C/Project/demo/views/admin/bhaktiyatra.cfm",
 		"/C/Project/demo/views/admin/escortedtour.cfm",
@@ -671,15 +719,12 @@
 		"/C/Project/demo/views/admin/inqueryadd.cfm",
 		"/C/Project/demo/views/admin/hotelbooking.cfm",
 		"/C/Project/demo/views/login.cfm",
-		"/C/Project/demo/models/inqueryGatewayBase.cfc",
 		"/C/Project/demo/models/inqueryServiceBase.cfc",
 		"/C/Project/demo/models/usermasterService.cfc",
 		"/C/Project/demo/views/admin/inquerylist.cfm",
-		"/C/Project/demo/handlers/Main.cfc",
 		"/C/Project/demo/Application.cfc",
 		"/C/users/parixit/appdata/local/temp/sublime-sftp-browse-1441625450/rahi/wwwroot/config/Coldbox.cfc",
 		"/C/Users/parixit/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/rahi",
-		"/C/Project/demo/tests/test.cfm",
 		"/C/Project/demo/includes/helpers/ApplicationHelper.cfm",
 		"/C/Project/demo/models/usermaster.cfc",
 		"/C/Project/demo/models/usermasterGatewayBase.cfc",
@@ -759,21 +804,7 @@
 		"/C/Project/HWAdmin.local/model/yp_listingvideoDAO.cfc",
 		"/C/Project/HWAdmin.local/model/yp_listingvideoService.cfc",
 		"/C/Project/HWAdmin.local/model/yp_listingvideoGateway.cfc",
-		"//CF9/Projects/HauntWorld/hwadmin/generatedcode/handlers/admin/yp_listingvideo.cfc",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_listingphoto.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_listingphotolist.cfm",
-		"/C/Project/HWAdmin.local/model/s3.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_hauntblog.cfm",
-		"/C/Project/HWAdmin.local/views/admin/yp_listingtabheader.cfm",
-		"/C/Project/HWAdmin.local/views/admin/yp_listinglist.cfm",
-		"/C/Project/HWAdmin.local/views/admin/yp_listingphotoadd.cfm",
-		"/C/Project/HWAdmin.local/model/yp_hauntblogsDAO.cfc",
-		"/C/Project/HWAdmin.local/views/admin/yp_hauntblogsadd.cfm",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_listingevent.cfc",
-		"/C/Project/HWAdmin.local/handlers/admin/hw_hauntblogs.cfc",
-		"/C/Project/HWAdmin.local/model/yp_hauntblogsServiceBase.cfc",
-		"/C/Project/HWAdmin.local/model/hw_hauntblogsDAO.cfc",
-		"/C/Project/HWAdmin.local/model/hw_siteGatewayBase.cfc"
+		"//CF9/Projects/HauntWorld/hwadmin/generatedcode/handlers/admin/yp_listingvideo.cfc"
 	],
 	"find":
 	{
@@ -815,6 +846,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getReventInqList",
 			"Revent",
 			"qReventInqList",
 			"tourtype",
@@ -941,8 +973,7 @@
 			"qzip.",
 			"tip_BorderColor",
 			"bannertooltip",
-			"#",
-			"##"
+			"#"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -982,253 +1013,11 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "layouts/layout.admin.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6121,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3733,
-								3622
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "handlers/admin/inquery.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16714,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16110,
-								16110
-							],
-							[
-								16154,
-								16154
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3702.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "models/inqueryService.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1819,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								983,
-								983
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "models/inqueryGateway.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4325,
-								4325
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 600.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "models/inqueryGatewayBase.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23299,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22641,
-								22667
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6049.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "handlers/admin/usermaster.cfc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6284,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1551,
-								1440
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2370.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "views/admin/home.cfm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4210,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								988,
-								988
-							],
-							[
-								1932,
-								1932
-							],
-							[
-								2887,
-								2887
-							],
-							[
-								3837,
-								3837
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "/C/Users/parixit/Desktop/startbootstrap-sb-admin-1.0.3/startbootstrap-sb-admin-1.0.3/index.html",
 					"semi_transient": false,
 					"settings":
@@ -1240,20 +1029,318 @@
 						"selection":
 						[
 							[
-								15689,
-								10848
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/admin/home.cfm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2648,
+								2648
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3150.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "handlers/admin/inquery.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16508,
+								16529
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7310.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "handlers/admin/usermaster.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "models/inqueryGateway.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "models/inqueryGatewayBase.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4317,
+								4317
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 690.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "models/inqueryService.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1086,
+								1086
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 30.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "layouts/layout.admin.cfm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6121,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								998,
+								998
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/HTML+CFML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 75.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "models/logging/errorLogLayout.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								815,
+								815
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "handlers/Main.cfc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1156,
+								1156
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/ColdFusion/ColdFusionCFC.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 20.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
@@ -1299,7 +1386,11 @@
 	},
 	"output.sftp":
 	{
-		"height": 24.0
+		"height": 25.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
 	},
 	"pinned_build_system": "",
 	"project": "demo.sublime-project",
@@ -1314,6 +1405,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"main",
+				"handlers\\Main.cfc"
+			],
+			[
+				"logging",
+				"models\\logging\\errorLogLayout.cfc"
+			],
 			[
 				"inquerygatewaybase",
 				"models\\inqueryGatewayBase.cfc"
@@ -1817,14 +1916,6 @@
 			[
 				"toplist.cfm",
 				"views/admin/hw_topListadd.cfm"
-			],
-			[
-				"ohw_articlesgate",
-				"model/hw_articlesGateway.cfc"
-			],
-			[
-				"article_priority",
-				"views/admin/article_priority.cfm"
 			]
 		],
 		"width": 0.0
