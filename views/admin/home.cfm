@@ -46,7 +46,7 @@
                             <i class="fa fa-shopping-cart fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">#rc.qCurrentYearInquiryCount.count#</div>
+                            <div class="huge">#rc.qCurrentYearInquiryCount.recordcount#</div>
                             <div>Yearly Inquery</div>
                         </div>
                     </div>

@@ -52,7 +52,8 @@
 					sitevisit: {maxlength: 1},
 					remark: {maxlength: 250},
 					createddate: {required: true,date: true},
-					createdby: {required: true,digits: true} 
+					createdby: {required: true,digits: true},
+                    totaldays:{digits:true}
 				},
 				messages:{
 					Id: {digits: "Id must be numeric"},
@@ -98,7 +99,8 @@
 					sitevisit: {maxlength: "sitevisit no more than 1 characters"},
 					remark: {maxlength: "remark no more than 250 characters"},
 					createddate: {required: "createddate is required",date: "createddate is not a valid date"},
-					createdby: {required: "createdby is required",digits: "createdby must be numeric"}
+					createdby: {required: "createdby is required",digits: "createdby must be numeric"},
+                    totaldays:{digits:"Days should be numeric only"}
 				},
 				highlight: function(element, errorClass) {
 					if (this.numberOfInvalids() > 0) {

@@ -263,21 +263,21 @@
 			oinqueryBean.setgoby(rc.goby);
 		//Send to service for saving
 		result = instance.oinqueryService.saveinquery(oinqueryBean);
-		
+
 		
 		if (!result.success){
 			getInstance("ErrorBox").error(renderto="inqueryError",message = result.errors);
-			if(rc.tourtype eq 1)
+			if(rc.tourid eq 1)
 				rc.event = "admin.inquery.escortedtour";
-			else if(rc.tourtype eq 2)
+			else if(rc.tourid eq 2)
 				rc.event = "admin.inquery.bhaktiyatra";
-			else if(rc.tourtype eq 3)
+			else if(rc.tourid eq 3)
 				rc.event = "admin.inquery.educationaltour";
-			else if(rc.tourtype eq 4)
+			else if(rc.tourid eq 4)
 				rc.event = "admin.inquery.adventuretour";
-			else if(rc.tourtype eq 5)
+			else if(rc.tourid eq 5)
 				rc.event = "admin.inquery.corporatetour";
-			else if(rc.tourtype eq 6)
+			else if(rc.tourid eq 6)
 				rc.event = "admin.inquery.individualtour";
 
 			setNextEvent(event=rc.event,persistStruct=rc);
@@ -523,7 +523,6 @@
 			event.paramValue("datefrom", "");
 			event.paramValue("dateto", "");
 			event.paramValue("createdby", "");
-
 			rc.qYesterdayInquiryCount = instance.oinqueryService.getYesterdayInquiryCount();
 			rc.qLastMonthInquiryCount = instance.oinqueryService.getLastMonthInquiryCount();
 			rc.qCurrentYearInquiryCount = instance.oinqueryService.getCurrentYearInquiryCount();

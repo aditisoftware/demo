@@ -41,7 +41,7 @@
 	</cffunction>
 	<cffunction name="getTotalInquiryCount" access="public" returntype="any" output="false">
 		<cfquery name="list" datasource="#variables.dsn#">
-			SELECT count(*) FROM inquery where 1 = 1
+			SELECT count(*) as cnt FROM inquery where 1 = 1
 			<cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype neq "superadmin">
 				and createdby = <cfqueryparam value="#Session.userid#" CFSQLType="cf_sql_integer" />
 			</cfif>
