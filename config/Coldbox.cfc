@@ -115,11 +115,11 @@
 		];
 
 		mailSettings = {
-			server = "127.0.0.1",
-			username = "",
-			password = "",
-			useSSL = false,
-			port = 25
+			server = "smtp.gmail.com",
+			username = "infotojani@gmail.com",
+			password = "!immortal007",
+			useSSL = true,
+			port = 465
 		};
 		
 		datasources = {
@@ -127,10 +127,6 @@
 		};
 
 	}
-
-	/**104.194.14.25
-	* Development environment
-	*/
 	function development(){
 		structAppend(datasources,{demo = {name="demo", dbType="mysql", username="root", password="##isummation1"}});
 		mailSettings ={

@@ -1,5 +1,6 @@
 component{
 	property name="logger" inject="logbox:logger:{this}";
+    property name="MailService" inject="MailService@cbmailservices" scope="variables";
 	// Default Action
 	function index(event,rc,prc){
 		prc.welcomeMessage = "Welcome to ColdBox!";
@@ -36,25 +37,44 @@ component{
 	}
 
 	function onException(event,rc,prc){
+        var additionalInfo = {
+            rc = rc,
+            CGI = CGI,
+            session=session,
+            exception=prc.exception.getMemento()
+        };
+        savecontent variable="local.myVariable" { writeDump(additionalInfo); }
+        clientObjEmail = variables.MailService.newMail();
+        clientObjEmail.setTo("infotojani@gmail.com");
+        clientObjEmail.setFrom("infotojani@gmail.com");
+        clientObjEmail.setType( "html" );
+        clientObjEmail.setSubject("ERROR-Rahi Inquiry-Error occured at rahienquiry.in");
+        clientObjEmail.setBody(local.myVariable);
+        variables.MailService.send( clientObjEmail );
 
-		var additionalInfo = {
-			CGI = CGI,
-			exception = prc.exception.getMemento()
-		};
-
-        /*mailerService = new mail(); 
-        mailerService.setTo("jani.parixit@gmail.com"); 
-        mailerService.setFrom("jani.parixit007@gmail.com"); 
-        mailerService.setSubject("tset"); 
-        mailerService.setType("html"); 
-        mailerService.send(body="#additionalInfo#"); */
+        writeDump("Sorry for inconvenience. Please Try Again.");abort;
 		logger.error(message = prc.exception.getMessage(), extraInfo = additionalInfo);
 		event.setHTTPHeader(statusCode = "500", statusText = "Error occurred");
-        //location url="/" statuscode=302 addtoken="false";
 	}
 
 	function onMissingTemplate(event,rc,prc){
 		//Grab missingTemplate From request collection, placed by ColdBox
+        var additionalInfo = {
+            rc = rc,
+            CGI = CGI,
+            session=session,
+            exception=prc.exception.getMemento()
+        };
+        savecontent variable="local.myVariable" { writeDump(additionalInfo); }
+        clientObjEmail = variables.MailService.newMail();
+        clientObjEmail.setTo("infotojani@gmail.com");
+        clientObjEmail.setFrom("infotojani@gmail.com");
+        clientObjEmail.setType( "html" );
+        clientObjEmail.setSubject("ERROR-Rahi Inquiry-Error occured at rahienquiry.in");
+        clientObjEmail.setBody(local.myVariable);
+        variables.MailService.send( clientObjEmail );
+
+        writeDump("Sorry for inconvenience. Please Try Again.");abort;
 		var missingTemplate = event.getValue("missingTemplate");
 
 	}
