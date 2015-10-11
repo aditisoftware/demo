@@ -1,4 +1,3 @@
-
 <cfcomponent name="inquery" extends="coldbox.system.eventhandler" output="false">
 	<cfproperty name="oinqueryService" inject="model:inqueryService" scope="instance" />
 	<cfproperty name="ousermasterService" inject="model:usermasterService" scope="instance" />
@@ -29,7 +28,7 @@
 		event.paramValue("searchname","");
 		event.paramValue("searchcity","");
 		event.paramValue("searchcreatedby","#session.userid#");
-		
+		rc.usertype = "";
 		//Sorting Logic.
 		event.paramValue("sortBy", "Id");
 		if ( event.getValue("sortOrder","") neq ""){
@@ -53,8 +52,10 @@
 			searchcity=rc.searchcity,
 			searchcreatedby=rc.searchcreatedby
 			);
-
-		rc.qusermaster = instance.ousermasterService.getusermasters();
+        if(structKeyExists(session,"usertype") and len(trim(session.usertype)) and session.usertype eq "admin"){
+            rc.usertype = "agent";
+        }
+		rc.qusermaster = instance.ousermasterService.getusermasters(usertype=rc.usertype);
 		//Set the view to render
 		event.setView("admin/inqueryList");
 		</cfscript>

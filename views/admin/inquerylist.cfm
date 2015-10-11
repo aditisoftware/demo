@@ -64,6 +64,12 @@
 				<cfoutput>
 					<tr class="active">
 						<th>
+							<a href="#event.buildlink(rc.xehList)#?sortBy=createddate&sortOrder=#rc.sortOrder#">Created on</a>&nbsp;<span <cfif rc.sortBy eq 'createddate'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
+						</th> 
+						<th>
+							<a href="#event.buildlink(rc.xehList)#?sortBy=createdby&sortOrder=#rc.sortOrder#">Created by</a>&nbsp;<span <cfif rc.sortBy eq 'createdby'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
+						</th>											
+						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=tourid&sortOrder=#rc.sortOrder#">Tour</a>&nbsp;<span <cfif rc.sortBy eq 'tourid'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 						</th>
 						<th>
@@ -71,30 +77,28 @@
 						</th> 
 						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=city&sortOrder=#rc.sortOrder#">City</a>&nbsp;<span <cfif rc.sortBy eq 'city'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
-						</th> 
+						</th>
 						<th>
-							<a href="#event.buildlink(rc.xehList)#?sortBy=phone1&sortOrder=#rc.sortOrder#">Phone</a>&nbsp;<span <cfif rc.sortBy eq 'phone1'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
-						</th> 
+							Departure Date
+						</th>
 						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=mobile&sortOrder=#rc.sortOrder#">Mobile</a>&nbsp;<span <cfif rc.sortBy eq 'mobile'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 						</th> 
 						<th>
 							<a href="#event.buildlink(rc.xehList)#?sortBy=email&sortOrder=#rc.sortOrder#">Email</a>&nbsp;<span <cfif rc.sortBy eq 'email'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
 						</th> 
-						<th>
-							<a href="#event.buildlink(rc.xehList)#?sortBy=createddate&sortOrder=#rc.sortOrder#">Created on</a>&nbsp;<span <cfif rc.sortBy eq 'createddate'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
-						</th> 
-						<th>
-							<a href="#event.buildlink(rc.xehList)#?sortBy=createdby&sortOrder=#rc.sortOrder#">Created by</a>&nbsp;<span <cfif rc.sortBy eq 'createdby'>class="#rc.sortOrder#"<cfelse>class="asc_desc"</cfif>>&nbsp;</span>
-						</th>
-						<cfif session.usertype neq "admin">
-							<th>&nbsp;&nbsp;Actions&nbsp;&nbsp;</th>
-						</cfif>
+						<th>&nbsp;&nbsp;Actions&nbsp;&nbsp;</th>
 					</tr>
 				</cfoutput>
 
 				<cfoutput query="rc.qinquery.query">
 				<tr <cfif currentrow mod 2 eq 0>class="even"</cfif>>
+					<td>
+						#dateFormat(createddate,"MM-DD-YYYY")# #TimeFormat(createddate,"hh:mm:ss tt")#&nbsp;
+					</td>
+					<td>
+						#created#&nbsp;
+					</td>					
 					<td>
 						<cfif tourid eq 1>
 							Escorted tour
@@ -118,7 +122,7 @@
 						#city#&nbsp;
 					</td>
 					<td>
-						#phone1#&nbsp;
+						#dateFormat(departuredate,"MM-DD-YYYY")#&nbsp;
 					</td>
 					<td>
 						#mobile#&nbsp;
@@ -127,34 +131,26 @@
 						#email#&nbsp;
 					</td>
 					<td>
-						#dateFormat(createddate,"MM-DD-YYYY")# #TimeFormat(createddate,"hh:mm:ss tt")#&nbsp;
+						<cfif tourid eq 1>
+							<cfset rc.event = "admin.inquery.escortedtour">
+						<cfelseif tourid eq 2>
+							<cfset rc.event = "admin.inquery.bhaktiyatra">
+						<cfelseif tourid eq 3>
+							<cfset rc.event = "admin.inquery.educationaltour">
+						<cfelseif tourid eq 4>
+							<cfset rc.event = "admin.inquery.adventuretour">
+						<cfelseif tourid eq 5>
+							<cfset rc.event = "admin.inquery.corporatetour">							
+						<cfelseif tourid eq 6 >
+							<cfset rc.event = "admin.inquery.individualtour">
+						</cfif>	
+							<a href="#event.buildlink(rc.event)#?Id=#Id#&">
+								<span class="fa fa-edit"></span>
+							</a>&nbsp;
+							<a onclick="javascript:return confirm('Are you sure you wish to delete? This action cannot be undone.')" href="#event.buildlink(rc.xehDelete)#?Id=#Id#&">
+								<span class="fa fa-close"></span>
+							</a>
 					</td>
-					<td>
-						#created#&nbsp;
-					</td>
-					<cfif session.usertype neq "admin">
-						<td>
-							<cfif tourid eq 1>
-								<cfset rc.event = "admin.inquery.escortedtour">
-							<cfelseif tourid eq 2>
-								<cfset rc.event = "admin.inquery.bhaktiyatra">
-							<cfelseif tourid eq 3>
-								<cfset rc.event = "admin.inquery.educationaltour">
-							<cfelseif tourid eq 4>
-								<cfset rc.event = "admin.inquery.adventuretour">
-							<cfelseif tourid eq 5>
-								<cfset rc.event = "admin.inquery.corporatetour">							
-							<cfelseif tourid eq 6 >
-								<cfset rc.event = "admin.inquery.individualtour">
-							</cfif>	
-								<a href="#event.buildlink(rc.event)#?Id=#Id#&">
-									<span class="fa fa-edit"></span>
-								</a>&nbsp;
-								<a onclick="javascript:return confirm('Are you sure you wish to delete? This action cannot be undone.')" href="#event.buildlink(rc.xehDelete)#?Id=#Id#&">
-									<span class="fa fa-close"></span>
-								</a>
-						</td>
-					</cfif>
 				</tr>
 				</cfoutput>
 			</table>

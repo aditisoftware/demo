@@ -50,7 +50,7 @@
 	</cffunction>
 	<cffunction name="getRecentInqList" access="public" returntype="any" output="false">
 		<cfquery name="list" datasource="#variables.dsn#">
-			SELECT * FROM inquery 
+			SELECT * FROM inquery where 1 = 1
 			<cfif StructKeyExists(session,"username") and len(trim(SESSION.username)) and session.usertype neq "superadmin">
 				and createdby = <cfqueryparam value="#Session.userid#" CFSQLType="cf_sql_integer" />
 			</cfif>
